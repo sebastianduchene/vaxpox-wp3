@@ -1,0 +1,3263 @@
+[][]
+
++----------------------------------+----------------------------------+
+| CONFIDENTIEL                     |                                  |
++==================================+==================================+
+| Identification de groupes à      |                                  |
+| risque d’infection, modélisation |                                  |
+| de la circulation du mpox et     |                                  |
+| analyse coût-efficacité de       |                                  |
+| stratégies vaccinales à          |                                  |
+| Madagascar                       |                                  |
++----------------------------------+----------------------------------+
+| VAXPOX-MADA                      |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+| Promoteur : Institut Pasteur de  |                                  |
+| Madagascar                       |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+| Responsables Scientifiques       |                                  |
++----------------------------------+----------------------------------+
+| Dr. Jean-Baptiste N’TAKPE        |   Prof. Arnaud FONTANET          |
+|                                  |                                  |
+| Unité d’épidémiologie et de      |   Unité d’épidémiologie des      |
+| Recherche Clinique               |   maladies émergentes            |
+|                                  |                                  |
+| Institut Pasteur de Madagascar   |   Institut Pasteur Paris         |
++----------------------------------+----------------------------------+
+| Protocole                        |                                  |
+|                                  |                                  |
+| Référence IPP 2025-126           |                                  |
++----------------------------------+----------------------------------+
+| Version 2.0 du 18 Mars 2026      |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+| Mots clés : mpox – épidémiologie |                                  |
+| – sérologie – phylogénie –       |                                  |
+| modélisation mathématique –      |                                  |
+| stratégies vaccinales – analyses |                                  |
+| coût-efficacité                  |                                  |
++----------------------------------+----------------------------------+
+| VAXPOX-MADA                      |                                  |
++----------------------------------+----------------------------------+
+| INSTITUT PASTEUR DE MADAGASCAR   |                                  |
+| (IPM)                            |                                  |
+|                                  |                                  |
+| Rôle : Conduite de la recherche  |                                  |
+| et valorisation des résultats du |                                  |
+| projet                           |                                  |
++----------------------------------+----------------------------------+
+| Responsable scientifique         | Dr Jean-Baptiste N’TAKPE         |
+|                                  |                                  |
+| Coordinateur WP1 Epidémiologie,  | Unité d’épidémiologie et de      |
+|                                  | Recherche Clinique               |
+| Coordination clinique,           |                                  |
+| Référent médical                 | Mail : njean-baptiste@pasteur.mg |
+|                                  |                                  |
+| Coordinateur WP2 Sérologie       | Dr Aina HARIMANANA               |
+|                                  |                                  |
+| Coordinateur WP3 Virologie       | Unité d’épidémiologie et de      |
+| moléculaire                      | Recherche Clinique               |
+|                                  |                                  |
+| Coordinateur WP4 Modélisation    | Mail : aharim@pasteur.mg         |
+|                                  |                                  |
+| Chargé des analyses de           | Tél. : +261 34 12 130 91         |
+| laboratoire (sérologie)          |                                  |
+|                                  | Dr Matthieu SCHOENHALS           |
+| Chargé des analyses de           |                                  |
+| laboratoire (virologie)          | Unité d’Immunologie des Maladies |
+|                                  | Infectieuses                     |
+| Data manager                     |                                  |
+|                                  | Mail : schoenhals@pasteur.mg     |
+|                                  |                                  |
+|                                  | Dr Soa Fy ANDRIAMANDIMBY         |
+|                                  |                                  |
+|                                  | Unité de virologie               |
+|                                  |                                  |
+|                                  | Mail : soafy@pasteur.mg          |
+|                                  |                                  |
+|                                  | Eliharintsoa RAJAONARIMIRANA     |
+|                                  |                                  |
+|                                  | Unité d’épidémiologie et de      |
+|                                  | Recherche Clinique               |
+|                                  |                                  |
+|                                  | Mail : reliharintsoa@pasteur.mg  |
+|                                  |                                  |
+|                                  | Tsikiniaina RASOLOHARIMANANA     |
+|                                  |                                  |
+|                                  | Unité d’Immunologie des Maladies |
+|                                  | Infectieuses                     |
+|                                  |                                  |
+|                                  | Mail : tsiky@pasteur.mg          |
+|                                  |                                  |
+|                                  | Jean Théophile RAFISANDRATANTSOA |
+|                                  |                                  |
+|                                  | Unité de virologie               |
+|                                  |                                  |
+|                                  | Mail : theo@pasteur.mg           |
+|                                  |                                  |
+|                                  | Reziky Tiandraza MANGAHASIMBOLA  |
+|                                  |                                  |
+|                                  | Data manager                     |
+|                                  |                                  |
+|                                  | Mail : mreziky@pasteur.mg        |
++----------------------------------+----------------------------------+
+
++----------------------------------------------------------------------+
+| ENTITE PARTENAIRE A MADAGASCAR : Association Sambatra Izay Salama    |
+| (SISAL)                                                              |
+|                                                                      |
+| Rôle : Recrutement de participants                                   |
+|                                                                      |
+| Référent : Dr Olivier RANDRIANARIVELO                                |
+|                                                                      |
+| Mail : olivier1randrianarivelo@gmail.com                             |
++----------------------------------------------------------------------+
+
++----------------------------------------------------------------------+
+| ENTITE PARTENAIRE A MADAGASCAR : ONG Réseau Madagascar Solidarité    |
+| LGBT (ORMS LGBT)                                                     |
+|                                                                      |
+| Rôle : Facilitateurs pour approche des participants                  |
+|                                                                      |
+| Référent : M. Rado RAMAROZATOVO                                      |
+|                                                                      |
+| Mail : rado.ramarozatovo@gmail.com                                   |
++----------------------------------------------------------------------+
+
++----------------------------------------------------------------------+
+| ENTITE PARTENAIRE A MADAGASCAR : Service Transfusion Sanguine, CHU   |
+| PZAGA, Majunga                                                       |
+|                                                                      |
+| Rôle : Mise à disposition d’échantillons de donneurs de sang         |
+|                                                                      |
+| Référent : Dr Michel Doré LAZAMANANA                                 |
+|                                                                      |
+| Mail : lazamananamicheldore@gmail.com                                |
++----------------------------------------------------------------------+
+
++-----------------------------------------------------------------+---+
+| ENTITE PARTENAIRE EN France : INSTITUT PASTEUR PARIS (IPP)      |   |
+|                                                                 |   |
+| Rôle : Initiation du projet, obtention des financements,        |   |
+| participation aux analyses des données et valorisation des      |   |
+| résultats du projet                                             |   |
++-----------------------------------------------------------------+---+
+| Workpackage 1 : Epidémiologie                                   |   |
+|                                                                 |   |
+| Unité d’Epidémiologie des maladies émergentes (EME)             |   |
+|                                                                 |   |
+| Prof. Arnaud FONTANET, Responsable scientifique projet,         |   |
+| Coordinateur WP                                                 |   |
+|                                                                 |   |
+| Mail : arnaud.fontanet@pasteur.fr                               |   |
+|                                                                 |   |
+| Dr Laurie PINAUD, Coordinatrice globale IPP                     |   |
+|                                                                 |   |
+| Mail : laurie.pinaud@pasteur.fr                                 |   |
++-----------------------------------------------------------------+---+
+| Workpackage 2 : Sérologie                                       |   |
+|                                                                 |   |
+| Unité Environnement et risques infectieux (ERI)                 |   |
+|                                                                 |   |
+| Jessica VANHOMWEGEN, Coordinatrice WP                           |   |
+|                                                                 |   |
+| Mail : jessica.vanhomwegen@pasteur.fr                           |   |
+|                                                                 |   |
+| Unité Epidémiologie et analyse des maladies infectieuses (IDEA) |   |
+|                                                                 |   |
+| Dr Michael WHITE, Collaborateur WP                              |   |
+|                                                                 |   |
+| Mail : michael.white@pasteur.fr                                 |   |
++-----------------------------------------------------------------+---+
+| Workpackage 3 : Virologie moléculaire                           |   |
+|                                                                 |   |
+| Unité Epidémiologie et physiopathologie des virus oncogènes     |   |
+| (EPVO)                                                          |   |
+|                                                                 |   |
+| Dr Nicolas BERTHET, Coordinateur WP                             |   |
+|                                                                 |   |
+| Mail : nicolas.berthet@pasteur.fr                               |   |
+|                                                                 |   |
+| Unité Dynamiques évolutives des maladies infectieuses (EDID)    |   |
+|                                                                 |   |
+| Dr Sebastian DUCHENE-GARZON, Collaborateur WP                   |   |
+|                                                                 |   |
+| Mail : sebastian.duchene-garzon@pasteur.fr                      |   |
+|                                                                 |   |
+| Hub de Bioinformatique et Biostatistique                        |   |
+|                                                                 |   |
+| Dr Laurent ESSIOUX                                              |   |
+|                                                                 |   |
+| Mail : laurent.essioux@pasteur.fr                               |   |
++-----------------------------------------------------------------+---+
+| Workpackage 4 : Modélisation mathématique                       |   |
+|                                                                 |   |
+| Unité Modélisation mathématique des maladies infectieuses       |   |
+| (MMID)                                                          |   |
+|                                                                 |   |
+| Dr Simon CAUCHEMEZ, Coordinateur WP                             |   |
+|                                                                 |   |
+| Mail : simon.cauchemez@pasteur.fr                               |   |
++-----------------------------------------------------------------+---+
+
+HISTORIQUE DES VERSIONS
+
+  Version   Date         Précisions
+  --------- ------------ ---------------------------------------------------------------------
+  1.0       03/11/2025   Soumission initiale à l’IRB de l’Institut Pasteur Paris
+  1.1       01/12/2025   Version modifiée suite aux demandes de l’IRB (avis 1 du 23/11/2025)
+  2.0       19/03/2026   Soumission d’un amendement à l’IRB de l’Institut Pasteur Paris
+
+Page de SIGNATUREs
+
+Signature du promoteur
+
+Le promoteur s’engage à réaliser cette étude conformément au protocole
+et aux dispositions législatives et réglementaires en vigueur.
+
++-----------------------------------------------------------------+
+| Représentant officiel de l’Institut Pasteur de Madagascar (IPM) |
++-----------------------------------------------------------------+
+| Dr Voahangy RASOLOFO RAZANAMPARANY                              |
+|                                                                 |
+| Directrice par intérim                                          |
++-----------------------------------------------------------------+
+| Date :                                                          |
+|                                                                 |
+| Signature :                                                     |
++-----------------------------------------------------------------+
+
+Signature des investigateurs et autres participants à la recherche
+
+J'ai lu l’ensemble de ce protocole avec attention. Je considère qu'il
+contient tous les détails nécessaires pour entreprendre et conduire
+cette étude. Je m’engage à réaliser cette étude conformément au
+protocole et aux dispositions législatives et réglementaires en vigueur.
+
++----------------------------------+----------------------------------+
+| Responsable scientifique IPM     | Responsable scientifique IPP     |
+|                                  |                                  |
+| Dr Jean-Baptiste N’TAKPE         | Prof. Arnaud FONTANET            |
+|                                  |                                  |
+| Date :                           | Date :                           |
+|                                  |                                  |
+| Signature :                      | Signature :                      |
++----------------------------------+----------------------------------+
+| Coordinatrice IPM WP1            | Coordinatrice globale IPP        |
+| Epidémiologie                    |                                  |
+|                                  | Dr Laurie PINAUD                 |
+| Référent médical IPM             |                                  |
+|                                  | Date :                           |
+| Dr Aina HARIMANANA               |                                  |
+|                                  | Signature :                      |
+| Date :                           |                                  |
+|                                  |                                  |
+| Signature :                      |                                  |
++----------------------------------+----------------------------------+
+| Coordinateur IPM WP2 Sérologie   | Coordinateur IPM WP3 Virologie   |
+|                                  | moléculaire                      |
+| Dr Matthieu SCHOENHALS           |                                  |
+|                                  | Dr Soa Fy Andriamandimby         |
+| Date :                           |                                  |
+|                                  | Date :                           |
+| Signature:                       |                                  |
+|                                  | Signature:                       |
++----------------------------------+----------------------------------+
+|                                  | Coordinateur IPM WP4             |
+|                                  | Modélisation mathématique        |
+|                                  |                                  |
+|                                  | Eliharintsoa RAJAONARIMIRANA     |
+|                                  |                                  |
+|                                  | Date :                           |
+|                                  |                                  |
+|                                  | Signature:                       |
++----------------------------------+----------------------------------+
+
+RESUME SYNOPTIQUE DU PROTOCOLE
+
++----------------------------------+----------------------------------+
+| 1.  Titre complet                | Identification de groupes à      |
+|                                  | risque d’infection, modélisation |
+|                                  | de la circulation du mpox et     |
+|                                  | analyse coût-efficacité de       |
+|                                  | stratégies vaccinales à          |
+|                                  | Madagascar                       |
++----------------------------------+----------------------------------+
+| 2.  Acronyme                     | VAXPOX-MADA                      |
++----------------------------------+----------------------------------+
+| 3.  Promoteur                    | Institut Pasteur de Madagascar   |
+|                                  | (IPM)                            |
++----------------------------------+----------------------------------+
+| 4.  Responsables scientifiques   | Jean-Baptiste N’TAKPE, IPM       |
+|                                  |                                  |
+|                                  | Arnaud FONTANET, IPP             |
++----------------------------------+----------------------------------+
+| 5.  Type d’étude                 | Etude transversale sur           |
+|                                  | échantillons biologiques         |
+|                                  | d’origine humaine avec données   |
+|                                  | personnelles de santé, basée sur |
+|                                  | une approche pluridisciplinaire  |
+|                                  | comprenant 4 volets :            |
+|                                  | épidémiologie, sérologie,        |
+|                                  | virologie et modélisation        |
+|                                  | mathématique.                    |
++----------------------------------+----------------------------------+
+| 6.  Rationnel de l’étude         | En 2022 puis en 2024,            |
+|                                  | l’Organisation Mondiale de la    |
+|                                  | Santé (OMS) a déclaré le mpox    |
+|                                  | “Urgence de Santé Publique de    |
+|                                  | Portée Internationale” en raison |
+|                                  | de l’émergence de sous-clades du |
+|                                  | virus de la variole du singe     |
+|                                  | (MPXV), de leur propagation vers |
+|                                  | des régions et des pays          |
+|                                  | jusque-là non touchés, y compris |
+|                                  | dans des zones urbaines, et la   |
+|                                  | transmission interhumaine        |
+|                                  | soutenue, y compris par voie     |
+|                                  | sexuelle. Des millions de doses  |
+|                                  | de vaccins (formes atténuées du  |
+|                                  | vaccin contre la variole         |
+|                                  | conférant une protection croisée |
+|                                  | contre le MPXV) vont être        |
+|                                  | distribuées aux pays africains   |
+|                                  | les plus touchés pour contrer    |
+|                                  | l’épidémie. Il est urgent de     |
+|                                  | disposer de données              |
+|                                  | scientifiques pour mieux         |
+|                                  | orienter les stratégies          |
+|                                  | vaccinales et identifier les     |
+|                                  | populations à prioriser pour la  |
+|                                  | vaccination.                     |
+|                                  |                                  |
+|                                  | Le projet VAXPOX a pour objectif |
+|                                  | d’accompagner les politiques de  |
+|                                  | santé publique à mesure que les  |
+|                                  | vaccins deviennent disponibles,  |
+|                                  | via une approche                 |
+|                                  | pluridisciplinaire associant     |
+|                                  | épidémiologie, sérologie,        |
+|                                  | virologie moléculaire et         |
+|                                  | modélisation mathématique. Ce    |
+|                                  | projet se décline dans 6 pays    |
+|                                  | hébergeant un institut du        |
+|                                  | Pasteur Network (PN), avec des   |
+|                                  | activités adaptées selon les     |
+|                                  | situations épidémiologiques au   |
+|                                  | sein de chaque pays.             |
+|                                  |                                  |
+|                                  | Le protocole VAXPOX-MADA a pour  |
+|                                  | objectif de présenter les        |
+|                                  | activités de recherche qui       |
+|                                  | seront conduites à Madagascar    |
+|                                  | par l’Institut Pasteur de        |
+|                                  | Madagascar (IPM). Les WP         |
+|                                  | déclinés, à la suite de la       |
+|                                  | déclaration des premiers cas     |
+|                                  | confirmés de mpox sur le         |
+|                                  | territoire malgache en décembre  |
+|                                  | 2025, sont les WP épidémiologie, |
+|                                  | sérologie, virologie moléculaire |
+|                                  | et modélisation mathématique.    |
++----------------------------------+----------------------------------+
+| 7.  Objectif principal           | -   Estimer la séroprévalence    |
+|                                  |       des anticorps anti-MPXV    |
+|                                  |       par âge et sexe au sein de |
+|                                  |       la population générale et  |
+|                                  |       de sujets particulièrement |
+|                                  |       à risque de transmission   |
+|                                  |       du virus par voie sexuelle |
+|                                  |       à Madagascar               |
++----------------------------------+----------------------------------+
+| 8.  Objectifs secondaires        | -   Identifier les facteurs      |
+|                                  |       associés à l’infection par |
+|                                  |       le MPXV au sein de la      |
+|                                  |       population générale et de  |
+|                                  |       sujets particulièrement à  |
+|                                  |       risque de transmission du  |
+|                                  |       virus par voie sexuelle à  |
+|                                  |       Madagascar                 |
+|                                  |                                  |
+|                                  | -   Estimer la prévalence de     |
+|                                  |       l’intention vaccinale mpox |
+|                                  |       au sein de la population   |
+|                                  |       générale et de sujets      |
+|                                  |       particulièrement à risque  |
+|                                  |       de transmission du virus   |
+|                                  |       par voie sexuelle à        |
+|                                  |       Madagascar                 |
+|                                  |                                  |
+|                                  | -   Étudier d’autres composantes |
+|                                  |       de l’immunité anti-MPXV    |
+|                                  |       pour les participants de   |
+|                                  |       l’étude séropositifs mpox  |
+|                                  |                                  |
+|                                  | -   Étudier l’immunité contre un |
+|                                  |       panel de maladies          |
+|                                  |       infectieuses d’intérêt en  |
+|                                  |       santé publique au sein des |
+|                                  |       populations ciblées par    |
+|                                  |       cette étude                |
+|                                  |                                  |
+|                                  | -   Quantifier les contributions |
+|                                  |       respectives de la          |
+|                                  |       transmission zoonotique et |
+|                                  |       de la transmission         |
+|                                  |       interhumaine du MPXV dans  |
+|                                  |       la dissémination du mpox à |
+|                                  |       Madagascar                 |
+|                                  |                                  |
+|                                  | -   Modéliser la date            |
+|                                  |       d’introduction du MPXV à   |
+|                                  |       Madagascar                 |
+|                                  |                                  |
+|                                  | -   Modéliser la circulation du  |
+|                                  |       mpox à Madagascar sur la   |
+|                                  |       base des données           |
+|                                  |       collectées                 |
+|                                  |                                  |
+|                                  | -   Identifier les stratégies    |
+|                                  |       vaccinales les plus        |
+|                                  |       coût-efficaces dans le     |
+|                                  |       contexte de Madagascar     |
++----------------------------------+----------------------------------+
+| 9.  Critère d’évaluation         | -   Séroprévalence des anticorps |
+|     principal                    |       (notamment IgM et IgG)     |
+|                                  |       anti-MPXV par âge et sexe  |
+|                                  |       au sein de la population   |
+|                                  |       générale et de sujets      |
+|                                  |       particulièrement à risque  |
+|                                  |       de transmission du virus   |
+|                                  |       par voie sexuelle à        |
+|                                  |       Madagascar                 |
++----------------------------------+----------------------------------+
+| 10. Critères d’évaluation        | -   Facteur d’augmentation (ou   |
+|     secondaires                  |       de diminution) du risque   |
+|                                  |       d’infection passée par le  |
+|                                  |       MPXV selon les             |
+|                                  |       caractéristiques des       |
+|                                  |       sujets participant à       |
+|                                  |       l’étude                    |
+|                                  |                                  |
+|                                  | -   Prévalence de l’intention    |
+|                                  |       vaccinale mpox au sein de  |
+|                                  |       la population générale et  |
+|                                  |       de sujets particulièrement |
+|                                  |       à risque de transmission   |
+|                                  |       du virus par voie sexuelle |
+|                                  |       à Madagascar               |
+|                                  |                                  |
+|                                  | -   Caractérisation des réponses |
+|                                  |       immunitaires humorales et  |
+|                                  |       cellulaires vis-à-vis de   |
+|                                  |       MPXV chez les sujets       |
+|                                  |       participant à l’étude      |
+|                                  |       séropositifs mpox          |
+|                                  |                                  |
+|                                  | -   Caractérisation des réponses |
+|                                  |       immunitaires humorales et  |
+|                                  |       cellulaires vis-à-vis d’un |
+|                                  |       panel de maladies          |
+|                                  |       infectieuses prioritaires  |
+|                                  |       pour la santé publique, au |
+|                                  |       sein des populations       |
+|                                  |       ciblées par cette étude    |
+|                                  |                                  |
+|                                  | -   Part relative des            |
+|                                  |       introductions zoonotiques  |
+|                                  |       versus cas de transmission |
+|                                  |       interhumaine à Madagascar  |
+|                                  |                                  |
+|                                  | -   Date estimée d’introduction  |
+|                                  |       du MPXV à Madagascar       |
+|                                  |                                  |
+|                                  | -   Modèle mathématique          |
+|                                  |       décrivant la circulation   |
+|                                  |       du mpox à Madagascar,      |
+|                                  |       calibré aux données        |
+|                                  |       collectées dans le projet  |
+|                                  |                                  |
+|                                  | -   Résultats d’analyses         |
+|                                  |       coût-efficacité de         |
+|                                  |       différentes stratégies     |
+|                                  |       vaccinales à Madagascar    |
++----------------------------------+----------------------------------+
+| 11. Echantillons biologiques     | -   Un prélèvement de sang       |
+|                                  |       réalisé chez les           |
+|                                  |       participants au cours des  |
+|                                  |       enquêtes de                |
+|                                  |       séroprévalence : 5 ml de   |
+|                                  |       sang veineux chez les      |
+|                                  |       participants de 6 ans ou   |
+|                                  |       plus, environ 500 µl de    |
+|                                  |       sang capillaire chez les   |
+|                                  |       participants de 1 à 5 ans. |
+|                                  |                                  |
+|                                  | -   Sérums issus de la biobanque |
+|                                  |       de l’IPM, collectés auprès |
+|                                  |       de donneurs de sang à      |
+|                                  |       Antananarivo.              |
+|                                  |                                  |
+|                                  | -   Sérums issus de la banque du |
+|                                  |       sang à Majunga.            |
+|                                  |                                  |
+|                                  | -   Ecouvillons de lésions       |
+|                                  |       cutanées ou autres         |
+|                                  |       prélèvements issus de la   |
+|                                  |       surveillance des cas       |
+|                                  |       suspects de mpox (cas      |
+|                                  |       passés et cas qui seraient |
+|                                  |       détectés pendant la durée  |
+|                                  |       de l’étude).               |
++----------------------------------+----------------------------------+
+| 12. Méthode -déroulement de la   | Le projet VAXPOX-MADA s’articule |
+|     recherche                    | autour de 4 Work Packages (WP) : |
+|                                  |                                  |
+|                                  | WP1 Epidémiologie et WP2         |
+|                                  | Sérologie : réalisation          |
+|                                  | d’enquêtes transversales de      |
+|                                  | séroprévalence auprès de         |
+|                                  | différentes populations          |
+|                                  | (détection des anticorps         |
+|                                  | spécifiques anti-MPXV dans des   |
+|                                  | échantillons de sérum,           |
+|                                  | témoignant d’une infection       |
+|                                  | passée), pour évaluer la         |
+|                                  | circulation du MPXV à            |
+|                                  | Madagascar :                     |
+|                                  |                                  |
+|                                  | -   Enquêtes comprenant un       |
+|                                  |       questionnaire standardisé  |
+|                                  |       et un prélèvement sanguin, |
+|                                  |       effectuées auprès de       |
+|                                  |       personnes appartenant à    |
+|                                  |       des groupes                |
+|                                  |       particulièrement à risque  |
+|                                  |       de transmission du MPXV    |
+|                                  |       par voie sexuelle, et      |
+|                                  |       auprès de personnes        |
+|                                  |       représentatives de la      |
+|                                  |       population générale.       |
+|                                  |                                  |
+|                                  | -   Etude sur échantillons       |
+|                                  |       collectés auprès de        |
+|                                  |       donneurs du sang, issus de |
+|                                  |       la biobanque de l’IPM ou   |
+|                                  |       de la banque du sang de    |
+|                                  |       Majunga.                   |
+|                                  |                                  |
+|                                  | WP3 Virologie moléculaire :      |
+|                                  | séquençage des souches virales   |
+|                                  | isolées des cas confirmés de     |
+|                                  | mpox, à partir des échantillons  |
+|                                  | issus de la surveillance         |
+|                                  | nationale à Madagascar, pour     |
+|                                  | déterminer le caractère          |
+|                                  | zoonotique ou interhumain de la  |
+|                                  | transmission du MPXV, et estimer |
+|                                  | la date d’introduction du virus  |
+|                                  | sur le territoire.               |
+|                                  |                                  |
+|                                  | WP4 Modélisation mathématique :  |
+|                                  | élaboration de modèles           |
+|                                  | mathématiques décrivant la       |
+|                                  | circulation du mpox à            |
+|                                  | Madagascar, calibrés grâce aux   |
+|                                  | données collectées dans les      |
+|                                  | autres WP ; réalisation          |
+|                                  | d’analyses coût-efficacité de    |
+|                                  | stratégies vaccinales pour       |
+|                                  | identifier les plus efficientes  |
+|                                  | dans le contexte de Madagascar.  |
++----------------------------------+----------------------------------+
+| 13. Populations étudiées         | -   Travailleur(se)s du sexe en  |
+|                                  |       zone urbaine/périurbaine   |
+|                                  |                                  |
+|                                  | -   Individus s’identifiant à la |
+|                                  |       communauté LGBT en zone    |
+|                                  |       urbaine/périurbaine        |
+|                                  |                                  |
+|                                  | -   Sujets représentatifs de la  |
+|                                  |       population générale en     |
+|                                  |       zone urbaine/périurbaine   |
+|                                  |                                  |
+|                                  | -   Echantillons et données      |
+|                                  |       collectés auprès de        |
+|                                  |       donneurs de sang           |
+|                                  |                                  |
+|                                  | -   Echantillons et données de   |
+|                                  |       cas confirmés de mpox      |
+|                                  |       (issus de la surveillance  |
+|                                  |       nationale du mpox)         |
++----------------------------------+----------------------------------+
+| 14. Nombre de sujets et          | -   Pour répondre à l’objectif   |
+|     échantillons                 |       principal de la recherche  |
+|                                  |       « Estimer la               |
+|                                  |       séroprévalence des         |
+|                                  |       anticorps anti-MPXV par    |
+|                                  |       âge et sexe au sein de la  |
+|                                  |       population générale et de  |
+|                                  |       sujets particulièrement à  |
+|                                  |       risque de transmission du  |
+|                                  |       virus par voie sexuelle à  |
+|                                  |       Madagascar », 700 sujets   |
+|                                  |       seront recrutés et des     |
+|                                  |       échantillons issus de      |
+|                                  |       biobanques seront utilisés |
+|                                  |       :                          |
+|                                  |                                  |
+|                                  | -   300 sujets représentatifs de |
+|                                  |       la population générale     |
+|                                  |                                  |
+|                                  | -   200 travailleur(se)s du sexe |
+|                                  |                                  |
+|                                  | -   200 individus s’identifiant  |
+|                                  |       à la communauté LGBT       |
+|                                  |                                  |
+|                                  | -   300 échantillons collectés   |
+|                                  |       auprès de donneurs du      |
+|                                  |       sang, issus de la          |
+|                                  |       biobanque de l’IPM         |
+|                                  |                                  |
+|                                  | -   300 échantillons collectés   |
+|                                  |       auprès de donneurs du      |
+|                                  |       sang, issus de la banque   |
+|                                  |       du sang de Majunga         |
+|                                  |                                  |
+|                                  | -   Pour répondre aux objectifs  |
+|                                  |       secondaires de la          |
+|                                  |       recherche « Quantifier les |
+|                                  |       contributions respectives  |
+|                                  |       de la transmission         |
+|                                  |       zoonotique et de la        |
+|                                  |       transmission interhumaine  |
+|                                  |       du MPXV dans la            |
+|                                  |       dissémination du mpox à    |
+|                                  |       Madagascar » et            |
+|                                  |       « Modéliser la date        |
+|                                  |       d’introduction du MPXV à   |
+|                                  |       Madagascar », nous         |
+|                                  |       inclurons tous les         |
+|                                  |       prélèvements et données de |
+|                                  |       cas confirmés de mpox      |
+|                                  |       reçus à l’IPM dans le      |
+|                                  |       cadre de la surveillance   |
+|                                  |       nationale (cas passés et   |
+|                                  |       cas qui surviendraient au  |
+|                                  |       cours de la recherche).    |
++----------------------------------+----------------------------------+
+| 15. Critères d’inclusion de      | -   Sujets représentatifs de la  |
+|     sujets ou d’échantillons     |       population générale en     |
+|                                  |       zone urbaine/périurbaine   |
+|                                  |                                  |
+|                                  |     -   Recrutements à           |
+|                                  |           Antananarivo :         |
+|                                  |                                  |
+|                                  | -   Individu âgé de 1 an ou      |
+|                                  |       plus,                      |
+|                                  |                                  |
+|                                  | -   consultant au Centre de      |
+|                                  |       Traitement Antirabique de  |
+|                                  |       l’IPM (CTAR),              |
+|                                  |                                  |
+|                                  | -   ayant consenti ou dont le    |
+|                                  |       responsable légal à        |
+|                                  |       consenti à sa              |
+|                                  |       participation à l’enquête  |
+|                                  |       de séroprévalence          |
+|                                  |       (questionnaire et          |
+|                                  |       prélèvement de sang).      |
+|                                  |                                  |
+|                                  |     -   Echantillons             |
+|                                  |           d’Antananarivo :       |
+|                                  |                                  |
+|                                  | -   Sérums issus de la biobanque |
+|                                  |       de l’IPM,                  |
+|                                  |                                  |
+|                                  | -   collectés en 2022 à          |
+|                                  |       Antananarivo dans le cadre |
+|                                  |       d’une autre recherche      |
+|                                  |       auprès de donneurs de sang |
+|                                  |       âgés de 18 ans ou plus,    |
+|                                  |                                  |
+|                                  | -   pouvant être réutilisés dans |
+|                                  |       le cadre de cette          |
+|                                  |       recherche.                 |
+|                                  |                                  |
+|                                  |     -   Echantillons de Majunga  |
+|                                  |           :                      |
+|                                  |                                  |
+|                                  | -   Sérums issus de la banque du |
+|                                  |       sang de Majunga,           |
+|                                  |                                  |
+|                                  | -   collectés en septembre 2025  |
+|                                  |       à Majunga auprès de        |
+|                                  |       donneurs de sang âgés de   |
+|                                  |       18 ans ou plus,            |
+|                                  |                                  |
+|                                  | -   pouvant être réutilisés dans |
+|                                  |       le cadre de cette          |
+|                                  |       recherche.                 |
+|                                  |                                  |
+|                                  | -   Travailleur(se)s du sexe en  |
+|                                  |       zone urbaine/périurbaine   |
+|                                  |                                  |
+|                                  | -   Individu âgé de 18 ans ou    |
+|                                  |       plus,                      |
+|                                  |                                  |
+|                                  | -   consultant au dispensaire de |
+|                                  |       l’association SISAL ou au  |
+|                                  |       Drop In Center (DIC) de    |
+|                                  |       l’ONG Réseau Madagascar    |
+|                                  |       Solidarité LGBT (ORMS      |
+|                                  |       LGBT) à Antananarivo,      |
+|                                  |                                  |
+|                                  | -   travailleur(se) du sexe      |
+|                                  |       depuis au moins 6 mois,    |
+|                                  |                                  |
+|                                  | -   ayant consenti à participer  |
+|                                  |       à l’enquête de             |
+|                                  |       séroprévalence             |
+|                                  |       (questionnaire et          |
+|                                  |       prélèvement de sang).      |
+|                                  |                                  |
+|                                  | -   Individus s’identifiant à la |
+|                                  |       communauté LGBT en zone    |
+|                                  |       urbaine/périurbaine        |
+|                                  |                                  |
+|                                  | -   Individu âgé de 18 ans ou    |
+|                                  |       plus,                      |
+|                                  |                                  |
+|                                  | -   consultant au dispensaire de |
+|                                  |       l’association SISAL ou au  |
+|                                  |       DIC de l’ORMS LGBT à       |
+|                                  |       Antananarivo,              |
+|                                  |                                  |
+|                                  | -   s’identifiant à la           |
+|                                  |       communauté LGBT,           |
+|                                  |                                  |
+|                                  | -   ayant consenti à participer  |
+|                                  |       à l’enquête de             |
+|                                  |       séroprévalence             |
+|                                  |       (questionnaire et          |
+|                                  |       prélèvement de sang).      |
+|                                  |                                  |
+|                                  | -   Individus infectés par le    |
+|                                  |     MPXV                         |
+|                                  |                                  |
+|                                  | -   Prélèvements biologiques     |
+|                                  |       positifs au MPXV,          |
+|                                  |                                  |
+|                                  | -   Issus de la surveillance     |
+|                                  |       nationale du mpox et       |
+|                                  |       pouvant être réutilisés à  |
+|                                  |       des fins de recherche.     |
++----------------------------------+----------------------------------+
+| 16. Critères de non-inclusion de | Critères de non-inclusion de     |
+|     sujets ou d’échantillons     | sujets :                         |
+|                                  |                                  |
+|                                  | -   Individu dont l'état de      |
+|                                  |       santé n'est pas compatible |
+|                                  |       avec un prélèvement        |
+|                                  |       sanguin selon              |
+|                                  |       l'investigateur,           |
+|                                  |                                  |
+|                                  | -   Individu hors d’état de      |
+|                                  |       consentir,                 |
+|                                  |                                  |
+|                                  | -   Individu nécessitant une     |
+|                                  |       prise en charge médicale   |
+|                                  |       immédiate.                 |
+|                                  |                                  |
+|                                  | Critères de non-inclusion        |
+|                                  | d’échantillons :                 |
+|                                  |                                  |
+|                                  | -   Echantillons de sérums issus |
+|                                  |       de la biobanque de l’IPM   |
+|                                  |       ou de la banque du sang de |
+|                                  |       Majunga non exploitables   |
+|                                  |       (volume insuffisant),      |
+|                                  |                                  |
+|                                  | -   Prélèvements biologiques     |
+|                                  |       obtenus par l’IPM dans le  |
+|                                  |       cadre de la surveillance   |
+|                                  |       du mpox, avec une charge   |
+|                                  |       virale insuffisante pour   |
+|                                  |       procéder au séquençage     |
+|                                  |       complet du génome viral.   |
++----------------------------------+----------------------------------+
+| 17. Calendrier de l’étude        | -   Date prévisionnelle de début |
+|                                  |     des inclusions : 01/06/2026  |
+|                                  |                                  |
+|                                  | -   Durée de participation d’un  |
+|                                  |     participant : 2 heures       |
+|                                  |     maximum                      |
+|                                  |                                  |
+|                                  | -   Durée prévisionnelle de la   |
+|                                  |     recherche : 24 mois          |
+|                                  |                                  |
+|                                  |     -   Durée prévisionnelle de  |
+|                                  |           la période des         |
+|                                  |           investigations         |
+|                                  |           cliniques : 6 mois     |
+|                                  |                                  |
+|                                  |     -   Durée prévisionnelle des |
+|                                  |           analyses : 18 mois     |
++----------------------------------+----------------------------------+
+| 18. Lieux de recrutement         | Plusieurs lieux de recrutement à |
+|                                  | Antananarivo dans la région      |
+|                                  | d’Analamanga seront mobilisés    |
+|                                  | pour cette étude :               |
+|                                  |                                  |
+|                                  | -   Dispensaire de l’association |
+|                                  |     SISAL                        |
+|                                  |                                  |
+|                                  | -   Drop-In Center (DIC) de      |
+|                                  |     l’ONG Réseau Madagascar      |
+|                                  |     Solidarité (ORMS LGBT)       |
+|                                  |                                  |
+|                                  | -   Centre de Traitement         |
+|                                  |     Antirabique (CTAR) de l’IPM  |
++----------------------------------+----------------------------------+
+
+Sommaire
+
+HISTORIQUE DES VERSIONS 4
+
+Page de SIGNATUREs 5
+
+RESUME SYNOPTIQUE DU PROTOCOLE 7
+
+Abréviations 14
+
+1. Justification scientifique DE LA RECHERCHE 15
+
+2. IMPACTS ATTENDUS DU PROJET 17
+
+3. Objectifs 19
+
+3.1 Objectif principal 19
+
+3.2 Objectifs secondaires 19
+
+4. METHODOLOGIE 20
+
+4.1 Critères d’évaluation 20
+
+4.2 Plan expérimental 21
+
+5. Population étudiée 23
+
+5.1 Description des populations étudiées 24
+
+5.2 Justification du nombre de sujets à inclure dans la recherche 24
+
+5.3 Critères d’inclusion 25
+
+5.4 Critères de non-inclusion 26
+
+6. Déroulement pratique de la recherche 26
+
+6.1 Modalités spécifiques aux enquêtes sérologiques (WP1-2) 26
+
+6.2 Modalités spécifiques aux échantillons en biobanque (WP1-2) 27
+
+6.3 Modalités spécifiques aux activités de virologie moléculaire (WP3)
+28
+
+7. GESTION DES ECHANTILLONS BIOLOGIQUES 28
+
+7.1 Nature des prélèvements 28
+
+7.2 Circuit des prélèvements 28
+
+7.3 Traitements des prélèvements et analyses des échantillons 29
+
+7.4 Conservation et réutilisation des échantillons 31
+
+8. Gestion des données 31
+
+8.1 Recueil et gestion des données 31
+
+8.2 Lieux et analyses des données 36
+
+8.3 Confidentialité des données 37
+
+9. diffusion des resultats 38
+
+9.1 Diffusion des résultats auprès des participants et des populations
+38
+
+9.2 Diffusion des résultats auprès des autorités locales 39
+
+9.3 Diffusion des résultats auprès de la communauté scientifique 39
+
+10. Calendrier général de lA RECHERCHE 39
+
+11. Financement 39
+
+12. Considérations éthiques ET REGLEMENTAIRES 39
+
+13. vigilance 40
+
+13.1 Risques encourus dans le cadre de la recherche 40
+
+13.2 Recueil, notification et suivi des évènements indésirables 40
+
+14. Assurance 40
+
+15. contrôle et assurance de la qualite 41
+
+15.1 Monitoring 41
+
+15.2 Audit 41
+
+16. ComitéS scientifique ET DE PILOTAGE DU PROJET 42
+
+16.1 Comité de pilotage 42
+
+16.2 Comité scientifique 42
+
+16.3 Rapports d’activité 42
+
+17. ROLE DES ENTITES PARTENAIRES DE l’ipm 43
+
+17.1 Association Sambatra Izay Salama (SISAL) 43
+
+17.2 ONG Réseau Madagascar Solidarité LGBT (ORMS LGBT) 43
+
+17.3 Institut Pasteur Paris (IPP) 43
+
+18. annexes 45
+
+19. Références bibliographiques 45
+
+Abréviations
+
++-----------+--------------------------------------------------------------+
+| AsRC      | Assistant de recherche de coordination                       |
+|           |                                                              |
+| CEC       | Coordonnateur d’étude clinique                               |
+|           |                                                              |
+| CRF       | Case Report Form                                             |
+|           |                                                              |
+| CTAR      | Centre de Traitement Anti-Rabique (IPM)                      |
+|           |                                                              |
+| DIC       | Drop-In Center (Réseau Madagascar Solidarité LGBT)           |
+|           |                                                              |
+| EIG       | Evénement indésirable grave                                  |
+|           |                                                              |
+| EME       | (Unité) Epidémiologie des maladies émergentes (IPP)          |
+|           |                                                              |
+| EPI-RC    | (Unité) Epidémiologie et de Recherche Clinique (IPM)         |
+|           |                                                              |
+| ERI       | (Unité) Environnement et risques infectieux (IPP)            |
+|           |                                                              |
+| HSH       | Hommes ayant des relations sexuelles avec des hommes         |
+|           |                                                              |
+| IDEA      | (Unité) Epidémiologie et analyse des maladies infectieuses   |
+|           |                                                              |
+| IgM / IgG | Immunoglobuline M ou G                                       |
+|           |                                                              |
+| IMI       | (Unité) Immunologie des Maladies Infectieuses (IPM)          |
+|           |                                                              |
+| IPM       | Institut Pasteur de Madagascar                               |
+|           |                                                              |
+| IPP       | Institut Pasteur Paris                                       |
+|           |                                                              |
+| IRB       | Institutional Review Board                                   |
+|           |                                                              |
+| IRC       | Infirmiers de recherche clinique                             |
+|           |                                                              |
+| IST       | Infection Sexuellement Transmissible                         |
+|           |                                                              |
+| LNR       | Laboratoire National de Référence                            |
+|           |                                                              |
+| MPXV      | Virus de la variole du singe                                 |
+|           |                                                              |
+| OMS       | Organisation Mondiale de la Santé                            |
+|           |                                                              |
+| ORMS LGBT | ONG Réseau Madagascar Solidarité LGBT                        |
+|           |                                                              |
+| PN        | Pasteur Network (réseau international des instituts Pasteur) |
+|           |                                                              |
+| RDC       | République Démocratique du Congo                             |
+|           |                                                              |
+| RGPD      | Règlement Général sur la Protection des Données              |
+|           |                                                              |
+| SISAL     | Sambatra Izay Salama (association)                           |
+|           |                                                              |
+| WP        | Work Package                                                 |
++-----------+--------------------------------------------------------------+
+
+Justification scientifique DE LA RECHERCHE
+
+Contexte. La variole du singe, à présent appelée mpox, a été rapportée
+chez l'homme pour la première fois en 1970. Jusqu’en 2022, le virus
+causant cette maladie (MPXV) ne provoquait que des épidémies limitées
+d’origine zoonotique après contact avec des animaux sauvages, notamment
+des écureuils (Funisciurus) et des rats (Cricetomys), et une
+transmission interhumaine restreinte, principalement par des contacts
+étroits avec les fluides biologiques et les lésions cutanées des
+personnes infectées¹. Deux clades génétiques du MPXV ont été
+initialement décrits : le clade I en Afrique centrale et le clade II en
+Afrique de l’Ouest². Jusqu’en 2017, le clade I prédominait et était
+connu pour causer une maladie plus sévère que le clade II, avec un taux
+de létalité (CFR) estimé à 10,6 %. Le clade II était considéré comme
+moins sévère, avec un CFR de 3,6 %³. Le CFR variait selon l’âge : il
+était estimé à 9,7 % chez les enfants de 5 ans et à 1,2 % chez les
+sujets de 30 ans pour le clade I⁴. Après quatre décennies sans nouveaux
+cas rapportés, le MPXV clade II a réémergé au Nigeria en 2017⁵, suivi
+d’une pandémie en 2022 touchant des pays non endémiques, avec des
+transmissions interhumaines soutenues d’un sous-clade appelé IIb,
+principalement par contacts sexuels entre hommes ayant des relations
+sexuelles avec des hommes (HSH^(6,7)). En juillet 2022, l’Organisation
+mondiale de la santé (OMS) a déclaré le mpox comme une Urgence de Santé
+Publique de Portée Internationale (USPPI). Cette urgence a duré un an,
+avec près de 100 000 cas rapportés dans plus de 100 pays et un CFR
+inférieur à 0,1 %⁸. Des campagnes de prévention et de vaccination
+ciblées auprès des populations à haut risque de transmission par voie
+sexuelle, principalement les HSH, ont permis de contenir
+l’épidémie^(9,10). Alors que cette épidémie due au clade IIb déclinait,
+les cas dus au clade I ont progressivement augmenté en République
+Démocratique du Congo (RDC) et le virus s’est propagé à des pays
+d’Afrique de l’Est jusque-là épargnés, y compris dans des zones
+urbaines. Depuis 2024, la dynamique de l’épidémie en Afrique suggère
+pour les pays nouvellement touchés l’introduction du virus via les
+populations à haut risque de transmission par voie sexuelle, notamment
+dans la classe d’âge 15-44 ans, les enfants pouvant être infectés
+secondairement^(11,12). D’août 2024 à septembre 2025, l’OMS a de nouveau
+déclaré le mpox comme USPPI¹³, en raison de l'apparition d’un nouveau
+sous-clade dénommé clade Ib, de la transmission interhumaine soutenue
+observée (y compris par voie sexuelle¹⁴) et de la diffusion du MPXV de
+régions historiquement rurales et forestières vers de nouvelles zones, y
+compris urbaines¹⁵. Depuis, plusieurs pays africains ont rapporté une
+transmission communautaire soutenue du clade Ib, et 14 pays en-dehors du
+continent africain ont rapporté des cas sporadiques liés à des retours
+de voyage^(16,17). La levée de l’alerte USPPI en septembre 2025 ne
+marque pas la fin de la lutte contre le mpox, avec de nombreuses
+épidémies toujours en cours sur le continent africain. En décembre 2025,
+Madagascar a rapporté pour la première fois des cas de mpox clade Ib sur
+son territoire. Le premier cas détecté ne présentait aucun antécédent de
+voyage récent, et l’épidémie s’est étendue à plusieurs régions du pays,
+dont Antananarivo sa capitale¹⁸.
+
+Vaccins disponibles. La réponse à cette épidémie doit être adaptée aux
+caractéristiques épidémiologiques et cliniques spécifiques des
+différentes épidémies simultanées sur le continent africain¹⁹. Dans ce
+contexte, il est important d’examiner le rôle des vaccins parmi les
+outils de prévention²⁰, particulièrement après les résultats décevants
+d’un essai contrôlé randomisé de phase III portant sur le seul
+médicament disponible, le Tecovirimat, en RDC²¹. Le vaccin utilisé lors
+de la pandémie de 2022, Modified Vaccinia Ankara (MVA), est une forme
+atténuée du vaccin antivariolique fabriqué par Bavarian Nordic. Son
+efficacité contre le MPXV clade IIb a été estimée à 76 % après une dose
+et 82 % après deux doses²². Bien que son efficacité contre d’autres
+clades du MPXV ne soit pas encore connue, une protection croisée est
+attendue, comme cela a été observé avec les vaccins antivarioliques de
+première génération, qui conféraient une protection de 85 % contre le
+mpox²³. Le vaccin MVA a reçu une préqualification de l’OMS pour une
+utilisation uniquement chez les enfants de plus de 12 ans. Un autre
+vaccin, appelé LC16m8, développé il y a plus de 20 ans au Japon, a reçu
+le 19 novembre 2024 une autorisation d’utilisation d’urgence de l’OMS
+pour les adultes et les enfants de plus d’un an, en dose unique²⁴, avec
+plus de 3 millions de doses offertes par le gouvernement japonais. En
+1973-1974, ce vaccin a été administré à environ 50 000 enfants japonais
+âgés de 1 à 7 ans, avec quelques effets secondaires cutanés et des
+épisodes d’auto-inoculation²⁵. Des questions de responsabilité juridique
+pourraient retarder la livraison des doses aux pays concernés, et son
+administration avec des aiguilles bifurquées pourrait réduire son
+acceptabilité. En janvier 2025, l’Autorité de Régulation Pharmaceutique
+de la RDC a autorisé l’inclusion de tous les enfants à partir d’1 an
+dans les campagnes de vaccination. Enfin, en date de février 2025, six
+millions de doses ont été promises au continent africain¹⁷.
+
+Stratégies vaccinales. Bien que ces vaccins élargissent l’arsenal pour
+freiner la propagation du mpox, les stratégies à mettre en place restent
+incertaines. Étant donné les stocks limités de vaccins, une vaccination
+généralisée n'est pas envisageable. La stratégie recommandée par le CDC
+Africa, l’OMS et d’autres organisations est de cibler les contacts de
+cas confirmés, les professionnels de santé, les autres acteurs de
+première ligne, et les populations clé à risque d’infection dans des
+zones avec transmission interhumaine active²⁶. Il est urgent de disposer
+de données scientifiques afin d’éclairer au mieux ces stratégies et
+d’identifier les populations clés à cibler par les campagnes de
+vaccination. Les connaissances actuelles sur la transmission du MPXV
+identifient les groupes potentiels suivants à cibler pour vaccination :
+les professionnels de santé exposés aux patients ; en zone rurale, les
+enfants en contact avec les réservoirs animaux (souvent via le piégeage
+d’animaux sauvages ou d’autres activités) qui sont plus à risque de
+formes sévères de la maladie ; en zone urbaine, les populations à risque
+élevé de transmission par voie sexuelle (travailleurs du sexe, HSH,
+patients atteints d’infections sexuellement transmissibles (IST),
+chauffeurs routiers). Cependant, il n’est pas précisément établi quel(s)
+groupe(s) à risque devraient être priorisés pour les campagnes de
+vaccination pour un impact maximal dans un contexte de limitation de la
+quantité de vaccins. Une étude a recommandé la vaccination des enfants
+dans les régions endémiques de la RDC²⁷, mais la migration urbaine
+récente du virus et sa transmission soutenue dans les réseaux sexuels²⁸
+n’ont pas été pris en compte. À la suite de cette publication, la
+nécessité d’analyses coût-efficacité de différentes stratégies
+vaccinales a été mise en avant par plusieurs experts^(29–32). Néanmoins,
+cette évaluation essentielle pour orienter les décisions de santé
+publique semble impossible en l’absence de données sur le fardeau réel
+de l’infection dans les groupes à risque, et les contributions
+respectives des différentes voies de transmission. Aussi, la littérature
+indique que l’acceptabilité vaccinale mpox en Afrique est parmi les plus
+faibles au monde^(33,34), mais des données nationales ne sont pas
+disponibles pour tous les pays. Mesurer l’intention de vaccination parmi
+les groupes à risque d’infection est essentiel pour favoriser une
+couverture vaccinale optimales.
+
+Situation épidémiologique à Madagascar. À Madagascar, aucun cas de mpox
+n’avait été détecté sur le territoire jusqu’à fin 2025. Le 30 décembre
+2025, cinq confirmations de cas ont été annoncées par le ministère de la
+Santé publique, détectés dans la ville côtière de Majunga. Ces premiers
+cas sur le territoire malgache ont marqué le début d’une flambée
+épidémique de clade Ib qui s'est étendue, touchant 21 régions sur 23 à
+fin février 2026. Au 1^(er) mars 2026, 539 cas étaient confirmés sur
+1186 cas suspects, et 1 décès enregistré (Ministère de la Santé). Il ne
+peut pas être exclu que le nombre de cas soit en réalité plus élevé, les
+capacités de diagnostic étant pour l’instant centralisées à la capitale,
+Antananarivo, et à Majunga.
+
+Au-delà de cette transmission interhumaine avérée, il reste possible que
+le réservoir animal du MPXV soit présent sur le territoire malgache, ou
+que les réservoirs mammifères de plusieurs zoonoses connues à Madagascar
+puissent participer à la diffusion et la circulation du virus sur le
+territoire par rétro-zoonose.
+
+L’Institut Pasteur de Madagascar (IPM) héberge plusieurs laboratoires
+nationaux de référence (LNR) pour la surveillance de différents
+pathogènes, et est équipé pour le diagnostic mpox. Depuis décembre 2025,
+les équipes de l’IPM participent aux côtés des autorités sanitaires et
+d’autres laboratoires à l’investigation et au diagnostic des cas
+suspects de mpox.
+
+Objectifs du projet. Le projet VAXPOX dans son ensemble a pour objectif
+d’accompagner les politiques de santé publique dans le cadre du
+déploiement des vaccins contre le mpox à Madagascar via une approche
+pluridisciplinaire associant épidémiologie (WP1), sérologie (WP2),
+virologie moléculaire (WP3) et modélisation mathématique comprenant une
+analyse coût-efficacité (WP4). Ce projet se décline dans 6 pays
+hébergeant un institut du Pasteur Network (PN), avec des activités
+adaptées selon les situations épidémiologiques au sein de chaque pays.
+Le présent protocole (VAXPOX-MADA) présente les activités de recherche
+qui seront conduites à Madagascar par l’IPM. L’ensemble des WP sera
+décliné dans ce pays exposé au mpox pour la première fois depuis
+décembre 2025.
+
+En parallèle de ces objectifs spécifiques au mpox, le projet VAXPOX sera
+l’occasion d’évaluer la circulation d’autres pathogènes d’intérêt dans
+les différents pays déclinant ce projet. En effet, de nombreux
+pathogènes d’intérêt pour la santé des populations circulent souvent
+dans les mêmes zones des pays à revenu faible ou intermédiaire. Les
+nouveaux outils de recherche que sont les tests sérologiques multiplex
+permettent une description détaillée de la cinétique des anticorps
+spécifiques de plusieurs pathogènes. Le projet VAXPOX-MADA aura aussi
+pour objectif d’évaluer la circulation de plusieurs agents infectieux
+d’intérêt parmi les populations ciblées dans cette étude.
+
+IMPACTS ATTENDUS DU PROJET
+
+Impacts pour la communauté scientifique
+
+Les résultats des analyses effectuées dans le projet VAXPOX décliné par
+6 instituts du PN, dont 5 dans des pays avec circulation avérée du MPXV,
+fourniront des données pertinentes pour une meilleure compréhension de
+l’épidémiologie du mpox. L’obtention de données de séroprévalence dans
+différentes populations permettra de quantifier la circulation d’un
+virus ayant atteint de nouvelles zones géographiques, dont Madagascar.
+Grâce à la technologie multiplex Luminex, le projet VAXPOX-MADA
+permettra aussi d’évaluer la circulation de plusieurs agents infectieux
+d’intérêt pour la santé des populations, au sein des groupes ciblés par
+cette étude.
+
+Les analyses phylogénétiques des souches virales circulant à Madagascar
+et dans les autres pays du consortium permettront une meilleure
+compréhension de l’évolution du MPXV, ainsi que la détection des
+nouveaux sous-clades circulant actuellement sur le continent africain.
+Ces analyses permettront également d’estimer la date d’introduction du
+virus à Madagascar. Enfin, les modèles mathématiques développés pour
+décrire la circulation du mpox dans chacun des pays, y compris
+Madagascar, seront disponibles pour adaptation à d’autres contextes pour
+mieux comprendre la dissémination de ce virus.
+
+Impacts communautaires
+
+Le contrôle de l’épidémie actuelle de mpox est d’une importance capitale
+pour les populations dans les pays touchés, en particulier pour les
+enfants qui sont les plus à risque de formes graves de la maladie, mais
+aussi pour prévenir l’établissement du mpox en zone urbaine via une
+transmission interhumaine soutenue. La réalisation du projet VAXPOX dans
+son ensemble contribuera à mieux identifier les groupes particulièrement
+à risque d’infection par le MPXV, et permettra dans chaque pays du
+consortium de cibler les campagnes de vaccination éventuelles afin
+qu’elles soient les plus efficientes pour limiter la dissémination du
+virus, y compris à Madagascar. De plus, la conduite de l’étude et la
+diffusion de ses résultats globaux (cf. Section 9. Diffusion des
+résultats) sera l’occasion de sensibiliser les populations à cette
+maladie, encore récemment méconnue sur le territoire malgache, y compris
+ses différents modes de transmission et l’existence de la vaccination
+pour se protéger de la maladie. Aussi, l’utilisation de la technologie
+multiplex Luminex pour évaluer la circulation de plusieurs agents
+pathogènes présente un avantage substantiel pour les populations
+ciblées, car la fourniture d'un seul échantillon sanguin dans le cadre
+du projet contribuera à la surveillance d'un large éventail de maladies
+infectieuses, sans nécessiter la mise en place de multiples études.
+
+Impacts en santé publique
+
+Les résultats du projet VAXPOX-MADA seront particulièrement pertinents
+pour les autorités sanitaires de Madagascar dans le contexte de
+l’épidémie en cours, en documentant la diffusion de l’épidémie de mpox
+au sein des populations ciblées par cette étude, et en identifiant des
+groupes particulièrement à risque d’infection. Grâce à la modélisation
+et à l’analyse coût-efficacité des stratégies vaccinales, il sera
+possible de conseiller les autorités sanitaires sur les groupes à
+vacciner en priorité afin de maximiser l’impact des campagnes vaccinales
+qui seront organisées à Madagascar.Le projet VAXPOX-MADA aura également
+un impact à long terme car les recommandations vaccinales pourront être
+adaptées à de nouvelles informations (disponibilité des vaccins,
+acceptabilité vaccinale, données actualisées de séroprévalence…) en
+mettant à jour les modèles mathématiques développés. Enfin, les
+résultats de sérologie multiplex contre un panel d’agents infectieux
+d’intérêt en santé publique éclaireront les autorités sanitaires sur la
+prévalence de l'exposition à plusieurs maladies infectieuses courantes
+parmi les populations ciblées par cette étude.
+
+Impacts sur la préparation aux pandémies
+
+Le projet VAXPOX-MADA tirera partie des compétences de l’IPM concernant
+des méthodes et technologies cruciales pour la réponse aux menaces
+infectieuses à potentiel pandémique. Premièrement, la réalisation
+d’enquêtes sérologiques de terrain avec une méthodologie hautement
+standardisée et adaptable à d’autres pathogènes émergents (ex :
+technologie Luminex), élément essentiel à la compréhension de la
+diffusion d’un pathogène au sein de groupes à risque et en population
+générale. Ces enquêtes sérologiques peuvent avoir plusieurs objectifs :
+identification des populations à risque, mise en évidence de formes
+cliniques asymptomatiques, évaluation de l’immunité acquise après
+infection/vaccination, et étude des chaînes de transmission autour des
+cas confirmés.
+
+Deuxièmement, le séquençage systématique du génome complet des souches
+virales isolées des cas confirmés, le partage des séquences au niveau
+régional et les analyses phylogénétiques groupées de ces séquences
+permettent d’assurer une surveillance quasi en temps réel de la
+circulation d’un pathogène donné et de sa capacité d’échappement
+immunitaire. Cela permettra d’améliorer la coordination régionale pour
+la surveillance grâce à une couverture et un reporting accrus.
+Troisièmement, le renforcement des compétences en modélisation
+mathématique des épidémies est un complément essentiel à une meilleure
+compréhension des risques épidémiques et des réponses à apporter aux
+menaces infectieuses.
+
+Enfin, la collaboration entre chercheurs de différents instituts du PN
+sera source de bénéfices multilatéraux. Les collaborations nouées dans
+le cadre de ce projet de recherche seront déterminantes pour faciliter
+les interactions en période de pandémie, permettant un partage
+d’expertise au bénéfice de l’ensemble du réseau.
+
+Objectifs
+
+1.  
+
+2.  
+
+3.  
+
+Objectif principal
+
+L’objectif principal de ce projet est d’estimer la séroprévalence des
+anticorps anti-MPXV par âge et sexe au sein de la population générale et
+de sujets particulièrement à risque de transmission du virus par voie
+sexuelle à Madagascar.
+
+Objectifs secondaires
+
+Les objectifs secondaires de ce projet sont définis ci-dessous :
+
+-   Identifier les facteurs associés à l’infection par le MPXV au sein
+      de la population générale et de sujets particulièrement à risque
+      de transmission du virus par voie sexuelle à Madagascar
+
+-   Estimer la prévalence de l’intention vaccinale mpox au sein de la
+      population générale et de sujets particulièrement à risque de
+      transmission du virus par voie sexuelle à Madagascar
+
+-   Etudier d’autres composantes de l’immunité anti-MPXV pour les
+      participants de l’étude séropositifs mpox
+
+-   Etudier l’immunité contre un panel de maladies infectieuses
+      d’intérêt en santé publique au sein des populations ciblées par
+      cette étude
+
+-   Quantifier les contributions respectives de la transmission
+      zoonotique et de la transmission interhumaine du MPXV dans la
+      dissémination du mpox à Madagascar
+
+-   Modéliser la date d’introduction du MPXV à Madagascar
+
+-   Modéliser la circulation du mpox à Madagascar sur la base des
+      données collectées
+
+-   Identifier les stratégies vaccinales les plus coût-efficaces dans le
+      contexte de Madagascar.
+
+METHODOLOGIE
+
+4.  
+
+Critères d’évaluation
+
+Critère d’évaluation principal
+
+Séroprévalence des anticorps IgM et IgG anti-MPXV par âge et sexe au
+sein de la population générale et de sujets particulièrement à risque de
+transmission du virus par voie sexuelle à Madagascar.
+
+Critères d’évaluation secondaires
+
+-   Facteur d’augmentation (ou de diminution) du risque d’infection
+      passée par le MPXV selon les caractéristiques des sujets
+      participant à la recherche
+
+-   Prévalence de l’intention vaccinale mpox au sein de la population
+      générale et de sujets particulièrement à risque de transmission du
+      virus par voie sexuelle à Madagascar
+
+-   Caractérisation des réponses immunitaires humorales et cellulaires
+      vis-à-vis de MPXV chez les sujets participant à l’étude
+      séropositifs mpox
+
+-   Caractérisation des réponses immunitaires humorales et cellulaires
+      vis-à-vis d’un panel de maladies infectieuses prioritaires pour la
+      santé publique, au sein des populations ciblées par cette étude
+
+-   Part relative des introductions zoonotiques versus cas de
+      transmission interhumaine à Madagascar
+
+-   Date estimée d’introduction du MPXV à Madagascar
+
+-   Modèle mathématique décrivant la circulation du mpox à Madagascar,
+      calibré aux données collectées dans le projet
+
+-   Résultats d’analyses coût-efficacité de différentes stratégies
+      vaccinales à Madagascar
+
+Plan expérimental
+
+WP1-2 : Epidémiologie et sérologie
+
+Pour répondre à l’objectif principal de cette recherche, à savoir
+déterminer la séroprévalence des anticorps anti-MPXV dans les
+populations ciblées, des enquêtes de séroprévalence seront conduites à
+Antananarivo dans la région d’Analamanga, auprès des populations
+suivantes :
+
+-   Travailleur(se)s du sexe consultant au dispensaire de l’association
+    SISAL ou au Drop-in Center (DIC) de l’ONG Réseau Madagascar
+    Solidarité LGBT (ORMS LGBT),
+
+-   Individus s’identifiant à la communauté LGBT consultant au
+    dispensaire de l’association SISAL ou au DIC de l’ORMS LGBT,
+
+-   Sujets consultant au Centre de Traitement Antirabique (CTAR) de
+    l’IPM, représentatifs de la population générale.
+
+Ces enquêtes impliqueront :
+
+-   Un questionnaire standardisé pour recueillir des données
+    socio-démographiques, épidémiologiques et cliniques
+
+-   Un prélèvement de sang (5 ml de sang veineux pour les participants
+    de 6 ans et plus, environ 500 µl de sang capillaire pour les
+    participants de 1 à 5 ans)
+
+Aussi, des échantillons en biobanque, collectés auprès de donneurs du
+sang avant l’émergence du mpox sur le territoire malgache, seront
+utilisés :
+
+-   Echantillons collectés à Antananarivo en 2022
+
+-   Echantillons collectés à Majunga en septembre 2025
+
+Le recours à ces échantillons permettra d’évaluer l’éventuelle
+circulation du mpox sur le territoire malgache avant la détection
+officielle des premiers cas en décembre 2025.
+
+Les analyses sérologiques des échantillons collectés ou en biobanque
+détecteront les éventuelles expositions passées au MPXV grâce à un test
+immunologique multiplex sur microsphères (MMIA) basé sur la technologie
+Luminex, permettant la détection simultanée des anticorps IgM ou IgG
+dirigés contre plus de 35 antigènes du MPXV. Ce test a été développé à
+l’IPP et sera transféré à aux équipes de l’IPM, déjà formées à
+l’utilisation de la technologie Luminex.
+
+Les données sérologiques obtenues et les données épidémiologiques
+associées seront partagées dans une base de données commune avec les
+autres instituts du PN déclinant le projet VAXPOX, permettant d’élargir
+la surveillance collaborative entre les instituts du réseau à un volet
+sérologique. 
+
+Pour répondre à plusieurs objectifs secondaires de cette recherche, les
+éléments suivants seront mis en œuvre :
+
+-    : Dans l’éventualité où des sous-groupes parmi les populations
+    ciblées seraient séropositifs pour le mpox, les données collectées
+    dans le questionnaire administré aux participants permettront
+    d’évaluer les facteurs d’augmentation (ou de diminution) du risque
+    d’infection passée par le MPXV selon les caractéristiques des
+    participants.
+
+-   Le questionnaire administré aux participants comportera des
+    questions se rapportant à l’acceptabilité anticipée du vaccin mpox,
+    ce qui permettra d’évaluer la prévalence de l’intention vaccinale
+    dans les populations ciblées.
+
+-   La technologie multiplex Luminex utilisée pour répondre à l’objectif
+    principal repose sur l’utilisation de billes enrobées d’antigènes,
+    permettant de mesurer avec précision un grand nombre d’anticorps à
+    partir d’un petit volume de sérum ou de plasma. Le test utilisé pour
+    le projet permettra d’évaluer la prévalence des anticorps
+    spécifiques contre un panel d’agents pathogènes d’intérêt, dans les
+    populations ciblées.
+
+-   Chez les participants de 6 ans et plus, un prélèvement de sang
+    veineux sera réalisé en vue d’analyses complémentaires de l’immunité
+    spécifique (p. ex. immunité cellulaire). Cette approche offre la
+    possibilité d’une caractérisation fine des réponses immunitaires,
+    apportant une valeur ajoutée unique pour mieux comprendre les
+    mécanismes de protection ou de susceptibilité.
+
+WP3 : Virologie moléculaire
+
+Pour répondre aux objectifs secondaires « quantifier les contributions
+respectives de la transmission zoonotique et de la transmission
+interhumaine du MPXV dans la dissémination du mpox à Madagascar » et
+« modéliser la date d’introduction du MPXV à Madagascar », des analyses
+génomiques seront menées à partir d’échantillons de cas confirmés et
+leurs données associées, issus de la surveillance nationale à laquelle
+l’IPM prend part aux côtés des autorités sanitaires et d’autres
+laboratoires impliqués dans le diagnostic. Les analyses conduites dans
+le cadre de la recherche incluront le séquençage complet des souches de
+MPXV de cas confirmés de mpox et des analyses phylogénétiques.
+
+1.  Les échantillons provenant de cas confirmés détectés par le système
+      de surveillance pendant la durée de la recherche et présentant un
+      seuil de cycle PCR MPXV inférieur à 30 seront sélectionnés en
+      priorité pour séquençage à l’IPM afin d’obtenir des génomes
+      complets. Parmi les échantillons issus de cas confirmés avant le
+      démarrage de cette reherche, ceux présentant des charges virales
+      suffisantes feront également l’objet d’un séquençage complet. Pour
+      cela, un dosage préalable au Qubit 5 ou au Nanodrop One C sera
+      réalisé sur les échantillons sélectionnés pour évaluer leur
+      concentration (objectif : 10-100 ng/ µL) et leur pureté
+      (objectif : 1,8-2). Les librairies pour séquençage seront
+      préparées selon les conditions du fabricant avec le Rapid
+      Barcoding kit (SQK-RBK110) et la technologie Oxford Nanopore
+      Technology (ONT) sera utilisée pour le séquençage.
+
+2.  Les données de séquençage seront utilisées pour déterminer les
+      clades. La présence ou l’absence de signatures moléculaires de
+      transmission interhumaine (ex : celles laissées par l’enzyme
+      humaine APOBEC3) sera aussi recherchée, afin de déterminer la part
+      des infections d’origine zoonotique et celle des infections
+      interhumaines parmi les infections en Côte d’Ivoire.
+
+3.  Les séquences virales obtenues et leurs données épidémiologiques
+      associées seront partagées dans une base de données commune avec
+      les autres instituts du PN déclinant le projet VAXPOX, permettant
+      de renforcer la surveillance génomique collaborative entre les
+      instituts du réseau. Un modèle phylodynamique sera développé en
+      utilisant l’ensemble des séquences disponibles dans les banques de
+      données publiques, afin de décrire la dynamique de transmission
+      zoonotique et interhumaine, et d’estimer la date d’introduction du
+      virus MPXV sur le territoire malgache.
+
+WP4 : Modélisation mathématique
+
+Pour répondre aux objectifs secondaires « modéliser la circulation du
+mpox à Madagascar sur la base des données collectées » et « identifier
+les stratégies vaccinales les plus efficientes dans le contexte de
+Madagascar », les données collectées dans les autres WP seront utilisées
+et complétées avec les données issues de la surveillance nationale à
+Madagascar. Des modèles mathématiques décrivant la circulation du mpox
+dans le pays seront développés et serviront à évaluer différentes
+stratégies de vaccination pour identifier les stratégies les plus
+efficientes.
+
+Les étapes qui seront entreprises dans ce WP sont les suivantes :
+
+1.  Un modèle mathématique décrivant la propagation du mpox sera généré
+      en prenant en compte les différentes voies de transmission du
+      MPXV, y compris la transmission interhumaine sexuelle ou non
+      sexuelle, ainsi que la transmission zoonotique. Le déclin attendu
+      des titres d’anticorps à distance de l’infection sera pris en
+      compte dans l’analyse des résultats des enquêtes sérologiques. La
+      population modélisée sera structurée par âge et par groupe à
+      risque.
+
+2.  Un échantillonnage par chaîne de Markov Monte Carlo sera utilisé
+      pour calibrer le modèle aux données concernant les cas confirmés
+      de mpox à Madagascar collectées par le système national de
+      surveillance. Cette calibration permettra de quantifier la
+      contribution des différentes voies de transmission à la
+      propagation globale.
+
+3.  Le modèle obtenu servira à simuler des épidémies selon différentes
+      stratégies de vaccination. La charge infectieuse évitée par chaque
+      stratégie sera estimée, et celle ayant l’impact maximal sera
+      identifiée. Le modèle sera calibré aux données de Madagascar afin
+      de déterminer les spécificités propres à chaque contexte, et
+      d’évaluer si ces différences justifient l’application de
+      stratégies vaccinales différenciées.
+
+4.  Des analyses coût-efficacité des stratégies de vaccination
+      envisageables en Côte d’Ivoire seront réalisées, en prenant en
+      compte les différences de gravité de la maladie selon certaines
+      caractéristiques individuelles, telles que l’âge ou le clade
+      viral. Le fardeau de la maladie évité estimé par le modèle de
+      transmission sera converti en mesures économiques ou sanitaires.
+      Cette harmonisation des résultats du modèle permettra de calculer
+      les ratios coût-efficacité incrémentaux et d’offrir aux décideurs
+      des informations sur la valeur des différentes stratégies
+      vaccinales. Des analyses de sensibilité seront menées pour évaluer
+      la transférabilité des résultats à d'autres contextes
+      épidémiologiques.
+
+Population étudiée
+
+5.  
+
+Description des populations étudiées
+
+-   Sujets recrutés
+
+Sujets particulièrement à risque de transmission du virus par voie
+sexuelle : travailleur(se)s du sexe et individus s’identifiant à la
+communauté LGBT, consultant au sein du dispensaire de l’association
+SISAL ou du DIC de l’ORMS LGBT à Antananarivo. Le dispensaire de
+l’association SISAL assure des services de santé pour les populations
+les plus exposées aux risques d’IST, dont les travailleur(se)s du sexe
+et des personnes s’identifiant à la communauté LGBT. L’ORMS LGBT mène
+des actions pour contrer la propagation des IST au sein de ces
+populations.
+
+Population générale en zone urbaine/périurbaine : enfants et adultes
+consultant au sein du CTAR de l’IPM à Antananarivo. En moyenne, le CTAR
+accueille 5000 patients chaque année.
+
+Les trois sites investigateurs de l’étude (dispensaire SISAL, DIC de
+l’ORMS LGBT, et CTAR de l’IPM) sont tous trois situés à Antananarivo,
+capitale de Madagascar. Les personnes se rendant sur ces sites, et donc
+susceptibles de participer à cette étude, sont principalement des
+populations résidant en zone urbaine ou périurbaine.
+
+-   Echantillons en biobanque
+
+Donneurs de sang à Antananarivo et Majunga : adultes ayant consenti à un
+don du sang en 2022 (Antananarivo) ou en septembre 2025 (Majunga).
+
+Cas confirmés de mpox : échantillons provenant des cas confirmés
+détectés dans le cadre du système de surveillance nationale. L’analyse
+des séquences virales isolées des cas confirmés de mpox permettra
+notamment d’évaluer les parts respectives de la transmission zoonotique
+et interhumaine parmi les cas confirmés à Madagascar, et d’estimer la
+date d’introduction du virus sur le territoire.
+
+Justification du nombre de sujets à inclure dans la recherche
+
+WP1-2 Epidémiologie et sérologie
+
+Pour estimer la séroprévalence des anticorps anti-MPXV dans différentes
+populations à Madagascar, 700 sujets seront recrutés au sein de
+populations particulièrement à risque de transmission du virus par voie
+sexuelle et parmi la population générale à Antananarivo. Ces sujets
+seront répartis comme suit :
+
+-   200 travailleur(se)s du sexe
+
+-   200 individus s’identifiant à la communauté LGBT
+
+-   300 sujets représentatifs de la population générale
+
+Au total , 600 échantillons complémentaires seront utilisés, 300 issus
+de la biobanque à l’IPM et 300 issus de la banque du sang à Majunga.
+
+Justification :
+
+-   Pour les groupes particulièrement à risque de transmission du virus
+    par voie sexuelle, homogènes en termes de catégorie d’âge, 200
+    sujets seront recrutés : avec 200 participants, les intervalles de
+    confiance exacts binomiaux à 95% pour les estimations de
+    séroprévalence de 3%, 10% et 50% seront respectivement de
+    (1.1-6.4%), (6.2-15.0%), et (42.9-57.1%).
+
+-   Pour les sujets représentatifs de la population générale, les
+    participants recrutés seront plus hétérogènes en termes de
+    catégories d’âge. Le nombre de sujets sera donc porté à 300 pour
+    permettre une puissance statistique suffisante par catégorie d’âge :
+    avec 300 participants les intervalles de confiance exacts binomiaux
+    à 95% pour les estimations de séroprévalence de 3%, 10% et 50%
+    seront respectivement de (1.4-5.6%), (6.8-14.0%), et (44.2-55.8%).
+
+WP3 : Virologie moléculaire
+
+Pour répondre aux objectifs secondaires de la recherche « quantifier les
+contributions respectives de la transmission zoonotique et de la
+transmission interhumaine du MPXV dans la dissémination du mpox à
+Madagascar » et « modéliser la date d’introduction du MPXV à
+Madagascar », et afin de disposer d’une photographie la plus exhaustive
+possible, nous inclurons tous les prélèvements et données de cas
+confirmés de mpox issus de la surveillance nationale reçus à l’IPM (cas
+survenus avant le démarrage de la recherche, et cas qui surviendraient
+au cours des 2 ans de la recherche).
+
+Critères d’inclusion
+
+Sujets représentatifs de la population générale en zone urbaine/périurbaine
+
+Recrutements à Antananarivo :
+
+-   Individu âgé de 1 an ou plus,
+
+-   consultant au Centre de traitement antirabique de l’IPM (CTAR),
+
+-   ayant consenti, ou dont le responsable légal a consenti, à sa
+    participation à l’enquête de séroprévalence (questionnaire et
+    prélèvement de sang).
+
+Echantillons d’Antananarivo :
+
+-   Sérums issus de la biobanque de l’IPM,
+
+-   collectés en 2022 à Antananarivo dans le cadre d’une autre recherche
+    auprès de donneurs de sang âgés de 18 ans ou plus,
+
+-   pouvant être réutilisés dans le cadre de cette recherche.
+
+Echantillons de Majunga :
+
+-   Sérums issus de la banque du sang de Majunga,
+
+-   collectés en septembre 2025 à Majunga auprès de donneurs de sang
+    âgés de 18 ans ou plus,
+
+pouvant être réutilisés dans le cadre de cette recherche.Travailleur(se)s du sexe en zone urbaine/périurbaine
+
+-   Individu âgé de 18 ans ou plus,
+
+-   consultant au dispensaire de l’association SISAL ou au DIC de l’ORMS
+    LGBT à Antananarivo,
+
+-   travailleur(se) du sexe depuis au moins 6 mois,
+
+-   ayant consenti à participer à l’enquête de séroprévalence
+    (questionnaire et prélèvement de sang).
+
+Individus s’identifiant à la communauté LGBT en zone urbaine/périurbaine
+
+-   Individu âgé de 18 ans ou plus,
+
+-   consultant au dispensaire de l’association SISAL ou au DIC de l’ORMS
+    LGBT à Antananarivo,
+
+-   s’identifiant à la communauté LGBT,
+
+-   ayant consenti à participer à l’enquête de séroprévalence
+    (questionnaire et prélèvement de sang).
+
+Individus infectés par le MPXV
+
+-   Prélèvements biologiques positifs au MPXV,
+
+-   issus de la surveillance nationale du mpox et pouvant être
+    réutilisés à des fins de recherche.
+
+Critères de non-inclusion
+
+Non-inclusion de sujets :
+
+-   Individu dont l'état de santé n'est pas compatible avec un
+    prélèvement sanguin selon l'investigateur,
+
+-   Individu hors d’état de consentir,
+
+-   Individu nécessitant une prise en charge immédiate.
+
+Non-inclusion d’échantillons :
+
+-   Echantillons de sérums issus de la biobanque de l’IPM ou de la
+    banque du sang de Majunga non exploitables (volume insuffisant),
+
+-   Prélèvements biologiques obtenus par l’IPM dans le cadre de la
+    surveillance du mpox, avec une charge virale insuffisante pour
+    procéder au séquençage complet du génome viral.
+
+Déroulement pratique de la recherche
+
+6.  
+
+Modalités spécifiques aux enquêtes sérologiques (WP1-2)
+
+Le recrutement des participants à la recherche se fera dans le respect
+des principes de confidentialité et de non-stigmatisation, notamment
+pour les populations exposées à des risques de discrimination. Une
+attention particulière sera portée à la formulation des critères
+d’inclusion, à la langue utilisée, et à la nature du consentement
+éclairé.
+
+Sites investigateurs et équipes cliniques
+
+Les sites investigateurs identifiés sont les centres de santé suivants :
+dispensaire de l’association SISAL, DIC de l’ORMS LGBT, et CTAR de
+l’IPM. Pour chaque site investigateur une première séance d’information
+à destination des personnels de ces sites sera effectuée par les équipes
+de recherche de l’IPM dans le but d’expliquer l’objectif et le
+déroulement du projet de recherche. Si les responsables de l’association
+SISAL et du DIC de l’ORMS LGBT offrent une opportunité de participer à
+une réunion ou à un événement qu’ils organisent, les membres de l’équipe
+de recherche viendront pour donner des explications sur l’étude.
+
+Pour le dispensaire de l’association SISAL, l’équipe clinique qui
+procèdera aux recrutements des participants sera composée d’un
+médecin-investigateur de l’association SISAL, d’un coordonnateur d’étude
+clinique (CEC) de l’IPM, d’un assistant de recherche de coordination
+(AsRC) de l’IPM et d’infirmiers de recherche clinique (IRC) de l’IPM.
+
+Pour le DIC de l’ORMS LGBT et le CTAR de l’IPM, l’équipe clinique qui
+procèdera aux recrutements des participants sera exclusivement composée
+de membres de l’IPM, qui procèdera aux inclusions de participants au
+sein de ces deux sites investigateurs.
+
+Information des participants et recueil du consentement
+
+Lors des contacts avec les participants, l’équipe clinique du site
+investigateur remettra la note d’information décrivant l’enquête de
+séroprévalence adaptée à la population ciblée sur le site investigateur.
+Des explications verbales seront fournies sur l’étude. Il sera indiqué
+que la participation est entièrement volontaire mais qu’une compensation
+sous la forme de forfait transport pourra être donnée. Après un délai
+suffisant de réflexion, l’équipe clinique répondra aux éventuelles
+questions du participant. Le participant acceptant de participer à
+l’étude sera invité à signer le formulaire de consentement éclairé. La
+présence d’un témoin impartial est exigée si le participant n’est pas
+capable de lire ni écrire. Pour les mineurs, le consentement sera obtenu
+auprès d’un représentant légal, et l’assentiment des mineurs âgés de 7 à
+17 ans sera recherché. Toute personne présentant des lésions évocatrices
+d’une infection en cours par le MPXV sera prise en charge au niveau du
+site investigateur (SISAL & DIC) ou adressé au centre de santé (CTAR).
+La participation à l’enquête de séroprévalence restera possible.
+
+Collecte des données et échantillons biologiques
+
+Les lieux de réalisation des entretiens individuels seront des endroits
+à l’abri des regards et des oreilles indiscrets au sein des sites
+investigateurs. Un questionnaire standardisé sera administré par
+l’équipe clinique pour collecter des informations individuelles (données
+socio-démographiques, épidémiologiques et cliniques). Un prélèvement de
+sang sera effectué par un IRC : 5 ml de sang veineux pour les individus
+de 6 ans ou plus, ou 500 ul de sang capillaire prélevé au bout du doigt
+pour les individus de 1 à 5 ans. Chaque entretien durera au maximum 2
+heures.
+
+Modalités spécifiques aux échantillons en biobanque (WP1-2) 
+
+Des échantillons issus de la biobanque de l’IPM et de la banque du sang
+de Majunga seront utilisés pour cette étude de séroprevalence.
+
+Les échantillons issus de la banque du sang de Majunga proviennent de
+donneurs de sang mobilisés à Majunga en septembre 2025. Au total, 300
+échantillons issus de dons du sang à cette période pourront être
+utilisés. Les modalités de transfert de ces échantillons à l’IPM sont en
+cours de précision.
+
+Les échantillons issus de la biobanque de l’Unité IMI (IPM) proviennent
+de donneurs de sang mobilisés à Antananarivo en 2022 dans le cadre d’une
+autre recherche. Les donneurs avaient été informés au moment de leur
+recrutement de la possibilité de réutilisation de leurs données et
+échantillons pour des recherches ultérieures. Le Comité d’éthique
+malgache a approuvé la réutilisation de ces échantillons pour des
+recherches portant sur le mpox.
+
+Au total, 669 échantillons ont été collectés. Afin d’assurer la qualité
+analytique des résultats, une sélection sera effectuée parmi ces
+échantillons sur la base de critères de conservation, notamment
+l’intégrité du sérum et le respect des conditions de stockage (chaîne du
+froid, absence de cycles répétés de congélation-décongélation). Après
+vérification de ces critères à partir du registre de la biobanque et de
+l’état des aliquotes disponibles, 300 échantillons présentant des
+conditions de conservation optimales seront retenus pour l’étude. La
+liste des échantillons sélectionnés sera établie par l’équipe du
+laboratoire de l’Unité IMI avant leur utilisation pour les analyses
+prévues dans le protocole.
+
+Modalités spécifiques aux activités de virologie moléculaire (WP3)
+
+Les souches virales isolées des prélèvements des cas mpox positifs
+disponibles en biobanque à l’IPM, ainsi que toute souche virale qui
+serait isolée de nouveaux cas confirmés pendant la durée de la
+recherche, seront incluses dans les analyses génomiques décrites dans la
+section « 4. Méthodologie » (voir sous-section 4.2.2). Les personnes
+concernées pourront être informées de la recherche VAXPOX-MADA dans le
+cadre des activités de surveillance.
+
+GESTION DES ECHANTILLONS BIOLOGIQUES
+
+7.  
+
+Nature des prélèvements
+
++----------------------+----------------------+----------------------+
+| GROUPE DE SUJETS     | NATURE DU            | ORIGINE DU           |
+|                      | PRELEVEMENT          | PRELEVEMENT          |
++======================+======================+======================+
+| Travailleur(se)s du  | 5 ml de sang veineux | Recherche            |
+| sexe et individus    |                      |                      |
+| s’identifiant à la   |                      |                      |
+| communauté LGBT      |                      |                      |
++----------------------+----------------------+----------------------+
+| Sujets               | 5 ml de sang         | Recherche            |
+| représentatifs de la | veineux,             |                      |
+| population générale  |                      |                      |
+|                      | ou environ 500 µl de |                      |
+|                      | sang capillaire      |                      |
++----------------------+----------------------+----------------------+
+| Donneurs de sang     | Sérum                | Biobanque            |
+| (échantillons en     |                      |                      |
+| biobanque à l’IPM ou |                      |                      |
+| à la banque du sang  |                      |                      |
+| de Majunga)          |                      |                      |
++----------------------+----------------------+----------------------+
+| Sujets infectés par  | Ecouvillon de        | Surveillance         |
+| le MPXV              | lésions cutanées de  |                      |
+|                      | cas confirmés de     |                      |
+|                      | mpox                 |                      |
++----------------------+----------------------+----------------------+
+
+Circuit des prélèvements
+
++----------------------+----------------------+----------------------+
+| NATURE DU            | LIEUX DE COLLECTE    | TRANSPORT DU         |
+| PRELEVEMENT          |                      | PRELEVEMENT          |
+|                      |                      |                      |
+|                      |                      | VERS l’IPM           |
++======================+======================+======================+
+| Sang veineux :       | - CTAR de l’IPM      | - Prélèvements       |
+|                      |                      | stockés à            |
+| Tube EDTA 5 ml       | - dispensaire de     | température ambiante |
+|                      | l’association SISAL  | sur les sites de     |
+|                      |                      | recrutement.         |
+|                      | - DIC de l’ORMS LGBT |                      |
+|                      |                      | - Acheminement       |
+|                      |                      | quotidien à l’IPM.   |
+|                      |                      |                      |
+|                      |                      | - Transport effectué |
+|                      |                      | à température        |
+|                      |                      | ambiante (6h maximum |
+|                      |                      | entre prélèvement et |
+|                      |                      | livraison à l’IPM),  |
+|                      |                      | en triple emballage  |
+|                      |                      | conforme à la        |
+|                      |                      | règlementation de    |
+|                      |                      | transport            |
+|                      |                      | d’échantillons       |
+|                      |                      | biologiques.         |
++----------------------+----------------------+----------------------+
+| Sang capillaire :    | - CTAR de l’IPM      |                      |
+| Lancette de          |                      |                      |
+| prélèvement et       |                      |                      |
+| microtube 500 µl     |                      |                      |
++----------------------+----------------------+----------------------+
+| Sérums en biobanque  | Prélèvements en      | Prélèvements stockés |
+|                      | biobanque à l’IPM    | à l’IPM à -20°C      |
+|                      | (collectés auprès de |                      |
+|                      | donneurs de sang à   |                      |
+|                      | Antananarivo)        |                      |
++----------------------+----------------------+----------------------+
+|                      | Prélèvements en      | Acheminement à l’IPM |
+|                      | biobanque à la baque | des prélèvements     |
+|                      | du sang de Majunga   | sélectionnés, en     |
+|                      | (collectés auprès de | respectant la chaîne |
+|                      | donneurs de sang à   | du froid (2-8 °C) en |
+|                      | Majunga)             | triple emballage     |
+|                      |                      | conforme à la        |
+|                      |                      | règlementation de    |
+|                      |                      | transport            |
+|                      |                      | d’échantillons       |
+|                      |                      | biologiques.         |
++----------------------+----------------------+----------------------+
+| Ecouvillons de       |   Prélèvements reçus |                      |
+| lésions cutanées,    |   à l’IPM, issus des |                      |
+| cas confirmés MPXV   |   activités de       |                      |
+|                      |   surveillance       |                      |
+|                      |   nationale du mpox. |                      |
++----------------------+----------------------+----------------------+
+
+Traitements des prélèvements et analyses des échantillons 
+
+Tous les traitements des prélèvements et analyses des échantillons
+seront conduits à l’IPM, par les équipes techniques et médicales
+habilitées, suivant les procédures opératoires définies pour cette
+recherche.
+
++----------------+----------------+----------------+----------------+
+| NATURE DU      | TRAITEMENT     |                |                |
+| PRELEVEMENT    | PRE-ANALYTIQUE |                |                |
+|                | A l’IPM        |                |                |
++================+================+================+================+
+| Sang veineux   | Centrifugation | Sérums :       | Culots         |
+|                | pour séparer   |                | cellulaires :  |
+|                | le sérum du    | Aliquotes      |                |
+|                | culot          | stockés        | Aliquotes      |
+|                | cellulaire.    |                | stockés en     |
+|                |                | à -20/-80°C    | azote liquide  |
++----------------+----------------+----------------+----------------+
+| Sang           |                |                |                |
+| capillaire     |                |                |                |
++----------------+----------------+----------------+----------------+
+| Sérums en      | - Aucun        |                |                |
+| biobanque      | traitement     |                |                |
+|                | p              |                |                |
+|                | ré-analytique. |                |                |
+|                |                |                |                |
+|                | - Conservation |                |                |
+|                | des            |                |                |
+|                | échantillons à |                |                |
+|                | une            |                |                |
+|                | température de |                |                |
+|                | -20°C          |                |                |
+|                | jusqu’aux      |                |                |
+|                | analyses.      |                |                |
++----------------+----------------+----------------+----------------+
+| Ecouvillons    | - Extraction   |                |                |
+| delésions      | des acides     |                |                |
+| cutanées, cas  | nucléiques du  |                |                |
+| confirmés de   | prélèvement    |                |                |
+| mpox           | PCR MPXV       |                |                |
+|                | positif.       |                |                |
+|                |                |                |                |
+|                | - Dosage pour  |                |                |
+|                | évaluer la     |                |                |
+|                | concentration  |                |                |
+|                | et la pureté   |                |                |
+|                | des            |                |                |
+|                | échantillons   |                |                |
+|                | (Qubit 5 ou    |                |                |
+|                | NanoDrop One   |                |                |
+|                | C).            |                |                |
+|                |                |                |                |
+|                | - Pour les     |                |                |
+|                | échantillons   |                |                |
+|                | suffisamment   |                |                |
+|                | concentrés     |                |                |
+|                | (objectif :    |                |                |
+|                | 10-100 ng/µl)  |                |                |
+|                | et avec une    |                |                |
+|                | pureté         |                |                |
+|                | satisfaisante  |                |                |
+|                | (objectif :    |                |                |
+|                | 1,8-2),        |                |                |
+|                | préparation    |                |                |
+|                | des librairies |                |                |
+|                | de séquençage  |                |                |
+|                | (Rapid         |                |                |
+|                | Barcoding kit  |                |                |
+|                | SQK-RBK110).   |                |                |
++----------------+----------------+----------------+----------------+
+
+  NATURE DE L’ECHANTILLON                          OBJECTIF DES ANALYSES                                                                                            VARIABLE MESUREE                                                                               TECHNIQUE
+  ------------------------------------------------ ---------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------- ----------------------------------
+  Sérums                                           Détection des anticorps spécifiques anti-MPXV                                                                    IgM et IgG dirigés contre plusieurs antigènes du MPXV                                          Luminex
+  Sérums                                           Détection des anticorps spécifiques dirigés contre plusieurs pathogènes d’intérêt en santé publique              IgM et IgG dirigés contre des antigènes de différents pathogènes d’intérêt en santé publique   Luminex
+  Culots cellulaires                               Etude d’autres composantes de l’immunité pour les participants de l’étude séropositifs pour un pathogène donné   Immunophénotypage/ Etude des répertoires                                                       (Cytométrie, ARN seq)
+  Librairies de matériel génétique viral de MPXV   Obtention de la séquence complète des souches MPXV                                                               Séquences d’acides nucléiques du génome du MPXV, score de qualité (Q-score)                    Oxford Nanopore Technology - ONT
+
+Précisions sur les analyses sérologiques
+
+Les échantillons de sérum issus des enquêtes ou de biobanques seront
+analysés avec un test sérologique multiplex à base de microsphères
+(MMIA) utilisant la technologie Luminex. Ce test a été développé à l’IPP
+pour la détection simultanée des anticorps IgM ou IgG dirigés contre
+plus de 35 antigènes du MPXV et des protéines apparentées des
+orthopoxvirus (Vaccinia, Camelpox, Mousepox / virus de l’Ectromélie). La
+détection des anticorps dirigés contre d’autres orthopoxvirus permet de
+contrôler la spécificité des anticorps détectés pour les antigènes du
+MPXV. Ce test sérologique s’est avéré efficace pour détecter des
+anticorps spécifiques du MPXV dans des sérums prélevés chez des patients
+hospitalisés à Paris lors de l’épidémie de MPXV clade II en 2022, ainsi
+que chez des cas confirmés de mpox lors des épidémies de MPXV clade Ia
+en RCA entre 2021 et 2023 (AUC de 97 % et 96 %, respectivement, données
+non publiées). Cette analyse permettra d’établir une estimation de la
+séroprévalence des anticorps anti-MPXV par âge et sexe dans les
+différentes populations ciblées dans cette recherche.
+
+Au-delà d’antigènes du MPXV, le test comprendra des antigènes permettant
+de mesurer des anticorps dirigés contre des agents pathogènes
+responsables de maladies infectieuses d’intérêt pour la santé publique,
+notamment des maladies évitables par la vaccination (diphtérie, tétanos,
+Haemophilus influenza type b, coqueluche, rotavirus, méningite A,
+rougeole, rubéole, fièvre jaune), des maladies respiratoires (grippe,
+adénovirus, coronavirus), des arboviroses (dengue, Zika, chikungunya),
+des parasites du paludisme, les herpesvirus, le typhus des broussailles,
+le choléra, Borrelia crocidurae, la leptospirose, et des pathogènes
+responsables de maladies tropicales négligées (Schistosoma mansoni,
+Chlamydia trachomatis, Wucheria bancrofti, Onchocerca volvulus,
+Cryptospiridium parvum, Giardia intestinalis, Strongyloides stercoralis,
+Entamoeba histolytica).
+
+Cette analyse permettra d’évaluer la séroprévalence des anticorps pour
+un panel de pathogènes d’intérêt dans les populations ciblées dans cette
+recherche. Aussi, cela permettra de détecter et corriger les
+interférences potentielles entre les anticorps dirigés contre différents
+pathogènes présents localement, et les antigènes MPXV utilisés dans le
+test. Enfin, ces analyses sérologiques témoigneront de l’exposition
+passée à différents pathogènes, elles ne constitueront pas un diagnostic
+d’infection en cours. Aucun résultat incident n’est donc à attendre de
+ces analyses.
+
+Précisions sur les analyses des culots cellulaires
+
+Au-delà de la séroprévalence, des analyses approfondies des réponses
+cellulaires spécifiques seront mises en place afin de compléter la
+compréhension des mécanismes immunitaires. La caractérisation
+immunophénotypique des lymphocytes sera réalisée par immunophénotypage
+ou transcriptomique unicellulaire (scRNA-seq), permettant d’identifier
+les sous-populations cellulaires impliquées, leurs états d’activation et
+leurs profils fonctionnels. L’étude des répertoires B et T apportera des
+informations sur la diversité clonale, la maturation somatique et la
+spécificité antigénique des réponses adaptatives. Enfin, des tests
+d’activation antigène-spécifique (AIM assays) permettront de mesurer la
+fréquence et la fonctionnalité des lymphocytes T réactifs vis-à-vis des
+pathogènes d’intérêt. L’ensemble de ces approches réalisé dans la mesure
+du possible à l’IPM offrira une cartographie fine et intégrée des
+réponses immunitaires, au-delà de la simple détection d’anticorps
+sériques.
+
+Contrôle des résultats de sérologie
+
+Un sous-groupe d’échantillons pourra être envoyé à l’IPP pour
+vérification des résultats par les équipes ayant mis au point le test
+sérologique utilisé dans le cadre du projet. L’envoi d’échantillons sera
+alors tracé à l’IPM et à l’IPP. Les échantillons resteront la propriété
+de l’IPM et ne pourront être utilisés ou détruits sans autorisation. Les
+analyses s’effectueront exclusivement par le personnel autorisé impliqué
+dans le projet (unités ERI et IDEA).
+
+Conservation et réutilisation des échantillons
+
+Les échantillons stockés à l’IPM et les éventuels échantillons envoyés à
+l’IPP restent la propriété de l’IPM et seront conservés par chaque
+institution dans des locaux sécurisés pendant 15 ans. La conservation
+des échantillons au-delà de cette durée devra être autorisée avec
+l'accord préalable explicite du Comité national d'éthique malgache.
+
+Concernant la réutilisation des échantillons pour des recherches
+futures, le participant aura la possibilité de cocher « oui » ou « non »
+à cette modalité sur le formulaire de consentement. Pour les
+participants qui auront coché « oui », l'accord préalable du Comité
+national d'éthique malgache devra être obtenu pour toute nouvelle
+recherche portant sur ces échantillons. L’utilisation de ces
+échantillons par des chercheurs non mentionnés dans ce document devra
+être préalablement approuvée par l’IPM. Les participants qui auront
+coché « non » peuvent tout de même participer à la recherche
+VAXPOX-MADA, mais leurs échantillons seront détruits à l’issue de la
+complétion des objectifs du protocole.
+
+Gestion des données
+
+8.  
+
+Recueil et gestion des données
+
+Provenance et recueil des données
+
+Les données seront collectées, traitées et stockés dans le respect des
+principes d’éthique, de confidentialité et de protection des
+participants. Le stockage des fichiers numériques sera protégé par un
+mot de passe sur les serveurs des instituts ou disques durs chiffrés.
+
++----------------------+----------------------+----------------------+
+| JEUX DE DONNEES      | SOURCE DES DONNEES   | STOCKAGE DES DONNEES |
++======================+======================+======================+
+| Données              | Registre papier des  | Armoires sécurisées  |
+| individuelles        | participants         | sur sites            |
+| nominatives          | renseigné lors de    | investigateurs       |
+| (enquêtes de         | l’inclusion des      | pendant les          |
+| séroprévalence)      | participants         | investigations, puis |
+|                      |                      | sous enveloppe       |
+|                      | Formulaires de       | scellée à l’IPM      |
+|                      | consentement         |                      |
++----------------------+----------------------+----------------------+
+| Données              | Questionnaires de    | - Armoires           |
+| individuelles non    | recherche (CRF)      | sécurisées à l’IPM   |
+| nominatives          | remplis lors des     | (CRF papier)         |
+| (enquêtes de         | entretiens avec les  |                      |
+| séroprévalence)      | participants         | - Serveurs IPP (base |
+|                      |                      | de données           |
+|                      |                      | électronique REDCap) |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | Analyse des          | Serveurs IPM         |
+| de sérologie         | échantillons de      |                      |
+| (Luminex)            | sérum par            |                      |
+|                      | technologie Luminex  |                      |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | Analyse des culots   | Serveurs IPM         |
+| d’autres composantes | cellulaires          |                      |
+| de l’immunité        |                      |                      |
++----------------------+----------------------+----------------------+
+| Données              | Base de données de   | Serveurs IPM (après  |
+| individuelles non    | la biobanque de      | transfert sécurisé   |
+| nominatives          | l’IPM                | par la banque du     |
+| (associées aux       |                      | sang de Majunga pour |
+| échantillons de      |                      | les échantillons de  |
+| sérums en biobanque) |                      | Majunga)             |
++----------------------+----------------------+----------------------+
+| Données              | Base de données de   | Serveurs IPM         |
+| individuelles non    | surveillance du      |                      |
+| nominatives          | mpox, constituée à   |                      |
+| (associées aux       | partir des fiches    |                      |
+| échantillons         | épidémiologiques des |                      |
+| collectés dans le    | cas suspects         |                      |
+| cadre de la          | complétées dans le   |                      |
+| surveillance         | cadre de la          |                      |
+| nationale du mpox)   | surveillance         |                      |
+|                      | nationale du mpox    |                      |
++----------------------+----------------------+----------------------+
+| Résultats de         | Analyse des          | Serveurs IPM         |
+| séquençage des       | échantillons de cas  |                      |
+| souches de MPXV      | confirmés de MPXV    |                      |
++----------------------+----------------------+----------------------+
+
+Précisions sur les données nominatives collectées sur les sites
+investigateurs
+
+Pendant les enquêtes de séroprévalence, des informations identifiantes
+seront collectées afin de constituer le registre des participants. Ces
+informations identifiantes ne seront pas saisies dans la base de données
+électronique du projet. Une table de correspondance permettant de faire
+le lien entre l’identifiant unique attribué aux échantillons prélevés et
+l’identité du participant sera établie, conservée par les équipes
+terrain pendant la durée des investigations, puis archivée sous
+enveloppe scellée à l’IPM après les investigations.
+
+Précisions sur les données non nominatives collectées par questionnaires
+de recherche
+
+La base de données du projet sera créée par la gestionnaire de données
+de l’Unité d’Epidémiologie des Maladies Emergentes (UEME) de l’IPP via
+l’outil REDCap, logiciel de recueil de données en ligne hébergé sur les
+serveurs de l’IPP. REDCap est accessible à distance de façon sécurisée
+par les utilisateurs référencés et authentifiés à l’aide d’un
+identifiant et d’un mot de passe personnels, et permet de différencier
+les droits d’accès (modification, lecture, extraction...) aux
+formulaires et aux données qu’ils contiennent selon le profil des
+utilisateurs (investigateurs, équipes d’investigations, gestionnaires de
+données, attachés de recherche clinique).
+
+Pour le site investigateur dispensaire SISAL, un questionnaire au format
+papier reprenant les formulaires créés sur la base de données
+électronique sera administré aux participants par les équipes cliniques.
+Les données seront saisies à posteriori (double saisie) à l’IPM dans la
+base de données électronique. Pour les sites investigateurs CTAR à l’IPM
+et DIC de l’ORMS LGBT, les données seront saisies directement dans la
+base de données électronique.
+
+Précisions sur les données non-nominatives associées aux échantillons en
+biobanque
+
+Les données associées aux échantillons en biobanque à l’IPM, issues des
+questionnaires administrés aux donneurs de sang lors de la collecte de
+ces prélèvements, sont stockées sur les serveurs de l’IPM.
+
+Les données associées aux échantillons de la banque du sang de Majunga,
+issues des questionnaires administrés aux donneurs de sang lors des
+dons, sont stockées sur les serveurs de la banque du sang. La sélection
+des données d’intérêt pour le projet sera associée aux échantillons
+transférés à l’IPM, et communiquée électroniquement à l’IPM par la
+banque du sang de Majunga de manière sécurisée.
+
+Description des données et justification
+
++----------------------+----------------------+----------------------+
+| JEUX DE DONNEES      | DONNEES              |                      |
++======================+======================+======================+
+|                      | DESCRIPTION          | JUSTIFICATION        |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles        | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (enquêtes de         |                      |                      |
+| séroprévalence)      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Coordonnées      | Etablir la liste de  |
+|                      |       (données       | correspondance entre |
+|                      |                      | le nom et le code    |
+|                      |      administratives | identifiant          |
+|                      |                      |                      |
+|                      |    d’identification) |                      |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (enquêtes de         |                      |                      |
+| séroprévalence)      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Âge ou           | Stratification des   |
+|                      |       mois/année de  | résultats sur l’âge, |
+|                      |       naissance      | le sexe, ou la       |
+|                      |                      | localisation         |
+|                      | -   Sexe             |                      |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence      |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Historique connu | Interprétation des   |
+|                      |       d’infection    | résultats de         |
+|                      |       mpox (dates,   | sérologie détectant  |
+|                      |       symptômes,     | les anticorps        |
+|                      |                      | spécifiques          |
+|                      |     hospitalisation) | anti-MPXV            |
+|                      |                      |                      |
+|                      | -   Vaccination      |                      |
+|                      |       smallpox/mpox  |                      |
+|                      |       (dates)        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Historique       | Identification       |
+|                      |       d’éruption     | d’hypothétiques      |
+|                      |       cutanée        | infections mpox non  |
+|                      |       fébrile        | diagnostiquées       |
+|                      |       (dates,        |                      |
+|                      |       diagnostic,    |                      |
+|                      |       symptômes)     |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Conditions       | Stratification des   |
+|                      |       sous-jacentes  | résultats en         |
+|                      |                      | fonction de          |
+|                      | -   Traitements      | conditions           |
+|                      |       médicamenteux  | sous-jacentes,       |
+|                      |                      | exclusion de sujets  |
+|                      |                      | de certaines         |
+|                      |                      | analyses             |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Intention        | Estimation de la     |
+|                      |       vaccinale mpox | prévalence de        |
+|                      |                      | l’intention          |
+|                      | -   Eventuels freins | vaccinale et         |
+|                      |       à la           | identification des   |
+|                      |       vaccination    | freins               |
+|                      |       mpox           |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Niveau           | Identification de    |
+|                      |       d’instruction  | facteurs             |
+|                      |                      | d’augmentation (ou   |
+|                      | -   Facteurs de      | de diminution) du    |
+|                      |       risque         | risque d’infection   |
+|                      |       (contacts avec | par le MPXV          |
+|                      |       patient        |                      |
+|                      |       atteint de     |                      |
+|                      |       mpox, contacts |                      |
+|                      |       sexuels,       |                      |
+|                      |       contacts avec  |                      |
+|                      |       faune sauvage) |                      |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | Données              |                      |
+| de sérologie         | biologiques :        |                      |
+| (Luminex)            |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Taux d’anticorps | Estimation de la     |
+|                      |       IgM et IgG     | prévalence des       |
+|                      |       dirigés contre | anticorps            |
+|                      |       des protéines  | spécifiques          |
+|                      |       du MPXV        | anti-MPXV            |
+|                      |                      |                      |
+|                      | -   Taux d’anticorps |                      |
+|                      |       IgM et IgG     |                      |
+|                      |       dirigés contre |                      |
+|                      |       des protéines  |                      |
+|                      |       d’autres       |                      |
+|                      |       orthopoxvirus  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Taux d’anticorps | Estimation de la     |
+|                      |       IgM et IgG     | prévalence des       |
+|                      |       dirigés contre | anticorps            |
+|                      |       des protéines  | spécifiques de       |
+|                      |       de pathogènes  | plusieurs pathogènes |
+|                      |       d’intérêt en   | d’intérêt en santé   |
+|                      |       santé publique | publique             |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | -   Composition et   | Caractérisation      |
+| d’autres composantes |       fonctionnalité | d’autres composantes |
+| de l’immunité        |       des            | de l’immunité pour   |
+|                      |                      | les participants     |
+|                      |     sous-populations | séropositifs pour un |
+|                      |                      | pathogène donné      |
+|                      |      lymphocytaires. |                      |
+|                      |       Diversité des  |                      |
+|                      |       répertoires    |                      |
+|                      |       B/T et la      |                      |
+|                      |       réactivité T   |                      |
+|                      |                      |                      |
+|                      |  antigène-spécifique |                      |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (associées aux       |                      |                      |
+| échantillons de      |                      |                      |
+| sérums en biobanque) |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Année de         | Stratification des   |
+|                      |       naissance      | résultats sur l’âge, |
+|                      |                      | le sexe, ou la       |
+|                      | -   Sexe             | localisation         |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence      |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Éruption cutanée | Identification       |
+|                      |       au cours des 4 | d’hypothétiques      |
+|                      |       derniers mois  | infections mpox non  |
+|                      |                      | diagnostiquées       |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Facteurs de      | Identification de    |
+|                      |       risque         | facteurs             |
+|                      |       (antécédent de | d’augmentation (ou   |
+|                      |       MST ou         | de diminution) du    |
+|                      |       traitement,    | risque d’infection   |
+|                      |       rapport        | par le MPXV          |
+|                      |       homosexuel,    |                      |
+|                      |       changement de  |                      |
+|                      |       partenaire au  |                      |
+|                      |       cours des 6    |                      |
+|                      |       derniers mois) |                      |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (associées aux       |                      |                      |
+| échantillons         |                      |                      |
+| collectés dans le    |                      |                      |
+| cadre de la          |                      |                      |
+| surveillance         |                      |                      |
+| nationale du mpox)   |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Année de         | Caractérisation des  |
+|                      |       naissance      | cas confirmés de     |
+|                      |                      | mpox                 |
+|                      | -   Sexe             |                      |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence      |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Conditions       | Caractérisation des  |
+|                      |       sous-jacentes  | cas confirmés de     |
+|                      |       (déficience    | mpox                 |
+|                      |       immunitaire)   |                      |
+|                      |                      |                      |
+|                      | -   Date de début    |                      |
+|                      |       des symptômes  |                      |
+|                      |                      |                      |
+|                      | -   Eruption cutanée |                      |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Profession       | Caractérisation des  |
+|                      |                      | cas confirmés de     |
+|                      | -   Historique de    | mpox                 |
+|                      |       voyage         |                      |
+|                      |                      |                      |
+|                      | -   Contact avec     |                      |
+|                      |       patient        |                      |
+|                      |       atteint de     |                      |
+|                      |       mpox           |                      |
++----------------------+----------------------+----------------------+
+|                      | Données              |                      |
+|                      | biologiques :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Date de          | Caractérisation des  |
+|                      |       prélèvement    | cas confirmés de     |
+|                      |                      | mpox                 |
+|                      | -   Type de          |                      |
+|                      |       prélèvement    |                      |
+|                      |                      |                      |
+|                      | -   Résultats du     |                      |
+|                      |       test PCR,      |                      |
+|                      |       valeur du Ct   |                      |
++----------------------+----------------------+----------------------+
+| Résultats de         | Données              |                      |
+| séquençage des       | biologiques :        |                      |
+| souches de MPXV      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Génomes complets | Estimation de la     |
+|                      |       des souches de | part relative des    |
+|                      |       MPXV           | introductions        |
+|                      |                      | zoonotiques versus   |
+|                      |                      | cas de transmission  |
+|                      |                      | interhumaine,        |
+|                      |                      | analyses             |
+|                      |                      | phylogénétiques,     |
+|                      |                      | estimation de la     |
+|                      |                      | date d’introduction  |
+|                      |                      | du virus à           |
+|                      |                      | Madagascar           |
++----------------------+----------------------+----------------------+
+
+Circuit des données et droits d’accès
+
++-------------+-------------+-------------+-------------+-------------+
+| JEUX DE     | ACCES       | ACCES       | PARTAGE DES | PRINCIPALES |
+| DONNEES     |             |             | DONNEES     | FINALITES   |
+|             | IPM         | AUTRES      |             |             |
+|             |             | ENTITES     |             |             |
++=============+=============+=============+=============+=============+
+| Données     | équipes     | Association | Aucun       | C           |
+| in          | cliniques   | SISAL:      |             | onstitution |
+| dividuelles |             | médecin     |             | du registre |
+| nominatives |             | in          |             | des         |
+| (enquêtes   |             | vestigateur |             | p           |
+| de          |             |             |             | articipants |
+| séro        |             |             |             |             |
+| prévalence) |             |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - équipes   | IPP :       | Accès aux   | -           |
+| in          | cliniques   |             | données     | Estimation  |
+| dividuelles |             | - unité EME | stockées    | de la       |
+| non         | - unité     |             | sur REDCap  | prévalence  |
+| nominatives | EPI-RC      | - unité ERI | (serveurs   | des         |
+| (enquêtes   |             |             | IPP) via    | anticorps   |
+| de          | - unité IMI | - unité     | droits      | spécifiques |
+| séro        |             | IDEA        | d’accès     | contre      |
+| prévalence) |             |             | i           | différents  |
+|             |             |             | ndividuels. | pathogènes, |
+|             |             |             |             | dont le     |
+|             |             |             |             | MPXV        |
+|             |             |             |             |             |
+|             |             |             |             | -           |
+|             |             |             |             | Ide         |
+|             |             |             |             | ntification |
+|             |             |             |             | des         |
+|             |             |             |             | facteurs    |
+|             |             |             |             | associés au |
+|             |             |             |             | risque      |
+|             |             |             |             | d’infection |
+|             |             |             |             | passée par  |
+|             |             |             |             | différents  |
+|             |             |             |             | pathogènes, |
+|             |             |             |             | dont le     |
+|             |             |             |             | MPXV        |
+|             |             |             |             |             |
+|             |             |             |             | -           |
+|             |             |             |             | Cara        |
+|             |             |             |             | ctérisation |
+|             |             |             |             | d’autres    |
+|             |             |             |             | composantes |
+|             |             |             |             | de          |
+|             |             |             |             | l’immunité  |
+|             |             |             |             | contre      |
+|             |             |             |             | différents  |
+|             |             |             |             | pathogènes, |
+|             |             |             |             | dont le     |
+|             |             |             |             | MPXV        |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - unité     | IPP :       | Partage des |             |
+| in          | EPI-RC      |             | données via |             |
+| dividuelles |             | - unité EME | OWEY        |             |
+| non         | - unité IMI |             | (serveurs   |             |
+| nominatives |             | - unité ERI | IPP), accès |             |
+| (associées  |             |             | i           |             |
+| aux         |             | - unité     | ndividuels. |             |
+| é           |             | IDEA        |             |             |
+| chantillons |             |             |             |             |
+| de sérums   |             |             |             |             |
+| en          |             |             |             |             |
+| biobanque)  |             |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Résultats   | - unité     | IPP :       | Partage des |             |
+| d’analyses  | EPI-RC      |             | résultats   |             |
+| de          |             | - unité EME | d’analyses  |             |
+| sérologie   | - unité IMI |             | d’é         |             |
+| (Luminex)   |             | - unité ERI | chantillons |             |
+|             |             |             | via OWEY    |             |
+|             |             | - unité     | (serveurs   |             |
+|             |             | IDEA        | IPP), accès |             |
+|             |             |             | i           |             |
+|             |             |             | ndividuels. |             |
++-------------+-------------+-------------+-------------+-------------+
+| Résultats   | - unité     | IPP :       |             |             |
+| d’analyses  | EPI-RC      |             |             |             |
+| d’autres    |             | - unité EME |             |             |
+| composantes | - unité IMI |             |             |             |
+| de          |             | - unité ERI |             |             |
+| l’immunité  |             |             |             |             |
+|             |             | - unité     |             |             |
+|             |             | IDEA        |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - unité     | IPP :       | Partage des | -           |
+| in          | EPI-RC      |             | données et  | Estimation  |
+| dividuelles |             | - unité EME | résultats   | de la part  |
+| non         | - unité de  |             | d’analyses  | relative    |
+| nominatives | Virologie   | - unité     | d’é         | des         |
+| (associées  |             | EPVO        | chantillons | in          |
+| aux         |             |             | via OWEY    | troductions |
+| é           |             | - unité     | (serveurs   | zoonotiques |
+| chantillons |             | EDID        | IPP), accès | versus cas  |
+| collectés   |             |             | i           | de          |
+| dans le     |             | - unité     | ndividuels. | t           |
+| cadre de la |             | MMID        |             | ransmission |
+| s           |             |             |             | i           |
+| urveillance |             | - hub de    |             | nterhumaine |
+| nationale   |             | bioi        |             | à           |
+| du mpox)    |             | nformatique |             | Madagascar  |
+|             |             | et          |             |             |
+|             |             | bio         |             | - Analyses  |
+|             |             | statistique |             | phyl        |
+|             |             |             |             | ogénétiques |
+|             |             |             |             |             |
+|             |             |             |             | -           |
+|             |             |             |             | Estimation  |
+|             |             |             |             | de la date  |
+|             |             |             |             | d’i         |
+|             |             |             |             | ntroduction |
+|             |             |             |             | du MPXV à   |
+|             |             |             |             | Madagascar  |
++-------------+-------------+-------------+-------------+-------------+
+| Résultats   | - unité     |             |             |             |
+| de          | EPI-RC      |             |             |             |
+| séquençage  |             |             |             |             |
+| des souches | - unité de  |             |             |             |
+| de MPXV     | Virologie   |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+
+Conservation des données et archivage
+
+L’IPM, promoteur de cette recherche, conservera le registre des
+participants, les consentements et CRF papier pendant 15 ans. Passé ce
+délai, ces documents seront détruits.
+
+La base de données électronique du projet stockée sur les serveurs de
+l’IPP sera conservée pendant 15 ans en base active, puis archivée. Les
+autres données numériques reçues par l’IPP seront également conservées
+pour une durée de 15 ans, puis archivées.
+
+Le rapport final de la recherche sera archivé par les deux instituts
+pour une durée de 15 ans.
+
+Lieux et analyses des données
+
+Epidémiologie et sérologie (WP1-2)
+
+L’analyse et l’interprétation des données immunologiques et
+épidémiologiques associées seront effectuées conjointement par les
+équipes de l’unité EPI-RC et de l’unité IMI de l’IPM, avec l’appui des
+unités Epidémiologie des maladies émergentes (UEME), Environnement et
+risques infectieux (ERI), et Epidémiologie et analyse des maladies
+infectieuses (IDEA) de l’IPP.
+
+Les caractéristiques des sujets séropositifs et séronégatifs pour les
+anticorps spécifiques d’un pathogène donné, dont le MPXV, seront
+décrites par les moyennes et déviations standards, ou les médianes et
+écarts interquartiles pour les variables continues, et par les
+proportions avec intervalles de confiance à 95% pour les variables
+discrètes. Le test du Chi-2 (ou test exact de Fisher selon les effectifs
+observés) sera utilisé pour comparer les variables discrètes. Le test de
+Student (ou test de Mann-Whitney selon les effectifs observés) sera
+utilisé pour comparer les variables continues. Toutes les variables
+associées en analyse univariée à un seuil ≤ 0,25 seront intégrées dans
+une régression logistique pas à pas descendant afin de déterminer les
+facteurs de risque de séroconversion. Ces facteurs de risque seront
+mesurés par l’intermédiaire des Odds ratio (OR) et leur intervalle de
+confiance à 95%. Le degré de signification statistique retenu sera fixé
+à p<0,05.
+
+Les données sérologiques mpox obtenues et les données épidémiologiques
+associées seront partagées dans une base de données commune avec les
+autres instituts du PN déclinant le projet VAXPOX, permettant d’élargir
+la surveillance collaborative entre les instituts du réseau à un volet
+sérologique. 
+
+Virologie moléculaire (WP3)
+
+L’assemblage des séquences virales brutes afin de générer les génomes
+entiers des souches MPXV issues des prélèvements positifs, ainsi que les
+analyses phylodynamiques intégrant les métadonnées associées seront
+réalisées par les équipes de l’unité de virologie de l’IPM, avec l’appui
+des unités Epidémiologie et Physiopathologie des virus oncogènes (EPVO)
+et Dynamiques évolutives des maladies infectieuses (EDID) de l’IPP.
+
+Les séquences et métadonnées associées seront déposées sur la plateforme
+Owey (serveurs IPP) en suivant le format de pathoplexus
+(https://pathoplexus.org/) dans lequel les séquences et les métadonnées
+sont liées, et ainsi facilement déployées pour des analyses ou le
+partage. Les données génomiques qui seront obtenues seront comparées
+avec les autres génomes disponibles dans GenBank sur la plateforme Owey
+(https://dataset.owey.io). Les analyses combinées des données de
+phylogénie et des données épidémiologiques seront réalisées grâce à une
+pipeline Nextstrain³⁵. Un modèle phylodynamique sera développé via la
+plateforme BEAST2³⁶, utilisant toutes les séquences disponibles pour
+décrire les dynamiques de transmissions zoonotique et interhumaine, et
+estimer la date d’introduction du virus MPXV sur le territoire malgache.
+
+Modélisation mathématique (WP4)
+
+Les données collectées et générées dans les autres WP seront utilisées
+pour estimer des paramètres clés nécessaires au développement de modèles
+mathématiques décrivant la circulation du mpox à Madagascar. La
+population modélisée sera structurée par âge et par groupe à risque
+d’infection. Le modèle prendra en compte les différentes voies de
+transmission, y compris la transmission interhumaine sexuelle ou non
+sexuelle, ainsi que la transmission zoonotique. Un échantillonnage par
+chaîne de Markov Monte Carlo sera utilisé pour calibrer le modèle aux
+données disponibles. Grâce à cette calibration, la contribution des
+différentes voies de transmission à la propagation globale sera
+quantifiée. Le modèle obtenu sera utilisé pour simuler des épidémies
+selon différentes stratégies de vaccination. Le fardeau d’infection
+évité par chaque stratégie sera estimé, et celle qui maximise l’impact
+de la vaccination sera identifiée. Le modèle sera calibré aux données
+recueillies dans différents contextes (urbain vs rural) afin de
+déterminer les caractéristiques spécifiques à chaque contexte, et
+d’évaluer si les différences entre contextes justifient l’application de
+stratégies de vaccination distinctes.
+
+Des analyses coût-efficacité des stratégies de vaccination seront
+réalisées, en tenant compte des différences de gravité de la maladie
+selon les caractéristiques individuelles telles que l’âge ou le clade
+viral. La charge d’infection évitée estimée par le modèle de
+transmission sera convertie en mesures économiques ou sanitaires telles
+que les ressources de santé utilisées ou les années de vie ajustées sur
+la qualité. Cette harmonisation des résultats du modèle permettra de
+calculer les ratios coût-efficacité incrémentaux et de fournir des
+informations sur la valeur des stratégies de vaccination.
+
+Ces travaux de modélisation seront effectués à l’IPP au sein des unités
+Modélisation mathématique des maladies infectieuses (MMID) et
+Epidémiologie des maladies émergentes (UEME), en collaboration avec les
+modélisateurs de l’unité EPI-RC de l’IPM.
+
+Confidentialité des données
+
+Enquêtes de séroprévalence
+
+Chaque participant se verra assigner un code d’identification unique,
+associé à ses données personnelles et à ses échantillons, qui sera
+conservé pendant toute la durée de la recherche.
+
+Ce code sera composé de la façon suivante :
+
+Code projet + Code du lieu de recrutement + N° de sujet
+
+Le code projet sera : VPMDG
+
+Le code attribué à chaque lieu de recrutement est défini dans le tableau
+ci-dessous :
+
+  LIEU DE RECRUTEMENT                                CODE
+  -------------------------------------------------- ------
+  Centre de Traitement Antirabique (CTAR) de l’IPM   01
+  Dispensaire de l’association SISAL                 02
+  Drop-In Center (DIC) de l’ORMS LGBT                03
+
+Le numéro de chaque sujet (nombre à trois chiffres) sera défini par
+incrémentation.
+
+Exemple pour le sujet N°99 recruté au dispensaire de l’association SISAL
+participant à la recherche VAXPOX-MADA : VPMDG-02-099
+
+Etude sur échantillons en biobanque
+
+Pour les analyses effectuées sur les échantillons en biobanque collectés
+auprès de donneurs de sang, les échantillons et données associées
+utilisées dans le cadre de cette étude seront recodées comme indiqué
+ci-dessus, avec le code « 77 » pour les échantillons issus de la
+biobanque de l’IPM (donneurs de sang d’Antananarivo prélevés en 2022),
+ou le code « 88 » pour les échantillons issus de la banque du sang de
+Majunga (donneurs de sang prélevés en septembre 2025).
+
+Exemple pour le 12^(ème) échantillon de sérum de la biobanque de l’IPM
+inclus dans la recherche VAXPOX-MADA : VPMDG-77-012.
+
+Etudes génomiques
+
+Pour les analyses génomiques effectuées sur les échantillons reçus par
+l’IPM dans le cadre de la surveillance, les échantillons et données
+associées utilisées dans le cadre de cette étude seront recodées comme
+indiqué ci-dessus, avec le code « 99 » pour le lieu de recrutement.
+
+Exemple pour le 43^(ème) échantillon MPXV positif inclus dans la
+recherche VAXPOX-MADA : VPMDG-99-043.
+
+diffusion des resultats
+
+9.  
+
+Diffusion des résultats auprès des participants et des populations
+
+Les équipes de recherche de l’IPM interviennent régulièrement auprès des
+populations dans le cadre de leurs activités de recherche et de
+surveillance. La recherche VAXPOX-MADA sera l’occasion de renforcer les
+activités de sensibilisation sur le mpox, ses facteurs de risque et
+modes de prévention. Les résultats du projet VAXPOX-MADA feront l’objet
+de communications avec la collaboration du ministère de la Santé de
+Madagascar. La diffusion des résultats de ce projet s’attachera à ce que
+l’information délivrée évite toute forme de stigmatisation des
+populations ou individus atteints. Une restitution des résultats sera
+effectuée sur chaque site de recrutement auquel les participants seront
+invités.
+
+Diffusion des résultats auprès des autorités locales
+
+Les résultats du projet VAXPOX-MADA feront l’objet d’une communication
+au ministère de la Santé de Madagascar.
+
+Diffusion des résultats auprès de la communauté scientifique
+
+Les résultats du projet VAXPOX-MADA pourront faire l'objet de
+présentations lors de réunions, ou congrès scientifiques ou médicaux,
+par les membres des équipes de l’IPM et de l’IPP impliqués dans ce
+projet, après validation par les co-responsables scientifiques du
+projet. Les résultats feront l'objet de soumissions d’articles
+scientifiques dans des revues à comité de lecture. La liste des
+signataires et des personnes remerciées dans les articles scientifiques
+soumis sera établie après discussion collégiale. L’ordre des co-auteurs
+sera discuté en fonction de la participation de chacun à cette
+recherche, participation comprenant de façon chronologique mais de façon
+non exhaustive : la rédaction du protocole, la mise en place et le suivi
+réglementaire et logistique de la recherche, la collecte des données et
+échantillons biologiques dans le cadre des activités de recherche, les
+analyses de ces échantillons et données, leur interprétation, et la
+rédaction des articles scientifiques.
+
+Calendrier général de lA RECHERCHE
+
+Le calendrier général des activités est présenté en Annexe 1.
+
+-   Date prévisionnelle de début des inclusions : 01/06/2026
+
+-   Durée de participation d’un participant : 2 heures maximum
+
+-   Fin prévisionnelle de la recherche : visite du dernier sujet recruté
+
+-   Durée prévisionnelle de la recherche : 24 mois
+
+-   Durée prévisionnelle de la période des investigations : 6 mois
+
+-   Durée prévisionnelle des analyses : 18 mois
+
+Financement
+
+Ce projet a reçu un financement de la Stavros Niarchos Foundation (SNF –
+fondation privée).
+
+Considérations éthiques ET REGLEMENTAIRES
+
+Il s’agit d’une recherche sur la personne humaine à risques et
+contraintes minimes menée à Madagascar par l’IPM, impliquant un
+prélèvement de sang spécifique et des données personnelles associées,
+spécifiquement collectés pour l’étude. L’étude implique aussi
+l’utilisation d’échantillons biologiques humains et données associées
+collectées auprès de donneurs de sang, ainsi que la réutilisation à des
+fins de recherche de données et d’échantillons biologiques d’origine
+humaine issus du système de surveillance nationale du mpox auquel l’IPM
+est intégré.
+
+Afin de répondre aux recommandations de l’OMS, le protocole sera soumis
+à l’examen de l’IRB (Institutional Review Board) de l’IPP avant
+soumission aux instances locales. A cet effet, le protocole sera soumis
+à l’avis du CERBM (Comité d’Ethique de la Recherche Biomédicale auprès
+du ministère de la Santé publique de Madagascar). La recherche débutera
+après autorisation du CERBM. Les éventuelles demandes de modifications
+substantielles du protocole pour autorisation, avis ou information
+seront adressées par l’IPM, promoteur de cette recherche, aux instances
+concernées.
+
+L’IPM étant promoteur de cette recherche, et l’IPP co-responsable de
+traitement, la recherche sera menée dans le respect des réglementations
+malgache et française en vigueur, notamment des dispositions relatives à
+la loi Informatique et Libertés, du Règlement Européen sur la protection
+des données, de la déclaration d’Helsinki, ainsi que des Bonnes
+Pratiques Cliniques et du présent protocole. L’IPP étant co-responsable
+de traitement, la protection des données relatives au projet sera
+également évaluée dans le cadre du Règlement Général sur la Protection
+des Données (RGPD).
+
+vigilance
+
+10. 
+
+11. 
+
+12. 
+
+13. 
+
+Risques encourus dans le cadre de la recherche
+
+La nature des actes médicaux réalisés est très peu à risque de
+complication. Les seuls événements indésirables attendus sont liés à la
+prise de sang : légère douleur au point de ponction au moment de
+l’insertion de l’aiguille, petit hématome au point de prélèvement ou
+malaise vagal bénin. Ces éventuels risques physiques seront minimisés
+car les gestes seront pratiqués par du personnel formé à cet effet et
+réalisés avec du matériel stérile à usage unique.
+
+Recueil, notification et suivi des évènements indésirables 
+
+Cette étude ne comportant que des risques et des contraintes minimes,
+les éventuels évènements indésirable (graves ou non) ne feront pas
+l’objet de notification aux autorités. En revanche, le participant sera
+adressé si nécessaire par l’investigateur à une structure de santé
+identifiée permettant une prise en charge adéquate.
+
+Assurance
+
+L’IPM, en tant que promoteur du projet VAXPOX-MADA, sera couvert pour
+toute la durée de la recherche au titre de la police locale
+responsabilité civile souscrite auprès de ASSURANCES REASSURANCES
+OMNIBRANCHES ARO conformément aux dispositions légales et réglementaires
+malgaches en matière de recherche sur la personne humaine impliquant un
+prélèvement sanguin.
+
+Toute demande d’indemnisation émise par un sujet participant à la
+recherche décrite dans ce protocole doit être adressée sans délai au
+représentant du promoteur par l’investigateur dès qu’il en a
+connaissance.
+
+contrôle et assurance de la qualite
+
+1.  
+
+2.  
+
+3.  
+
+4.  
+
+5.  
+
+6.  
+
+7.  
+
+8.  
+
+9.  
+
+10. 
+
+11. 
+
+12. 
+
+13. 
+
+14. 
+
+15. 1.  Monitoring
+
+S’agissant d’une recherche impliquant la personne humaine à risques et
+contraintes minimes prévoyant une collecte d’échantillons selon des
+actes peu ou pas invasifs, aucun suivi étroit n’est jugé nécessaire.
+Néanmoins pour satisfaire aux exigences des Bonnes Pratiques Cliniques,
+les visites de monitoring suivantes seront réalisées sur site par un
+attaché de recherche clinique en collaboration étroite avec le
+promoteur.
+
+Une réunion de pré-ouverture afin de :
+
+- Vérifier les moyens techniques et les compétences des sites
+investigateurs,
+
+- Valider les modalités pratiques et logistiques.
+
+- Définir, le cas échéant et en accord avec les centres, un plan
+d’action en vue de la mise en place officielle de l’étude,
+
+Une réunion d’ouverture afin de :
+
+- Vérifier les moyens techniques et les compétences des sites
+investigateurs,
+
+- Rappeler les aspects scientifiques du protocole, la réglementation,
+
+- Valider les modalités pratiques et logistiques.
+
+Un monitorage des données au quotidien permettra de :
+
+- Vérifier la validité des consentements,
+
+- Vérifier ou collecter les données sur les fiches prévues à cet effet
+
+- Vérifier la documentation des échantillons transférés.
+
+Une visite de clôture administrative afin de :
+
+- Vérifier les fiches de recueil de données et la documentation des
+échantillons transférés,
+
+- S’assurer du contenu et de l’archivage du dossier investigateur.
+
+- Pour réaliser ces visites, l’investigateur permettra un accès direct à
+tout représentant du promoteur désigné à cet effet.
+
+Correction du CRF
+
+Les CRF ne peuvent être corrigés que par l’investigateur lui-même ou par
+toute personne expressément désignée comme étant son délégataire. Chaque
+correction doit être documentée par une date et les initiales de la
+personne autorisée.
+
+Audit
+
+Dans le cadre des dispositions prises pour le contrôle et l’assurance de
+la qualité de la recherche, le promoteur et les autorités de tutelle
+pourront demander un accès direct aux données et aux documents sources,
+et notamment au dossier médical des patients, pour vérification des
+procédures et/ou des données des bases de données de surveillance de la
+variole du singe réalisées par l’IPM, sans violer la confidentialité et
+dans les limites autorisées par les lois et réglementations.
+
+L’investigateur ou un représentant dûment désigné doit être disponible
+durant les visites de suivi, de monitoring ou d’audit organisé par le
+promoteur.
+
+ComitéS scientifique ET DE PILOTAGE DU PROJET
+
+La gouvernance du projet sera organisée autour de deux comités : un
+Comité de Pilotage et un Comité Scientifique. Ces deux comités
+rassembleront tous les instituts déclinant le projet VAXPOX, afin de
+permettre une vision d’ensemble des activités. Pour chaque réunion d’un
+Comité, un compte rendu sera validé par l’ensemble des participants et
+partagé entre les membres du Comité concerné.
+
+14. 
+
+15. 
+
+1.  
+2.  
+3.  
+4.  
+5.  
+6.  
+7.  
+8.  
+9.  
+10. 
+11. 
+12. 
+13. 
+14. 
+15. 
+16. 
+
+16. 
+
+Comité de pilotage
+
+Le Comité de Pilotage (COPIL) supervisera les opérations quotidiennes et
+comprendra pour l’IPP les chargés de projet (coordination globale au
+sein de l’unité UEME, coordination clinique au PC-RC, et coordination
+administrative, juridique et financière au PO-DAI), et pour chaque
+institut qui décline le projet VAXPOX : le responsable de la
+coordination clinique (ou chargé de projet), et le responsable
+scientifique (ou son représentant). Selon l’ordre du jour de la réunion,
+d’autres personnes impliquées dans le projet dans l’un des instituts
+pourront être invités à participer.
+
+Le COPIL se réunira une fois par mois pendant les six premiers mois à
+compter de l’obtention de la clairance éthique dans l’un des pays
+déclinant le projet VAXPOX, puis tous les trois mois ou selon les
+besoins. Lors de ces réunions, la mise en œuvre du projet sera examinée
+et les difficultés identifiées seront discutées. Si nécessaire, des
+plans de contingence seront proposés aux co-responsables scientifiques
+du projet pour approbation. Les chargés de projet et les responsables de
+la coordination clinique seront chargés de communiquer les ajustements
+validés aux équipes de leur institut et de veiller à leur bonne mise en
+œuvre.
+
+Comité scientifique 
+
+Le Comité Scientifique (CS) supervisera les avancées scientifiques du
+projet et comprendra les co-responsables scientifiques au sein de chacun
+des instituts déclinant le projet VAXPOX. En fonction des résultats à
+discuter, les coordinateurs des WP concernés au sein de chaque institut
+seront invités à participer aux réunions du CS. Les responsables de la
+coordination clinique ou chargés de projet au sein de chaque institut
+pourront participer aux réunions du CS en tant qu’observateurs.
+
+Le CS se réunira une fois tous les trois mois à compter du démarrage des
+activités d’investigation dans l’un des pays déclinant le projet VAXPOX,
+et ce jusqu’à publication des résultats obtenus. Au milieu et à la fin
+du projet, des experts extérieurs pourront être invités à participer à
+la réunion du CS. Ces experts fourniront un avis externe et non
+contraignant sur la pertinence scientifique, la solidité méthodologique
+et la cohérence des résultats obtenus.
+
+Rapports d’activité
+
+Les rapports scientifiques et financiers seront préparés par les chargés
+de projet et responsables de la coordination clinique des instituts,
+puis soumis aux co-responsables scientifiques pour validation. Les
+rapports validés seront transmis aux financeurs conformément aux
+modalités contractuelles définies.
+
+ROLE DES ENTITES PARTENAIRES DE l’ipm
+
+17. 
+
+Association Sambatra Izay Salama (SISAL)
+
+SISAL est une association Malgache assurant un continuum de services de
+santé pour les populations les plus exposées aux risques d’infections
+sexuellement transmissibles dont le VIH (communauté LGBTQ+ et les
+travailleur(euse)s du sexe) ainsi que leur famille. Présente à
+Madagascar depuis 2000, SISAL dispose de 3 centres médicosociaux Test
+Treat Retain ; 2 dispensaires à Antananarivo, et un dispensaire à
+Toliara. Au total, une trentaine de personnels permanents dont des
+médecins, des paramédicaux et 15 pairs éducateurs travaillent au sein de
+ces dispensaires. Pour le projet VAXPOX-MADA, le dispensaire SISAL à
+Antananarivo constituera un site investigateur pour le recrutement de
+participants (travailleur(euse)s du sexe et individus s’identifiant à la
+communauté LGBT).
+
+ONG Réseau Madagascar Solidarité LGBT (ORMS LGBT)
+
+L’ORMS LGBT plaide pour le respect des droits fondamentaux, la
+non-discrimination et la non-stigmatisation de la communauté LGBT. Elle
+mène des actions pour contrer la propagation des IST, dont le VIH. Pour
+le projet VAXPOX-MADA, l’ONG mettra à disposition ses locaux et
+facilitera le recrutement des participants par l’information et la
+sensibilisation.
+
+Institut Pasteur Paris (IPP)
+
+WP1 Epidémiologie
+
+Unité d’Epidémiologie des Maladies Emergentes (UEME)
+
+L’Unité d’Epidémiologie des Maladies Emergentes dirigée par le Pr Arnaud
+FONTANET possède une grande expérience dans la mise en place d’études de
+terrain sur les zoonoses émergentes en Afrique. Le Pr Arnaud FONTANET, à
+l’initiative du projet VAXPOX, sera responsable de sa coordination
+globale avec le support de Dr Laurie PINAUD, chargée de projet au sein
+de l’unité, et Olivier RIZK. Le Pr Arnaud FONTANET sera également
+responsable à l’IPP du WP1 épidémiologie, avec l’appui de Michael
+CASERA, épidémiologiste. La base de données sera développée et
+supervisée par Laura TONDEUR, biostatisticienne de l’unité UEME, et
+Quentin LECLERC sera responsable des analyses coût-efficacité conduites
+dans le WP4.
+
+WP2 Sérologie
+
+Unité Environnement et Risques Infectieux (ERI)
+
+L’Unité de recherche et d'expertise Environnement et risques infectieux
+dirigée par le Dr Jean-Claude MANUGUERRA possède une grande expérience
+dans la mise en place des outils de diagnostic adaptés au terrain dans
+les pays à ressources limitées. Le Dr Jessica VANHOMWEGEN supervisera la
+mise en place à l’IPM du test sérologique basé sur la technologie
+Luminex pour la détection d’anticorps anti-MPXV. Elle sera assistée par
+Damien HOINARD pour fournir un appui au IPM pour l’analyse des données
+brutes obtenues.
+
+Unité Epidémiologie et analyse des maladies infectieuses (IDEA)
+
+L’Unité d’Epidémiologie et analyse des maladies infectieuses dirigée par
+le Dr Michael WHITE a développé une expérience dans le développement de
+tests sérologiques basés sur la technologie Luminex, ainsi que dans les
+analyses des données obtenues. Son équipe, notamment le Dr Marie-Fabrice
+GASASIRA, fournira un appui au IPM conjointement avec l’unité ERI de
+l’IPP pour la mise en place du test, la formation des personnels, et
+l’analyse des données brutes obtenues.
+
+WP3 Virologie moléculaire
+
+Unité Epidémiologie et physiopathologie des virus oncogènes (EPVO)
+
+Le Dr Nicolas BERTHET, chercheur au sein de l’unité d’Epidémiologie et
+physiopathologie des virus oncogènes, a une grande expertise du mpox en
+Afrique Centrale, notamment au travers de projets de recherche conduits
+en collaboration avec l’unité UEME en République Centrafricaine. Avec la
+contribution de son doctorant Alexander TENDU, Dr Nicolas BERTHET
+apportera son expertise aux équipes du IPCI pour les activités de
+virologie moléculaire.
+
+Unité Dynamiques évolutives des maladies infectieuses (EDID)
+
+Le Dr Sebastian DUCHENE GARZON dirige l’unité Dynamiques évolutives des
+maladies infectieuses qui est spécialisée dans les méthodes
+phylodynamiques appliquées aux données génomiques, utilisées pour
+comprendre les zoonoses et mettre en place la surveillance génomique
+d’épidémies. Avec l’appui de Jordi SEVILLA, le Dr Sebastian DUCHENE
+GARZON apportera son expertise aux équipes du IPCI pour mener à bien les
+analyses phylogénétiques prévues dans le projet.
+
+Hub de Bioinformatique et Biostatistique
+
+Le Dr Laurent ESSIOUX dirige le Hub de Bioinformatique et Biostatistique
+et appuiera les équipes EPVO et EDID dans la mise en place du recueil
+des données génomiques virales et métadonnées associées sur la
+plateforme OWEY hébergée sur les serveurs de l’IPP.
+
+WP4 Modélisation mathématique
+
+Unité Modélisation mathématique des maladies infectieuses (MMID)
+
+L’unité de Modélisation mathématique des maladies infectieuses dirigée
+par le Dr Simon CAUCHEMEZ développe des méthodes statistiques et
+mathématiques pour mieux comprendre la manière dont les agents
+pathogènes se propagent au sein des populations humaines, ainsi que
+l'impact des interventions afin de soutenir la prise de décision
+politique et d'optimiser les stratégies de contrôle. L’équipe du Dr
+Simon CAUCHEMEZ sera responsable des activités du WP5, en particulier la
+modélisation de la circulation du mpox en Côte d’Ivoire, intégrant
+l’ensemble des données recueillies et générées par les autres WP. Les
+méthodes et résultats obtenus par l’équipe du Dr Simon CAUCHEMEZ seront
+partagés et discutés en collaboration avec les modélisateurs du IPCI.
+
+Appui à la coordination globale
+
+Pôle de Coordination de la Recherche Clinique (PC-RC)
+
+Mme Cassandre VON PLATEN, Mme Amélie DUBLINEAU et Mme Olivia CHENY
+coordonneront les aspects opérationnels et réglementaires du projet, en
+lien avec les Directions de l’IPP impliquées.
+
+Pôle des Opérations de la Direction des Affaires Internationales
+(PO-DAI)
+
+Dr Magali HERRANT coordonnera les aspects financiers, juridiques et
+administratifs du projet, en lien avec les Directions de l’IPP
+impliquées.
+
+annexes
+
+Annexe 1 : Calendrier général des activités du projet
+
+[]
+
+Références bibliographiques
+
+1. Gessain A, Nakoune E, Yazdanpanah Y. Monkeypox. N Engl J Med
+2022;387(19):1783–93. 2. Moss B. Understanding the biology of monkeypox
+virus to prevent future outbreaks. Nat Microbiol 2024;9(6):1408–16. 3.
+Bunge E, B H, L C, et al. The changing epidemiology of human monkeypox-A
+potential threat? A systematic review. PLoS neglected tropical diseases
+2022;16(2). 4. Whittles LK, Mbala-Kingebeni P, Ferguson NM. Age-patterns
+of severity of clade I mpox in historically endemic countries. medRxiv
+[Internet] 2024;Available from:
+https://www.medrxiv.org/content/10.1101/2024.04.23.24306209v15.
+Yinka-Ogunleye A, O A, M D, et al. Outbreak of human monkeypox in
+Nigeria in 2017-18: a clinical and epidemiological report. The Lancet
+Infectious diseases 2019;19(8). 6. Patel A, Bilinska J, Tam JCH, et al.
+Clinical features and novel presentations of human monkeypox in a
+central London centre during the 2022 outbreak: descriptive case series.
+BMJ 2022;378:e072410. 7. Mitjà O, Ogoina D, Titanji BK, et al.
+Monkeypox. Lancet 2023;401(10370):60–74. 8. Van Dijck C, Hoff NA,
+Mbala-Kingebeni P, et al. Emergence of mpox in the post-smallpox era-a
+narrative review on mpox epidemiology. Clin Microbiol Infect
+2023;29(12):1487–92. 9. Brand SPC, Cavallaro M, Cumming F, et al. The
+role of vaccination and public awareness in forecasts of Mpox incidence
+in the United Kingdom. Nat Commun 2023;14(1):4100. 10. Paredes MI, Ahmed
+N, Figgins M, et al. Underdetected dispersal and extensive local
+transmission drove the 2022 mpox epidemic. Cell
+2024;187(6):1374-1386.e13. 11. Brosius I, Vakaniaki EH, Mukari G, et al.
+Epidemiological and clinical features of mpox during the clade Ib
+outbreak in South Kivu, Democratic Republic of the Congo: a prospective
+cohort study. The Lancet 2025;S0140673625000479. 12. Ndembi N, Folayan
+MO, Komakech A, et al. Evolving Epidemiology of Mpox in Africa in 2024.
+N Engl J Med 2025;NEJMoa2411368. 13. World Health Organization (WHO).
+WHO Director-General declares mpox outbreak a public health emergency of
+international concern [Internet]. 2024;Available from:
+https://www.who.int/europe/news/item/16-08-2024-who-director-general-declares-mpox-outbreak-a-public-health-emergency-of-international-concern14.
+Masirika LM, Zaeck LM, Ndishimye P, et al. Serological evidence of clade
+Ib Mpox transmission by sex workers and within household in South Kivu,
+DRC. Nat Commun 2025;16(1):7056. 15. Vakaniaki EH, Kacita C,
+Kinganda-Lusamaki E, et al. Sustained human outbreak of a new MPXV clade
+I lineage in eastern Democratic Republic of the Congo. Nat Med
+2024;30:2791–5. 16. Treutiger C-J, Filén F, Rehn M, et al. First case of
+mpox with monkeypox virus clade Ib outside Africa in a returning
+traveller, Sweden, August 2024: public health measures. Eurosurveillance
+2024;29(48). 17. World Health Organization (WHO). Mpox Multi-country
+external situation report no. 47, published 13 February 2025 [Internet].
+2025. Available from:
+https://cdn.who.int/media/docs/default-source/documents/emergencies/mpox-multi-country-external-situation-report-no.-47.pdf?sfvrsn=896a25b3_2&download=true18.
+World Health Organization (WHO). Mpox Multi-country external situation
+report no. 62, published 23 January 2026 [Internet]. 2026. Available
+from:
+https://cdn.who.int/media/docs/default-source/documents/emergencies/multi-country-outbreak-of-mpox--external-situation-report_62.pdf?sfvrsn=3a355eb6_3&download=true19.
+Boum Y, Ndembi N. Mpox needs a locally tailored global response. BMJ
+2024;386:q2094. 20. Kuppalli K, Dunning J, Damon I, Mukadi-Bamuleka D,
+Mbala P, Ogoina D. The worsening mpox outbreak in Africa: a call to
+action. The Lancet Infectious Diseases 2024;24(11):1190–2. 21. NIH
+(National Institutes of Health). The antiviral tecovirimat is safe but
+did not improve clade I mpox resolution in Democratic Republic of the
+Congo [Internet]. 2024;Available from:
+https://www.nih.gov/news-events/news-releases/antiviral-tecovirimat-safe-did-not-improve-clade-i-mpox-resolution-democratic-republic-congo22.
+Pischel L, Martini BA, Yu N, et al. Vaccine effectiveness of 3rd
+generation mpox vaccines against mpox and disease severity: A systematic
+review and meta-analysis. Vaccine 2024;42(25):126053. 23. Fine PEM,
+JEZEK Z, GRAB B, DIXON H. The Transmission Potential of Monkeypox Virus
+in Human Populations. International Journal of Epidemiology
+1988;17(3):643–50. 24. World Health Organization (WHO). WHO adds LC16m8
+mpox vaccine to Emergency Use Listing [Internet]. 2024;Available from:
+https://www.who.int/news/item/19-11-2024-who-adds-lc16m8-mpox-vaccine-to-emergency-use-listing25.
+World Health Organization (WHO). RECOMMENDATION FOR AN EMERGENCY USE
+LISTING OF “Freeze-dried Smallpox Vaccine Prepared in Cell Culture LC16
+“KMB” (LC16m8 vaccine) Submitted by KM Biologics, Japan [Internet].
+2024;Available from:
+https://extranet.who.int/prequal/sites/default/files/document_files/mpox-lc16m8_tag-report-19-11-2024-final.pdf26.
+Africa CDC, World Health Organization (WHO), Coalition for Epidemic
+Preparedness Innovations (CEPI), The Vaccine Alliance (GAVI), UNICEF.
+Joint Press Release: Vaccine doses allocated to 9 African countries
+hardest hit by mpox surge (November 6th, 2024) [Internet]. 2024.
+Available from:
+https://africacdc.org/news-item/joint-press-release-vaccine-doses-allocated-to-9-african-countries-hardest-hit-by-mpox-surge/?utm_source=chatgpt.com27.
+Savinkina A, Kindrachuk J, Bogoch II, et al. Modelling vaccination
+approaches for mpox containment and mitigation in the Democratic
+Republic of the Congo. The Lancet Global Health 2024;0(0). 28. Kibungu
+EM, Vakaniaki EH, Kinganda-Lusamaki E, et al. Clade I-Associated Mpox
+Cases Associated with Sexual Contact, the Democratic Republic of the
+Congo. Emerg Infect Dis 2024;30(1):172–6. 29. Gopal RK, Ganesh PS,
+Pathoor NN. Mpox vaccination strategies in DR Congo. Lancet Glob Health
+2025;13(3):e415. 30. Adegboye OA, Adamu AM, Adekunle AI, Emeto TI, Onoja
+AB, Horwood PF. Mpox vaccination strategies in DR Congo. Lancet Glob
+Health 2025;13(3):e416. 31. Paul E, Brown GW, Makali SL, Ridde V, Bell
+D. Mpox vaccination strategies in DR Congo. Lancet Glob Health
+2025;13(3):e417. 32. Gonsalves GS. Mpox vaccination strategies in DR
+Congo - Author’s reply. Lancet Glob Health 2025;13(3):e418. 33. Du M,
+Deng J, Yan W, et al. Mpox vaccination hesitancy, previous immunisation
+coverage, and vaccination readiness in the African region: a
+multinational survey. eClinicalMedicine [Internet] 2025 [cited 2025 Mar
+4];80. Available from:
+https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00626-6/fulltext34.
+Sulaiman SK, Isma’il Tsiga-Ahmed F, Musa MS, Makama BT, Sulaiman AK,
+Abdulaziz TB. Global prevalence and correlates of mpox vaccine
+acceptance and uptake: a systematic review and meta-analysis. Commun Med
+2024;4(1):1–14. 35. Hadfield J, Megill C, Bell SM, et al. Nextstrain:
+real-time tracking of pathogen evolution. Bioinformatics
+2018;34(23):4121–3. 36. Bouckaert R, Vaughan TG, Barido-Sottani J, et
+al. BEAST 2.5: An advanced software platform for Bayesian evolutionary
+analysis. PLOS Computational Biology 2019;15(4):e1006650.

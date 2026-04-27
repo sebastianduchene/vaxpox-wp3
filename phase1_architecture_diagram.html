@@ -191,7 +191,7 @@
         </div>
 
         <div id="diagram"></div>
-        <p class="instruction">💡 Tips: Drag nodes to reorganize • Click on Phase 2 or Phase 3 nodes to view the dashboards</p>
+        <p class="instruction">💡 Tips: Drag nodes to reorganize • Click country nodes to submit metadata • Click Phase 2/3 nodes to view dashboards</p>
 
         <div class="info-panel">
             <h3>Implementation Phases</h3>
@@ -285,17 +285,29 @@
                 if (d.type === "phase3") return "#7ed321";
             })
             .style("cursor", d => {
-                if (d.type === "phase2" || d.type === "phase3") return "pointer";
+                if (d.type === "phase2" || d.type === "phase3" || d.type === "country") return "pointer";
                 return "grab";
             })
-            .on("click", (event, d) => {
+            .call(drag(simulation))
+            .on("click", function(event, d) {
+                event.stopPropagation();
+
                 if (d.id === "phase2") {
                     window.open("phase2_dashboard.html", "_blank");
                 } else if (d.id === "phase3") {
                     window.open("phase3_dashboard.html", "_blank");
+                } else if (d.type === "country") {
+                    const countryMap = {
+                        "cameroon": "CAM",
+                        "cotedivoire": "CI",
+                        "madagascar": "MADA",
+                        "rca": "RCA"
+                    };
+                    const code = countryMap[d.id] || "CAM";
+                    console.log("Opening metadata form for:", code);
+                    window.open("metadata_submission.html?country=" + code, "_blank");
                 }
-            })
-            .call(drag(simulation));
+            });
 
         // Draw node labels
         const nodeLabel = svg.selectAll(".node-label")

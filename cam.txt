@@ -1,0 +1,2576 @@
+[]
+
+[]
+
++----------------------------------+----------------------------------+
+| CONFIDENTIEL                     |                                  |
++==================================+==================================+
+| Modélisation de la circulation   |                                  |
+| du mpox, identification de       |                                  |
+| groupes à risque d’infection, et |                                  |
+| analyse coût-efficacité de       |                                  |
+| stratégies vaccinales au         |                                  |
+| Cameroun                         |                                  |
++----------------------------------+----------------------------------+
+| VAXPOX-CAM                       |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+| Promoteur : Centre Pasteur du    |                                  |
+| Cameroun                         |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+| Responsables Scientifiques       |                                  |
++----------------------------------+----------------------------------+
+| Prof. Richard NJOUOM             |   Prof. Arnaud FONTANET          |
+|                                  |                                  |
+| Département de Virologie         |   Unité d’épidémiologie des      |
+|                                  |   maladies émergentes            |
+| Centre Pasteur du Cameroun       |                                  |
+|                                  |   Institut Pasteur Paris         |
++----------------------------------+----------------------------------+
+| Protocole VAXPOX-CAM             |                                  |
+|                                  |                                  |
+| Référence IPP 2025-029           |                                  |
++----------------------------------+----------------------------------+
+| Version 1.2 du 15 Avril 2026     |                                  |
++----------------------------------+----------------------------------+
+|                                  |                                  |
++----------------------------------+----------------------------------+
+
+  ------------------------------------------------------------------------------------------------------------------------------------------
+  Mots clés : mpox – épidémiologie – sérologie – phylogénie – modélisation mathématique – stratégies vaccinales – analyses coût-efficacité
+  ------------------------------------------------------------------------------------------------------------------------------------------
+
++----------------------------------+----------------------------------+
+| VAXPOX-CAM                       |                                  |
++----------------------------------+----------------------------------+
+| CENTRE PASTEUR DU CAMEROUN (CPC) |                                  |
+|                                  |                                  |
+| Rôle : Conduite de la recherche  |                                  |
++----------------------------------+----------------------------------+
+| Responsable scientifique,        | Prof. Richard NJOUOM             |
+| Coordination clinique            |                                  |
+|                                  | Chef du Département de Virologie |
+| Coordinateur                     |                                  |
+|                                  | Mail :                           |
+| WP1 Epidémiologie                | njouom@pasteur-yaounde.org       |
+|                                  |                                  |
+| Coordinatrice WP2 Sérologie      | Dr Mathurin Cyrille TEJIOKEM     |
+|                                  |                                  |
+| & Coordinatrice WP3 Virologie    | Chef du Département              |
+| moléculaire                      | d’Epidémiologie                  |
+|                                  |                                  |
+| & Chargée des analyses de        | Mail :                           |
+| virologie                        | tejiokem@pasteur-yaounde.org     |
+|                                  |                                  |
+| Coordinateur                     | Dr Delia Doreen DJUICY           |
+|                                  |                                  |
+| WP4 Modélisation mathématique    | Chercheuse du Département de     |
+|                                  | Virologie                        |
+| Chargé des analyses de           |                                  |
+| laboratoire (sérologie)          | Mail :                           |
+|                                  | djuicy@pasteur-yaounde.org       |
+| Référent médical                 |                                  |
+|                                  | Dr Jules TCHATCHUENG             |
+| Responsable laboratoire          |                                  |
+| Infections Sexuellement          | Chercheur du Département         |
+| Transmissibles (IST)             | d’Epidemiologie                  |
+|                                  |                                  |
+|                                  | Mail :                           |
+|                                  | tchatchueng@pasteur-yaounde.org  |
+|                                  |                                  |
+|                                  | Dr Abanda NGU                    |
+|                                  |                                  |
+|                                  | Chercheur du Département de      |
+|                                  | Virologie                        |
+|                                  |                                  |
+|                                  | Mail :                           |
+|                                  | abanda@pasteur-yaounde.org       |
+|                                  |                                  |
+|                                  | Dr Mathurin Cyrille TEJIOKEM     |
+|                                  |                                  |
+|                                  | Chef du Département              |
+|                                  | d’Epidémiologie                  |
+|                                  |                                  |
+|                                  | Mail :                           |
+|                                  | tejiokem@pasteur-yaounde.org     |
+|                                  |                                  |
+|                                  | Dr NGOME Rosanne                 |
+|                                  |                                  |
+|                                  | Chef de Service de Bactériologie |
+|                                  | et Parasitologie                 |
+|                                  |                                  |
+|                                  | Mail : ngome@pasteur-yaounde.org |
++----------------------------------+----------------------------------+
+
++----------------------------------+----------------------------------+
+| ENTITE PARTENAIRE AU CAMEROUN :  |                                  |
+| Centre Régional de Prévention et |                                  |
+| de Lutte contre les Épidémies    |                                  |
+| (CERPLE), région du Centre       |                                  |
+|                                  |                                  |
+| Rôle : Supervision du            |                                  |
+| recrutement pour les chauffeurs  |                                  |
+| routiers                         |                                  |
++----------------------------------+----------------------------------+
+| Référent site de recrutement     | Dr Steve METOMB                  |
+|                                  |                                  |
+|                                  | CERPLE (Centres Régionaux de     |
+|                                  | Prévention et de Lutte contre    |
+|                                  | les Épidémies) - région du       |
+|                                  | CENTRE Ministère de la Santé     |
+|                                  |                                  |
+|                                  | Mail : stevemetomb@gmail.com     |
++----------------------------------+----------------------------------+
+
++-----------------------------------------------------------------+---+
+| ENTITE PARTENAIRE EN FRANCE : INSTITUT PASTEUR PARIS (IPP)      |   |
+|                                                                 |   |
+| Rôle : Initiation du projet, obtention des financements,        |   |
+| participation aux analyses des données et valorisation des      |   |
+| résultats du projet                                             |   |
++-----------------------------------------------------------------+---+
+| Workpackage 1 : Epidémiologie                                   |   |
+|                                                                 |   |
+| Unité d’Epidémiologie des maladies émergentes (EME)             |   |
+|                                                                 |   |
+| Pr Arnaud FONTANET, Responsable scientifique projet,            |   |
+| Coordinateur WP                                                 |   |
+|                                                                 |   |
+| Mail : arnaud.fontanet@pasteur.fr                               |   |
+|                                                                 |   |
+| Dr Laurie PINAUD, Coordinatrice globale IPP                     |   |
+|                                                                 |   |
+| Mail : laurie.pinaud@pasteur.fr                                 |   |
++-----------------------------------------------------------------+---+
+| Workpackage 2 : Sérologie                                       |   |
+|                                                                 |   |
+| Unité Environnement et risques infectieux (ERI)                 |   |
+|                                                                 |   |
+| Jessica VANHOMWEGEN, Coordinatrice WP                           |   |
+|                                                                 |   |
+| Mail : jessica.vanhomwegen@pasteur.fr                           |   |
+|                                                                 |   |
+| Unité Epidémiologie et analyse des maladies infectieuses (IDEA) |   |
+|                                                                 |   |
+| Dr Michael WHITE, Collaborateur WP                              |   |
+|                                                                 |   |
+| Mail : michael.white@pasteur.fr                                 |   |
++-----------------------------------------------------------------+---+
+| Workpackage 3 : Virologie moléculaire                           |   |
+|                                                                 |   |
+| Unité Epidémiologie et physiopathologie des virus oncogènes     |   |
+| (EPVO)                                                          |   |
+|                                                                 |   |
+| Dr Nicolas BERTHET, Coordinateur WP                             |   |
+|                                                                 |   |
+| Mail : nicolas.berthet@pasteur.fr                               |   |
+|                                                                 |   |
+| Unité Dynamiques évolutives des maladies infectieuses (EDID)    |   |
+|                                                                 |   |
+| Dr Sebastian DUCHENE-GARZON, Collaborateur WP                   |   |
+|                                                                 |   |
+| Mail : sebastian.duchene-garzon@pasteur.fr                      |   |
+|                                                                 |   |
+| Hub de Bioinformatique et Biostatistique                        |   |
+|                                                                 |   |
+| Dr Laurent ESSIOUX                                              |   |
+|                                                                 |   |
+| Mail : laurent.essioux@pasteur.fr                               |   |
++-----------------------------------------------------------------+---+
+| Workpackage 4 : Modélisation mathématique                       |   |
+|                                                                 |   |
+| Unité Modélisation mathématique des maladies infectieuses       |   |
+| (MMID)                                                          |   |
+|                                                                 |   |
+| Dr Simon CAUCHEMEZ, Coordinateur WP                             |   |
+|                                                                 |   |
+| Mail : simon.cauchemez@pasteur.fr                               |   |
++-----------------------------------------------------------------+---+
+
+HISTORIQUE DES VERSIONS
+
+  Version   Date         Précisions
+  --------- ------------ ---------------------------------------------------------------------
+  1.0       30/01/2026   Soumission initiale à l’IRB de l’Institut Pasteur Paris
+  1.1       25/02/2026   Version modifiée suite aux demandes de l’IRB (avis 1 du 20/02/2026)
+  1.2       15/04/2026   Version modifiée suite aux demandes de l’IRB (avis 2 du 19/03/2026)
+
+PAGE DE SIGNATURES
+
+Signature du promoteur
+
+Le promoteur s’engage à réaliser cette étude conformément au protocole
+et aux dispositions législatives et réglementaires en vigueur.
+
++-----------------------------------------------------------+
+| Représentant officiel du Centre Pasteur du Cameroun (CPC) |
++-----------------------------------------------------------+
+| Dr Mirdad KAZANJI                                         |
+|                                                           |
+| Directeur Général du CPC                                  |
++-----------------------------------------------------------+
+| Date :                                                    |
++-----------------------------------------------------------+
+| Signature :                                               |
++-----------------------------------------------------------+
+
+Signature des investigateurs et autres participants à la recherche
+
+J'ai lu l’ensemble de ce protocole avec attention. Je considère qu'il
+contient tous les détails nécessaires pour entreprendre et conduire
+cette étude. Je m’engage à réaliser cette étude conformément au
+protocole et aux dispositions législatives et réglementaires en vigueur.
+
++----------------------------------+----------------------------------+
+| Responsable scientifique CPC     | Responsable scientifique IPP     |
+|                                  |                                  |
+| Prof. Richard NJOUOM             | Prof. Arnaud FONTANET            |
+|                                  |                                  |
+| Date :                           | Date :                           |
+|                                  |                                  |
+| Signature :                      | Signature :                      |
++----------------------------------+----------------------------------+
+| Coordinateur CPC WP1             | Coordinatrice globale IPP        |
+| Epidémiologie,                   |                                  |
+| Référent médical CPC             | Dr Laurie PINAUD                 |
+|                                  |                                  |
+| Dr Mathurin Cyrille TEJIOKEM     | Date :                           |
+|                                  |                                  |
+| Date :                           | Signature :                      |
+|                                  |                                  |
+| Signature :                      |                                  |
++----------------------------------+----------------------------------+
+| Coordinatrice CPC WP2 Sérologie  | Coordinateur CPC WP4             |
+|                                  | Modélisation mathématique        |
+| et WP3 Virologie moléculaire     |                                  |
+|                                  | Dr Jules TCHATCHUENG             |
+| Dr Delia Doreen DJUICY           |                                  |
+|                                  | Date :                           |
+| Date :                           |                                  |
+|                                  | Signature :                      |
+| Signature :                      |                                  |
++----------------------------------+----------------------------------+
+
+Sommaire
+
+HISTORIQUE DES VERSIONS 4
+
+PAGE DE SIGNATURES 5
+
+LISTE DES ABREVIATIONS 9
+
+RESUME 10
+
+SUMMARY 11
+
+1. INTRODUCTION 12
+
+2. OBJECTIFS 13
+
+2.1 Objectif principal 13
+
+2.2 Objectifs secondaires 13
+
+3. REVUE DE LA LITTERATURE ET IMPACTS ATTENDUS 13
+
+3.1 Stratégies vaccinales 13
+
+3.2 Situation épidémiologique au Cameroun 14
+
+3.3 Impacts attendus du projet 15
+
+4. METHODOLOGIE 17
+
+4.1. Type d’étude 17
+
+4.2. Lieux de l’étude 17
+
+4.3. Période de l’étude 17
+
+4.4. Population d’étude 17
+
+4.5. Critères de sélection 18
+
+4.5.1. Critères d’inclusion 18
+
+4.5.2. Critères de non-inclusion 19
+
+4.6. Stratégie de recrutement de la population d’étude 20
+
+4.7. Taille de l’échantillon et justification 20
+
+4.8. Procédures de collecte et de gestion des échantillons 22
+
+4.8.1. Nature et circuit des prélèvements 22
+
+4.8.2. Conservation des échantillons 22
+
+4.9. Plan expérimental et déroulement pratique de la recherche 23
+
+4.9.1. WP1-2 : Épidémiologie et sérologie 23
+
+4.9.2. WP3 : Virologie moléculaire 26
+
+4.9.3. WP4 : Modélisation mathématique 27
+
+4.10. Analyse et gestion des données 28
+
+4.11.1. Recueil et gestion des données 28
+
+4.11.2. Description des données et justification 29
+
+4.11.3. Circuit des données et droits d’accès 31
+
+4.11.4. Conservation, confidentialité et archivage des données 32
+
+4.11.5. Lieux et analyses des données 33
+
+5. DIFFUSION DES RESULTATS 35
+
+5.1. Diffusion des résultats auprès des participants et des populations
+35
+
+5.2. Diffusion des résultats auprès des autorités locales 35
+
+5.3. Diffusion des résultats auprès de la communauté scientifique 35
+
+6. CONSIDERATIONS ETHIQUES ET REGLEMENTAIRES 35
+
+6.1. Vigilance 36
+
+6.1.1. Définitions 36
+
+6.1.2. Risques encourus par la recherche 37
+
+6.1.3. Recueil et notification et suivi des évènements indésirables 37
+
+6.2. Bénéfice pour le participant 37
+
+6.3. Assurance 37
+
+6.4. Contrôle et assurance de la qualité 37
+
+6.4.1. Monitoring 37
+
+6.4.2. Audit 38
+
+7. ROLE ET IMPLICATION DES ENTITES A L’INSTITUT PASTEUR PARIS (IPP) 38
+
+8. COMITES SCIENTIFIQUE ET DE PILOTAGE DU PROJET 40
+
+8.1. Comité de pilotage 40
+
+8.2. Comité scientifique 41
+
+8.3. Rapports d’activité 41
+
+9. ANNEXES 41
+
+10. REFERENCES BIBLIOGRAPHIQUES 42
+
+LISTE DES ABREVIATIONS
+
++-----------+---------------------------------------------------------+
+| CERPLE    | Centres Régionaux de Prévention et de Lutte contre les  |
+|           | Épidémies                                               |
+| CPC       |                                                         |
+|           | Centre Pasteur du Cameroun                              |
+| eCRF      |                                                         |
+|           | Electronic Case Report Form                             |
+| EDID      |                                                         |
+|           | (Unité) Dynamique évolutive des maladies infectieuses   |
+| EIG       |                                                         |
+|           | Evénement indésirable grave                             |
+| EME       |                                                         |
+|           | (Unité) Epidémiologie des maladies émergentes           |
+| EPVO      |                                                         |
+|           | (Unité) Epidémiologie et physiopathologie des virus     |
+| ERI       | oncogènes                                               |
+|           |                                                         |
+| IDEA      | (Unité) Environnement et risques infectieux             |
+|           |                                                         |
+| IgM / IgG | (Unité) Epidémiologie et analyse des maladies           |
+|           | infectieuses                                            |
+| IPP       |                                                         |
+|           | Immunoglobuline M ou G                                  |
+| IRB       |                                                         |
+|           | Institut Pasteur Paris                                  |
+| IST       |                                                         |
+|           | Institutional Review Board                              |
+| LNR       |                                                         |
+|           | Infection Sexuellement Transmissible                    |
+| MMID      |                                                         |
+|           | Laboratoire National de Référence                       |
+| MPXV      |                                                         |
+|           | (Unité) Modélisation mathématique des maladies          |
+| PCR       | infectieuses                                            |
+|           |                                                         |
+| PN        | Virus de la variole du singe                            |
+|           |                                                         |
+| OMS       | Polymerase Chain Reaction                               |
+|           |                                                         |
+| RDC       | Pasteur Network (réseau international des instituts     |
+|           | Pasteur)                                                |
+| RGPD      |                                                         |
+|           | Organisation Mondiale de la Santé                       |
+| WP        |                                                         |
+|           | République Démocratique du Congo                        |
+|           |                                                         |
+|           | Règlement Général sur la Protection des Données         |
+|           |                                                         |
+|           | Work Package                                            |
++-----------+---------------------------------------------------------+
+
+RESUME
+
+En 2022 puis en 2024, l’Organisation Mondiale de la Santé (OMS) a
+déclaré le mpox “Urgence de Santé Publique de Portée Internationale” en
+raison de l’émergence de sous-clades du virus de la variole du singe
+(MPXV), de leur propagation vers des régions et des pays jusque-là non
+touchés, y compris dans des zones urbaines, et la transmission
+interhumaine soutenue, y compris par voie sexuelle. Des millions de
+doses de vaccins (formes atténuées du vaccin contre la variole conférant
+une protection croisée contre le MPXV) vont être distribuées aux pays
+africains les plus touchés pour contrer l’épidémie. Il est urgent de
+disposer de données scientifiques pour mieux orienter les stratégies
+vaccinales et identifier les populations à prioriser pour la
+vaccination.
+
+Le projet VAXPOX-CAM a pour objectif d’accompagner les politiques de
+santé publique à mesure que les vaccins deviennent disponibles, via une
+approche pluridisciplinaire associant épidémiologie, sérologie,
+virologie moléculaire et modélisation mathématique. Ce protocole a pour
+objectif de présenter les activités de recherche qui seront conduites au
+Cameroun par le Centre Pasteur du Cameroun (CPC), laboratoire national
+de référence (LNR) pour le diagnostic mpox.
+
+SUMMARY 
+
+In 2022 and again in 2024, the World Health Organization (WHO) declared
+mpox a “Public Health Emergency of International Concern” due to the
+emergence of monkeypox virus (MPXV) subclades, their spread to
+previously unaffected regions and countries—including urban areas—and
+sustained human-to-human transmission, including sexual transmission.
+
+Millions of vaccine doses (attenuated formulations of the smallpox
+vaccine conferring cross-protection against MPXV) will be distributed to
+the most affected African countries to curb the epidemic. There is an
+urgent need for scientific data to better guide vaccination strategies
+and identify priority populations for immunization.
+
+The VAXPOX-CAM project aims to support public health policies as
+vaccines become available through a multidisciplinary approach combining
+epidemiology, serology, molecular virology, and mathematical modelling.
+This protocol aims to present the research activities that will be
+conducted in Cameroon by the Centre Pasteur du Cameroun (CPC), the
+National Reference Laboratory (NRL) for mpox diagnosis.
+
+INTRODUCTION
+
+Contexte. La variole du singe, à présent appelée mpox, a été rapportée
+chez l'homme pour la première fois en 1970. Jusqu’en 2022, le virus
+causant cette maladie (MPXV) ne provoquait que des épidémies limitées
+d’origine zoonotique après contact avec des animaux sauvages, notamment
+des écureuils (Funisciurus) et des rats (Cricetomys), et une
+transmission interhumaine restreinte, principalement par des contacts
+étroits avec les fluides biologiques et les lésions cutanées des
+personnes infectées¹. Deux clades génétiques du MPXV ont été
+initialement décrits : le clade I en Afrique centrale et le clade II en
+Afrique de l’Ouest². Jusqu’en 2017, le clade I prédominait et était
+connu pour causer une maladie plus sévère que le clade II, avec un taux
+de létalité (CFR) estimé à 10,6 %. Le clade II était considéré comme
+moins sévère, avec un CFR de 3,6 %³. Le CFR variait selon l’âge : il
+était estimé à 9,7 % chez les enfants de moins de 5 ans et à 1,2 % chez
+les sujets de 30 ans pour le clade I⁴. Après quatre décennies sans
+nouveaux cas rapportés, le MPXV clade II a réémergé au Nigeria en 2017⁵,
+suivi d’une pandémie en 2022 touchant des pays non endémiques, avec des
+transmissions interhumaines soutenues d’un sous-clade appelé IIb,
+principalement par contacts sexuels entre hommes ayant des relations
+sexuelles avec des hommes (HSH^(6,7)). En juillet 2022, l’Organisation
+mondiale de la santé (OMS) a déclaré le mpox comme une Urgence de Santé
+Publique de Portée Internationale (USPPI). Cette urgence a duré un an,
+avec près de 100 000 cas rapportés dans plus de 100 pays et un CFR
+inférieur à 0,1 %⁸. Des campagnes de prévention et de vaccination
+ciblées auprès des populations à haut risque de transmission par voie
+sexuelle, principalement les HSH, ont permis de contenir
+l’épidémie^(9,10). Alors que cette épidémie due au clade IIb déclinait,
+les cas dus au clade I ont progressivement augmenté en République
+Démocratique du Congo (RDC) et le virus s’est propagé à des pays
+d’Afrique de l’Est jusque-là épargnés, y compris dans des zones
+urbaines. Depuis 2024, la dynamique de l’épidémie en Afrique suggère
+pour les pays nouvellement touchés l’introduction du virus via les
+populations à haut risque de transmission par voie sexuelle, notamment
+dans la classe d’âge 15-44 ans, les enfants pouvant être infectés
+secondairement^(11,12). D‘août 2024 à septembre 2025, l’OMS a de nouveau
+déclaré le mpox comme USPPI¹³, en raison de l'apparition d’un nouveau
+sous-clade dénommé clade Ib, de la transmission interhumaine soutenue
+observée (y compris par voie sexuelle¹⁴) et de la diffusion du MPXV de
+régions historiquement rurales et forestières vers de nouvelles zones, y
+compris urbaines¹⁵. Depuis, plusieurs pays africains ont rapporté une
+transmission communautaire soutenue du clade Ib, et 14 pays en-dehors du
+continent africain ont rapporté des cas sporadiques liés à des retours
+de voyage^(16,17). La levée de l’alerte USPPI en septembre 2025 ne
+marque pas la fin de la lutte contre le mpox, avec de nombreuses
+épidémies toujours en cours sur le continent africain.
+
+Vaccins disponibles. La réponse à cette épidémie doit être adaptée aux
+caractéristiques épidémiologiques et cliniques spécifiques des
+différentes épidémies simultanées sur le continent africain¹⁸. Dans ce
+contexte, il est important d’examiner le rôle des vaccins parmi les
+outils de prévention¹⁹, particulièrement après les résultats décevants
+d’un essai contrôlé randomisé de phase III portant sur le seul
+médicament disponible, le Tecovirimat, en RDC²⁰. Le vaccin utilisé lors
+de la pandémie de 2022, Modified Vaccinia Ankara (MVA), est une forme
+atténuée du vaccin antivariolique fabriqué par Bavarian Nordic. Son
+efficacité contre le MPXV clade IIb a été estimée à 76 % après une dose
+et 82 % après deux doses²¹. Bien que son efficacité contre d’autres
+clades du MPXV ne soit pas encore connue, une protection croisée est
+attendue, comme cela a été observé avec les vaccins antivarioliques de
+première génération, qui conféraient une protection de 85 % contre le
+mpox²². Le vaccin MVA a reçu une préqualification de l’OMS pour une
+utilisation uniquement chez les enfants de plus de 12 ans. Un autre
+vaccin, appelé LC16m8, développé il y a plus de 20 ans au Japon, a reçu
+le 19 novembre 2024 une autorisation d’utilisation d’urgence de l’OMS
+pour les adultes et les enfants de plus d’un an, en dose unique²³, avec
+plus de 3 millions de doses offertes par le gouvernement japonais. En
+1973-1974, ce vaccin a été administré à environ 50 000 enfants japonais
+âgés de 1 à 7 ans, avec quelques effets secondaires cutanés et des
+épisodes d’auto-inoculation²⁴. Des questions de responsabilité juridique
+pourraient retarder la livraison des doses aux pays concernés, et son
+administration avec des aiguilles bifurquées pourrait réduire son
+acceptabilité. En janvier 2025, l’Autorité de Régulation Pharmaceutique
+de la RDC a autorisé l’inclusion de tous les enfants à partir d’1 an
+dans les campagnes de vaccination. Enfin, en date de février 2025, six
+millions de doses ont été promises au continent africain¹⁷.
+
+OBJECTIFS
+
+1.  Objectif principal
+
+    L’objectif principal de ce projet est d’estimer la séroprévalence
+    des anticorps anti-MPXV par âge, sexe et groupe à risque dans
+    différentes populations urbaines et rurales au Cameroun.
+
+2.  Objectifs secondaires
+
+Les objectifs secondaires de ce projet sont définis ci-dessous :
+
+-   Identifier les facteurs associés à l’infection par le MPXV selon les
+      groupes à risque au Cameroun ;
+
+-   Estimer la prévalence de l’intention vaccinale mpox dans différentes
+      populations urbaines et rurales au Cameroun ;
+
+-   Estimer la séroprévalence des anticorps dirigés contre un panel de
+      maladies infectieuses d’intérêt en santé publique ;
+
+-   Estimer le taux de transmission du MPXV au sein de ménages au
+      Cameroun ;
+
+-   Quantifier les contributions respectives de la transmission
+      zoonotique et de la transmission interhumaine du MPXV dans la
+      dissémination du mpox au Cameroun ;
+
+-   Modéliser la circulation du mpox au Cameroun sur la base des données
+      collectées ;
+
+-   Identifier les stratégies vaccinales les plus efficientes dans le
+      contexte du Cameroun.
+
+REVUE DE LA LITTERATURE ET IMPACTS ATTENDUS
+
+Stratégies vaccinales 
+
+Bien que les vaccins élargissent l’arsenal pour freiner la propagation
+du mpox, les stratégies à mettre en place restent incertaines. Étant
+donné les stocks limités de vaccins, une vaccination généralisée n'est
+pas envisageable. La stratégie recommandée par le CDC Africa, l’OMS et
+d’autres organisations est de cibler les contacts de cas confirmés, les
+professionnels de santé, les autres acteurs de première ligne, et les
+populations clé à risque d’infection dans des zones avec transmission
+interhumaine active²⁵. Il est urgent de disposer de données
+scientifiques afin d’éclairer au mieux ces stratégies et d’identifier
+les populations clés à cibler par les campagnes de vaccination. Les
+connaissances actuelles sur la transmission du MPXV identifient les
+groupes potentiels suivants à cibler pour vaccination : les
+professionnels de santé exposés aux patients ; en zone rurale, les
+enfants en contact avec les réservoirs animaux (souvent via le piégeage
+d’animaux sauvages ou d’autres activités) qui sont plus à risque de
+formes sévères de la maladie ; en zone urbaine, les populations à risque
+élevé de transmission par voie sexuelle (travailleurs du sexe, HSH,
+patients atteints d’infections sexuellement transmissibles (IST),
+chauffeurs routiers). Cependant, il n’est pas précisément établi quel(s)
+groupe(s) à risque devraient être priorisés pour les campagnes de
+vaccination pour un impact maximal dans un contexte de quantité de
+vaccins limitée. Une étude a recommandé la vaccination des enfants dans
+les régions endémiques de la RDC²⁶, mais la migration urbaine récente du
+virus et sa transmission soutenue dans les réseaux sexuels²⁷ n’ont pas
+été pris en compte. À la suite de cette publication, la nécessité
+d’analyses coût-efficacité de différentes stratégies vaccinales a été
+mise en avant par plusieurs experts^(28–31). Néanmoins, cette évaluation
+essentielle pour orienter les décisions de santé publique semble
+impossible en l’absence de données sur le fardeau réel de l’infection
+dans les groupes à risque, et les contributions respectives des
+différentes voies de transmission. Aussi, la littérature indique que
+l’acceptabilité vaccinale mpox en Afrique est parmi les plus faibles au
+monde^(32,33), mais des données nationales ne sont pas disponibles pour
+tous les pays. Mesurer l’intention de vaccination parmi les groupes à
+risque d’infection est essentiel pour favoriser une couverture vaccinale
+optimale.
+
+2.  
+
+3.  1.  
+
+    2.  Situation épidémiologique au Cameroun
+
+Au Cameroun, le Laboratoire National de Référence (LNR) pour le mpox est
+hébergé par le Centre Pasteur du Cameroun (CPC)³⁴. Depuis le premier
+signalement dans le pays en 1979, 363 cas suspects de mpox ont été
+rapportés, dont 70 ont été confirmés en laboratoire³⁵, à la date du 30
+décembre 2024. Le Cameroun a la particularité unique de la
+co-circulation dans le pays des clades I et II du virus MPXV, mais dans
+des zones géographiques distinctes^(35,36). De 1979 à 2018, seuls trois
+cas humains sporadiques d’infection au virus MPXV ont été
+confirmés^(35,37–40), et deux épizooties ont été signalées chez des
+chimpanzés en captivité⁴¹. Depuis 2018, une augmentation continue du
+nombre de cas humains de mpox confirmés en laboratoire a été
+observée^(35,37). Le taux de positivité le plus élevé a été enregistré
+en 2023, avec 28 cas confirmés sur 99 cas suspects testés. En 2024, 9
+cas ont été confirmés, le dernier ayant été signalé le 17 novembre⁴²,
+tous en provenance de zones rurales forestières du sud du Cameroun. On
+ne peut pas écarter cependant que la circulation du virus ait été plus
+importante et non détectée, soit du fait du caractère reculé des zones
+rurales où les transmissions d’origine zoonotique ont lieu, soit du fait
+de formes cliniques pauci-symptomatiques, notamment lors des
+transmissions par voie sexuelle en milieu urbain. Des enquêtes
+sérologiques permettant l’identification d’infections passées et parfois
+peu symptomatiques seraient un complément important de la surveillance
+de la circulation du MPXV au Cameroun.
+
+Le projet VAXPOX-CAM a pour objectif d’accompagner les politiques de
+santé publique à mesure que les vaccins deviennent disponibles, via une
+approche pluridisciplinaire associant épidémiologie (WP1), sérologie
+(WP2), virologie moléculaire (WP3) et modélisation mathématique
+comprenant une analyse coût-efficacité de stratégies vaccinales (WP4).
+Ce protocole a pour objectif de présenter les activités de recherche qui
+seront conduites par le CPC au Cameroun qui observe depuis 2018 une
+augmentation des cas confirmés de mpox sur le territoire.
+
+En parallèle de ces objectifs spécifiques au mpox, le projet VAXPOX-CAM
+sera l’occasion d’évaluer la circulation d’autres pathogènes. En effet,
+de nombreux pathogènes d’intérêt pour la santé des populations circulent
+souvent dans les mêmes zones des pays à revenu faible ou intermédiaire.
+Les nouveaux outils de recherche que sont les tests sérologiques
+multiplex permettent une description détaillée de la cinétique des
+anticorps spécifiques de plusieurs pathogènes à partir d’un seul
+échantillon biologique. Le projet VAXPOX-CAM aura donc également pour
+objectif de dresser une cartographie de la circulation de plusieurs
+agents infectieux d’intérêt.
+
+Impacts attendus du projet 
+
+Impacts pour la communauté scientifique
+
+Les résultats des analyses effectuées au sein de chacun des WP du projet
+VAXPOX-CAM fourniront des données pertinentes pour une meilleure
+compréhension de l’épidémiologie du mpox. L’obtention de données de
+séroprévalence en population générale et dans des groupes
+particulièrement à risque de transmission du virus par voie sexuelle
+(WP1-WP2) permettra de quantifier la circulation d’un virus
+historiquement restreint à des zones reculées forestières mais ayant à
+présent atteint de nouvelles zones géographiques, y compris des zones
+urbaines et péri-urbaines qui maximisent la transmission interhumaine.
+Grâce à la technologie multiplex, le projet VAXPOX-CAM permettra
+également de dresser une cartographie de la circulation de plusieurs
+agents infectieux d’intérêt pour la santé des populations.
+
+Les analyses phylogénétiques des souches virales circulant au Cameroun
+et dans les pays voisins (WP3) permettront une meilleure compréhension
+de l’évolution du MPXV, ainsi que la détection des nouveaux sous-clades
+circulant actuellement sur le continent africain et de sa dissémination
+dans la région. Enfin, le modèle mathématique développé pour décrire la
+circulation du mpox au Cameroun, prenant notamment en compte les
+différents modes de transmission (WP4) pourra être adapté à d’autres
+contextes pour mieux comprendre la dissémination de ce virus.
+
+Impacts communautaires
+
+Le contrôle de l’épidémie actuelle de mpox est d’une importance capitale
+pour les populations, en particulier pour les enfants qui sont les plus
+à risque de formes graves de la maladie, mais aussi pour prévenir
+l’établissement du mpox en zone urbaine via une transmission
+interhumaine soutenue. La réalisation du projet VAXPOX-CAM contribuera à
+mieux identifier les groupes particulièrement à risque d’infection par
+le MPXV, et permettra de cibler les campagnes de vaccination afin
+qu’elles soient les plus efficientes pour limiter la dissémination du
+virus. De plus, la communication des résultats du projet (cf. Section 5.
+Diffusion des résultats) permettra de sensibiliser les populations à la
+contribution relative de la transmission zoonotique et la transmission
+interhumaine du MPXV, ainsi qu’au recours à la vaccination pour se
+protéger de la maladie. Aussi, l’utilisation de la technologie multiplex
+pour évaluer la circulation de plusieurs agents pathogènes présente un
+avantage substantiel pour les populations ciblées, car la fourniture
+d'un seul échantillon sanguin dans le cadre du projet VAXPOX-CAM
+contribuera à la surveillance d'un éventail de maladies infectieuses,
+sans nécessiter la mise en place de multiples études.
+
+Impacts en santé publique
+
+Les résultats du projet VAXPOX-CAM seront particulièrement pertinents
+pour les autorités sanitaires du Cameroun dans le contexte de l’épidémie
+en cours, en documentant la progression de l’épidémie de mpox et en
+identifiant les groupes particulièrement à risque d’infection. Grâce à
+la modélisation et à l’analyse coût-efficacité des stratégies
+vaccinales, il sera possible de faire des recommandations aux autorités
+sanitaires concernant les groupes à vacciner en priorité afin de
+maximiser l’impact des campagnes. Le projet VAXPOX-CAM aura également un
+impact à long terme car les recommandations pourront être adaptées à de
+nouvelles informations (disponibilité des vaccins, acceptabilité
+vaccinale, données actualisées de séroprévalence…) en mettant à jour les
+modèles mathématiques développés. Enfin, les résultats de sérologie
+multiplex contre un panel d’agents infectieux d’intérêt en santé
+publique éclaireront les autorités sanitaires sur la prévalence de
+l'exposition à plusieurs maladies infectieuses courantes, pouvant
+contribuer à consolider les programmes de santé régionaux.
+
+Impacts sur la préparation aux pandémies
+
+Le projet VAXPOX-CAM permettra de renforcer les compétences du CPC
+concernant des méthodes et des technologies cruciales pour la réponse
+aux menaces infectieuses à potentiel pandémique. Premièrement, la
+réalisation d’enquêtes sérologiques de terrain avec une méthodologie
+hautement standardisée et adaptable à d’autres pathogènes émergents
+(ex : technologie Luminex) est essentielle à la compréhension de la
+diffusion d’un pathogène au sein de groupes à risque et en population
+générale. Ces enquêtes peuvent avoir plusieurs objectifs :
+identification des populations à risque, mise en évidence de formes
+cliniques asymptomatiques, évaluation de l’immunité acquise après
+infection/vaccination, et étude des chaînes de transmission autour des
+cas confirmés. Deuxièmement, le séquençage systématique du génome
+complet, le partage des séquences d’agents pathogènes au niveau régional
+et les analyses phylogénétiques groupées de ces séquences permettent
+d’assurer une surveillance quasi en temps réel de la circulation d’un
+agent pathogène donné et de sa capacité d’échappement immunitaire,
+améliorant ainsi la coordination régionale pour la surveillance grâce à
+une couverture et une notification accrue. Troisièmement, le
+renforcement des compétences en modélisation mathématique des épidémies
+est un complément essentiel à une meilleure compréhension des risques
+épidémiques et des réponses à apporter aux épidémies. Enfin, la
+collaboration entre chercheurs de différents instituts du PN sera source
+de bénéfices multilatéraux. Les collaborations nouées dans le cadre de
+ce projet de recherche seront déterminantes pour faciliter les
+interactions en période de pandémie due à un autre pathogène, permettant
+un partage d’expertise au bénéfice de l’ensemble du réseau.
+
+METHODOLOGIE
+
+Type d’étude
+
+Il s’agit d’une étude transversale sur échantillons biologiques
+d’origine humaine avec données personnelles de santé, basée sur une
+approche pluridisciplinaire comprenant 4 volets : épidémiologie,
+sérologie, virologie et modélisation mathématique.
+
+Lieux de l’étude
+
+Plusieurs lieux de recrutement seront mobilisés pour cette étude en
+fonction des objectifs à atteindre :
+
+-   Lieux publics identifiés dans les villages des districts sanitaires
+    d’Ayos et de Garoua (recrutement d’enfants et adultes au sein de
+    ménages) ;
+
+-   Laboratoire d’analyses médicales du CPC à Yaoundé (recrutement de
+    patients IST) ;
+
+-   Locaux des associations CAMNAFAW et Horizons Femmes à Yaoundé
+    (recrutement de travailleurs du sexe) ;
+
+-   Hôpital régional annexe d’Ayos, sous la supervision du Centre
+    Régional de Prévention et de Lutte contre les Épidémies (CERPLE) de
+    la région du Centre (recrutement de chauffeurs routiers).
+
+Période de l’étude
+
+La durée prévisionnelle de cette étude est de 24 mois avec une date
+prévisionnelle de début des inclusions fixée au 01/06/2026. La durée
+prévisionnelle de la période des investigations ainsi que de analyses
+d’échantillons et de données est de 12 mois respectivement. La durée
+potentielle de participation à l’étude d’un participant est de 1 heure
+environ. Le calendrier général des activités est présenté en Annexe 1.
+
+Population d’étude
+
+Plusieurs types de population seront incluses dans cette étude,
+notamment des :
+
+-   Echantillons et données de sujets représentatifs de la population
+    générale en zones urbaines et péri-urbaines (issus de la biobanque
+    du CPC, collectés auprès de donneurs de sang et de personnel de
+    santé des hôpitaux de Yaoundé et de Douala).
+
+-   Sujets représentatifs de la population générale en zones rurales,
+    notamment dans la région du Nord Cameroun dans le district sanitaire
+    de Garoua (connu comme exempt de mpox), et dans la région du Centre
+    dans le district sanitaire d’Ayos (connu comme endémique de mpox).
+
+-   Sujets appartenant à des groupes à risque de transmission du virus
+    MPXV par voie sexuelle (travailleurs du sexe, patients consultant
+    pour des analyses liées à des infections sexuellement transmissibles
+    (IST), chauffeurs routiers).
+
+-   Echantillons et données de cas confirmés de mpox et membres de leurs
+    ménages (issus de la surveillance nationale du mpox).
+
+Critères de sélection
+
+Critères d’inclusion
+
+Les critères d’inclusion varient en fonction de différentes populations
+ciblées pour notre étude.
+
+-   Populations représentatives de la population générale
+
+    -   En zones urbaines et péri-urbaines :
+
+-   Sérums issus de la biobanque du CPC,
+
+-   Collectés auprès de donneurs de sang et professionnels de santé âgés
+      de 21 ans ou plus,
+
+-   Ayant participé aux enquêtes conduites depuis 2021 par les unités
+      d’épidémiologie et de virologie du CPC auprès banques de sang des
+      hôpitaux de Yaoundé et de Douala,
+
+-   Pouvant être réutilisés à des fins de recherche.
+
+    -   En zones rurales :
+
+-   Enfants âgés de 1 an ou plus, adolescents et adultes,
+
+-   Résidant dans les districts sanitaires d’Ayos (Centre Cameroun) ou
+      de Garoua (Nord Cameroun),
+
+-   Ayant volontairement consenti, ou dont le responsable légal a
+      volontairement consenti, à participer à l’enquête de
+      séroprévalence (questionnaire et prélèvement de sang).
+
+-   Groupes à risque de transmission du virus par voie sexuelle
+
+-   Travailleurs du sexe :
+
+-   Individu âgé de 21 ans ou plus,
+
+-   S’identifiant volontairement comme « travailleur du sexe »,
+
+-   Se présentant dans les locaux des associations CAMNAFAW ou Horizons
+      Femmes,
+
+-   Ayant consenti volontairement à participer à l’enquête de
+      séroprévalence (questionnaire et prélèvement de sang).
+
+-   Patients IST :
+
+-   Individu âgé de 21 ans ou plus,
+
+-   Consultant au laboratoire d'analyses médicales du CPC pour des
+      analyses liées à des IST,
+
+-   Ayant consenti volontairement à participer à l’enquête de
+      séroprévalence (questionnaire et prélèvement de sang).
+
+-   Chauffeurs routiers :
+
+-   Individu âgé de 21 ans ou plus,
+
+-   Membre de l’équipage d’un camion de longues distances,
+
+-   Présent sur les aires de repos à Ayos dédiées aux chauffeurs
+      routiers,
+
+-   Adressé aux équipes de l’hôpital régional annexe d’Ayos sous la
+      supervision du CERPLE de la région du Centre,
+
+-   Ayant consenti volontairement à participer à l’enquête de
+      séroprévalence (questionnaire et prélèvement de sang).
+
+-   Individus infectés par le MPXV
+
+-   Prélèvements de pus/croûte ou de sang positifs au MPXV,
+
+-   Issus de la surveillance nationale du mpox et pouvant être
+      réutilisés à des fins de recherche.
+
+-   Membres des ménages d’individus infectés par le MPXV
+
+-   Prélèvements de sang issus de la surveillance nationale du mpox et
+      pouvant être réutilisés à des fins de recherche,
+
+-   Collectés auprès d’individus faisant partie du ménage d’un individu
+      cas confirmé mpox qui puisse faire l’objet d’une investigation
+      sans contrainte géographique ou sécuritaire,
+
+Critères de non-inclusion
+
+Nous considèrerons deux principaux types de critères de non-inclusion
+selon qu’il s’agisse de participants ou d’échantillons à étudier.
+
+-   Critères de non-inclusion de sujets :
+
+-   Individu non consentant,
+
+-   Individu dont l'état de santé n'est pas compatible avec un
+      prélèvement sanguin selon l'investigateur,
+
+-   Individu sous mesure de protection juridique,
+
+-   Individu hors d’état de comprendre le questionnaire et/ou de
+      consentir,
+
+-   Individu nécessitant une prise en charge médicale immédiate.
+
+-   Critères de non-inclusion d’échantillons :
+
+-   Echantillons de sang issus de la biobanque du CPC non exploitables
+    (volume insuffisant),
+
+-   Prélèvements de pus, croûte ou sang obtenus par le CPC dans le cadre
+    de la surveillance du mpox, avec une charge virale insuffisante ou
+    un volume insuffisant pour procéder au séquençage complet du génome
+    viral.
+
+Stratégie de recrutement de la population d’étude
+
+Le projet VAXPOX-CAM s’articule autour de 4 Work Packages (WP) :
+
+Les WP1 et WP2, concernent respectivement l’épidémiologie et la
+sérologie. Ils incluent la réalisation d’une étude de séroprévalence
+auprès de différentes populations pour identifier les plus affectées par
+le mpox. Ceci sera rendu possible par la détection d’anticorps anti-MPXV
+dans les échantillons de sang, témoignant d’une infection passée. D’une
+part, des enquêtes transversales comprenant un questionnaire standardisé
+et un prélèvement sanguin seront effectuées. Elles concerneront des
+sujets représentatifs de la population générale en zones rurales, et des
+sujets appartenant à des groupes à risque de transmission du MPXV par
+voie sexuelle. D’autre part, des échantillons issus de la biobanque du
+CPC seront utilisés, collectés auprès de sujets appartenant à des
+groupes représentatifs de la population générale adulte en zones
+urbaines, dans le cadre de précédentes recherches menées par le CPC.
+Enfin, l’analyse d’échantillons de sang prélevés dans le cadre de la
+surveillance nationale du mpox à laquelle prend part le CPC, permettra
+d’évaluer le taux de transmission du virus au sein des ménages des cas
+confirmés de mpox.
+
+Le WP3 porte sur la virologie moléculaire. Il traitera du séquençage des
+souches virales isolées des cas confirmés de mpox, à partir des
+échantillons issus de la surveillance nationale au Cameroun, pour
+déterminer le caractère zoonotique ou interhumain de la transmission du
+MPXV.
+
+Enfin, le WP4 de Modélisation mathématique élaborera des modèles
+mathématiques décrivant la circulation du mpox au Cameroun, calibrés
+grâce aux données collectées dans les autres WP ; il s’en suivra une
+analyses coût-efficacité des stratégies vaccinales pour identifier les
+plus efficientes dans le contexte du Cameroun.
+
+Taille de l’échantillon et justification 
+
+Pour répondre à l’objectif principal de la recherche « Estimer la
+séroprévalence des anticorps mpox par âge, sexe et groupe à risque dans
+différentes populations urbaines et rurales au Cameroun », 1 200 sujets
+seront recrutés au sein de populations à risque de transmission du virus
+par voie sexuelle, et parmi la population générale en zones rurales. Ces
+sujets seront répartis comme suit :
+
+-   200 travailleurs du sexe recrutés via les associations CAMNAFAW et
+      Horizons Femmes à Yaoundé ;
+
+-   200 patients IST recrutés au laboratoire de biologie médicale du CPC
+      à Yaoundé ;
+
+-   200 chauffeurs routiers recrutés sur leurs aires de repos à Ayos
+      (Centre Cameroun) ;
+
+-   300 sujets en zone rurale recrutés dans le district sanitaire d’Ayos
+      (Centre Cameroun) ;
+
+-   300 sujets en zone rurale recrutés dans le district sanitaire de
+      Garoua (Nord Cameroun).
+
+Les tailles d’échantillon pour les groupes particulièrement à risque de
+transmission du virus par voie sexuelle et homogènes en termes de
+catégorie d’âge sont estimées à 200 participants. Avec 200 participants,
+les intervalles de confiance exacts binomiaux à 95% pour les estimations
+de séroprévalence de 3%, 10% et 50% seront respectivement de (1.1-6.4%),
+(6.2-15.0%), et (42.9-57.1%).
+
+Pour les populations en zones rurales, les participants recrutés seront
+plus hétérogènes en termes de catégories d’âge. Le nombre de sujets
+recrutés par localité sera donc porté à 300 pour permettre une puissance
+statistique suffisante par catégorie d’âge. Avec 300 participants les
+intervalles de confiance exacts binomiaux à 95% pour les estimations de
+séroprévalence de 3%, 10% et 50% seront respectivement de (1.4-5.6%),
+(6.8-14.0%), et (44.2-55.8%).
+
+De plus, 1 200 échantillons complémentaires seront utilisés, collectés
+auprès de populations représentatives de la population générale en zones
+urbaines et péri-urbaines, issus de la biobanque du CPC. Ces
+échantillons seront répartis comme suit :
+
+-   300 échantillons prélevés auprès de donneurs de sang de Yaoundé
+
+-   300 échantillons prélevés auprès de donneurs de sang de Douala
+
+-   300 échantillons prélevés auprès des professionnels de santé de
+      l’hôpital de Yaoundé
+
+-   300 échantillons prélevés auprès des professionnels de santé de
+      l’hôpital de Douala
+
+Les tailles échantillons pour les échantillons issus de la biobanque du
+CPC collectés auprès de groupes représentatifs de la population générale
+adulte sont estimées à 300 échantillons par groupe, permettant un gain
+de précision sans recrutement de sujets nécessaire car avec 300
+participants les intervalles de confiance exacts binomiaux à 95% pour
+les estimations de séroprévalence de 3%, 10% et 50% seront
+respectivement de (1.4-5.6%), (6.8-14.0%), et (44.2-55.8%).
+
+Pour répondre à l’objectif secondaire de la recherche « Estimer le taux
+de transmission du MPXV au sein de ménages au Cameroun », les
+échantillons de sang collectés dans le cadre des activités de
+surveillance auprès des membres des ménages de cas confirmés de mpox
+seront utilisés. Si on estime à 60 le nombre de cas confirmés de mpox
+qui surviendraient au cours des 2 ans de la recherche, et à raison d’une
+moyenne de 10 sujets prélevés par foyer de cas confirmés, le nombre
+total d’échantillons qui seraient utilisés pour répondre à cet objectif
+secondaire peut être estimé à 600 échantillons.
+
+Pour répondre à l’objectif secondaire de la recherche « Quantifier les
+contributions respectives de la transmission zoonotique et de la
+transmission interhumaine du MPXV dans la dissémination du mpox au
+Cameroun », et afin de disposer d’une photographie la plus exhaustive
+possible, nous inclurons tous les prélèvements et données de cas
+confirmés de mpox reçus au CPC dans le cadre de la surveillance
+nationale (cas passés et cas qui surviendraient au cours de la
+recherche).
+
+Procédures de collecte et de gestion des échantillons
+
+Différents types d’échantillons seront utilisés dans cette étude en
+fonction des populations ciblées.
+
+1.  
+
+2.  
+
+3.  
+
+4.  1.  
+    2.  
+    3.  
+    4.  
+    5.  
+    6.  
+    7.  
+    8.  
+
+Nature et circuit des prélèvements
+
+Un prélèvement de sang sera réalisé chez les participants au cours des
+enquêtes transversales de séroprévalence (groupes représentatifs de la
+population générale en zones rurales à Ayos et Garoua ; travailleurs du
+sexe et patients IST à Yaoundé ; chauffeurs routiers à Ayos). Le volume
+et la méthode de prélèvement de l’échantillon de sang seront adaptés en
+fonction de l’âge des participants : 5 ml de sang veineux prélevé au pli
+du coude pour les participants de 12 ans ou plus, 2.5 ml de sang veineux
+prélevé au pli du coude chez les participants de 6 à 11 ans, jusqu’à 500
+µl de sang capillaire prélevé au bout du doigt chez les participants de
+1 à 5 ans.
+
+Les échantillons sanguins prélevés seront traités dans des laboratoire
+identifiés proches des zones de collecte sur site afin d’obtenir du
+sérum, puis conservés à -20 °C sur le terrain. Ceux prélevés à Yaoundé
+seront acheminés quotidiennement au CPC en respectant la chaîne du froid
+(2-8 °C) et sous triple emballage pour être aliquotés et conservés à
+-80°C. Les échantillons prélevés sur les sites en-dehors de Yaoundé
+seront également transférés dans des conditions adaptées (triple
+emballage et en respect de la chaîne du froid) vers le service de
+virologie du CPC et conservés à -80°C en vue d’analyses ultérieures.
+
+Aussi, des échantillons de sérum issus de la biobanque du CPC, collectés
+auprès de professionnels de santé et de donneurs de sang en zones
+urbaines/périurbaines de Yaoundé et Douala dans le cadre de projets de
+recherches antérieures seront également inclus dans la présente étude.
+Ils sont actuellement conservés à -80 °C au CPC et seront rendus
+disponible en temps opportun.
+
+Enfin, des écouvillons de pus ou croûte ou des prélèvements de sang
+total collectés dans le cadre de la surveillance nationale mpox (cas
+passés et cas qui seraient détectés pendant la durée de l’étude, membres
+des foyers des cas confirmés) seront également utilisés. Les
+échantillons des cas confirmés seront pris en considération pour le
+volet moléculaire, particulièrement les échantillons de cas confirmés de
+mpox dont le seuil de cycle PCR MPXV inférieur ou égal à 30. Nous
+utiliserons des d’extraits d’ADN correspondant pour la préparation des
+librairies et le séquençage du génome complet du MPXV.
+
+ Conservation des échantillons
+
+Les échantillons stockés au CPC restent la propriété du CPC et seront
+conservés dans des locaux sécurisés pendant 5 ans après l’exécution du
+projet (soit 7 ans au total). La conservation des échantillons au-delà
+de cette durée devra être autorisée avec l'accord préalable explicite du
+Comité national d'éthique du Cameroun.
+
+Les participants auront la possibilité de donner ou non leur
+consentement concernant la réutilisation des échantillons pour des
+recherches futures. Pour les participants ayant accordé un consentement
+à cette réutilisation, l'accord préalable du Comité national d'éthique
+du Cameroun devra être obtenu pour toute nouvelle recherche portant sur
+ces échantillons. L’utilisation de ces échantillons par des chercheurs
+non mentionnés dans ce document devra être préalablement approuvée par
+le CPC. Les participants ayant refusé la réutilisation de leurs
+échantillons pourront tout de même participer à la recherche VAXPOX-CAM,
+mais leurs échantillons seront détruits à l’issue de la complétion des
+objectifs du protocole.
+
+Plan expérimental et déroulement pratique de la recherche 
+
+WP1-2 : Épidémiologie et sérologie
+
+Pour estimer la séroprévalence des anticorps anti-MPXV par âge, sexe et
+groupe à risque dans différentes populations urbaines et rurales au
+Cameroun, des enquêtes transversales de séroprévalence et des études sur
+échantillons en biobanque seront menées auprès de différentes
+populations.
+
+-   Réutilisation d’échantillons issus de recherches antérieures
+      conduites par le CPC
+
+Pour les sujets représentatifs de la population générale résidant en
+zone urbaine/périurbaine, des échantillons seront sélectionnés dans la
+biobanque du CPC, parmi les échantillons collectés auprès de donneurs de
+sang et de professionnels de santé ayant participé aux enquêtes
+conduites depuis 2021 par l’unité d’épidémiologie du CPC au sein des
+hôpitaux de Yaoundé et de Douala. La réutilisation de ces échantillons
+et données associées sera soumise à validation par le Comité National
+d'Ethique de la Recherche pour la Santé Humaine (CNERSH) du Cameroun.
+
+-   Réutilisation d’échantillons issus des activités de surveillance
+      nationale du mpox auxquelles prend part le CPC
+
+Les échantillons de sang collectés auprès des ménages des cas confirmés
+dans le cadre des activités de surveillance nationale du mpox auxquelles
+le CPC prend part seront analysés pour détection des anticorps anti-MPXV
+et estimation du taux de transmission du MPXV au sein des ménages. La
+réutilisation de ces échantillons et données associées sera soumise à
+validation par le Comité National d'Ethique de la Recherche pour la
+Santé Humaine (CNERSH) du Cameroun.
+
+-   Recrutement de sujets dans le cadre d’enquêtes transversales
+
+Pour les autres populations d’intérêt pour cette recherche, des sujets
+seront recrutés au cours d’enquêtes transversales qui impliqueront un
+questionnaire standardisé pour recueillir des données
+socio-démographiques, épidémiologiques et cliniques, et un prélèvement
+de sang. Le questionnaire administré aux participants comportera
+également des questions se rapportant à l’acceptabilité anticipée du
+vaccin mpox, ce qui permettra d’évaluer la prévalence de l’intention
+vaccinale mpox dans les populations ciblées.
+
+Les modalités de recrutement des participants seront adaptées à chaque
+contexte et décrites ci-dessous, dans le respect des principes de
+confidentialité et de non-stigmatisation, notamment pour les populations
+exposées à des risques de discrimination. Une attention particulière
+sera portée à la formulation des critères d’inclusion, à la langue
+utilisée, et à la nature du consentement éclairé.
+
+Il est à préciser que le Mpox étant une maladie à déclaration
+obligatoire au Cameroun, toute personne présentant des lésions
+évocatrices d’une infection en cours par le MPXV sera référée
+immédiatement selon le circuit national de surveillance en place avec
+tout de même la participation à la présente étude qui restera possible.
+
+Pour chaque groupe enquêté, l’enquêteur sera chargé de remplir le
+questionnaire après avoir recueilli les réponses de la personne
+interviewée. L'interview sera menée en privé, en garantissant la
+confidentialité des informations fournies par les répondants. Les
+répondants seront assurés que toutes les informations et les discussions
+demeurent confidentielles et que leur participation est volontaire. Ils
+seront informés qu'ils peuvent refuser de répondre aux questions et
+qu'ils peuvent se retirer de l'enquête à tout moment. Afin de prévenir
+les douleurs épisodiques liées à une prise de sang, une boisson sucrée
+(jus de fruits ou soda) sera proposée aux enfants de 1 à 5 ans. Aussi,
+une compensation sera proposée aux participants sous la forme d’un test
+de diagnostic rapide (TDR) paludisme et traitement si nécessaire,
+réalisés en parallèle des procédures de l’étude. Enfin, en complément
+des documents de l’étude, un dépliant concernant la maladie mpox, ses
+modes de transmission et les moyens de s’en protéger, sera transmis à
+chaque participant. Ce dépliant a été développé par le programme
+zoonoses du Cameroun et est utilisé dans le cadre des campagnes de
+prévention sur le territoire. Les participants bénéficieront aussi d’une
+séance de sensibilisation sur le contenu du dépliant à l’oral au moment
+de le recevoir.
+
+-   Enquêtes en zones rurales à Garoua et Ayos
+
+Nous commencerons par identifier l’ensemble des villages de la zone
+rurale d’Ayos ou de Garoua. À Ayos, les villages dans lesquels des cas
+de Mpox ont déjà été rapportés seront présélectionnés. Parmi ceux-ci,
+nous procéderons au tirage au sort de quelques villages en nous assurant
+qu’ils permettront d’atteindre la taille d’échantillon souhaitée. Dans
+le cas contraire, l’étude sera menée dans tous les villages
+présélectionnés. A Garoua, nous procéderons à un échantillonnage en
+grappes. L’équipe de recherche se rendra dans chaque grappe et, au sein
+de chaque grappe, l’étude sera proposée à toutes les personnes vivant
+dans une concession jusqu’à l’atteinte de l’effectif attendu.
+
+Dans les deux zones (Garoua et Ayos), l’équipe de recherche supervisée
+par le CPC se rendra dans chacun des villages pour assurer la
+sensibilisation, informer sur la période prévue pour les activités de
+terrain et préciser le lieu de rassemblement (chefferie, école, marché,
+etc.). Le jour venu, l’équipe s’installera et mènera les interviews
+ainsi que les prélèvements en privé, dans le strict respect de la
+confidentialité des informations fournies par les participants.
+
+-   Enquêtes auprès de patients du laboratoire de biologie médicale du
+      CPC à Yaoundé
+
+Toute personne reçue au laboratoire d’analyses médicales du Centre
+Pasteur du Cameroun chez qui un diagnostic d’infection sexuellement
+transmise aura été posé sera contactée et recevra une proposition de
+participation à l’étude. Si elle accepte, elle sera reçue en privé,
+interviewée et prélevée, dans le respect strict de la confidentialité
+des informations fournies. Ce processus se poursuivra jusqu’à
+l’obtention de la taille d’échantillon souhaitée. Le responsable sera
+chargé de remplir lui-même le questionnaire après avoir recueilli les
+réponses de la personne interviewée.
+
+-   Enquêtes auprès de travailleurs du sexe à Yaoundé
+
+Pour cette enquête, nous prévoyons une collaboration avec les
+associations de la société civile camerounaise (CAMNAFAW, Horizons
+Femmes), qui disposent d’une grande expertise dans le travail
+communautaire, notamment auprès des travailleurs du sexe. Le personnel
+de ces associations, supervisé par l’équipe du CPC, mobilisera ses
+réseaux habituels de contact avec ces populations pour leur présenter
+l’étude, les interviewer et procéder aux prélèvements, sous réserve de
+leur consentement. Lors de nos échanges, nous insisterons sur le fait
+que l’entretien sera mené en privé, dans le strict respect de la
+confidentialité des informations fournies, et que la participation des
+répondants est entièrement volontaire.
+
+-   Enquêtes auprès de chauffeurs routiers à Ayos
+
+Les camionneurs de longues distances seront approchés sur leurs aires de
+repos à Ayos (parc à camions qui viennent ou qui vont vers le littoral,
+l’Est, le grand Nord, la RCA, et le Tchad) par les personnels de santé
+de l’Hôpital régional annexe d’Ayos, sous la supervision du CERPLE de la
+région du Centre. Sur ces sites, les chauffeurs et leurs convoyeurs
+seront abordés, l’étude leur sera proposée, et s’ils acceptent de
+participer ils seront adressés à l’Hôpital régional annexe d’Ayos pour
+les procédures de l’étude. On procédera ainsi jusqu’à l’obtention de la
+taille de l’échantillon souhaitée.
+
+Précisions sur les analyses sérologiques
+
+Les analyses sérologiques des échantillons détecteront les éventuelles
+expositions passées au MPXV grâce à un test immunologique multiplex sur
+microsphères (MMIA) basé sur la technologie Luminex, permettant la
+détection simultanée des anticorps anti-MPXV. Ce test a été développé à
+l’IPP et sera transféré aux équipes du CPC, déjà formées à l’utilisation
+de la technologie Luminex. Les échantillons de sérum prélevés seront
+analysés au CPC avec le test MMIA pour la détection simultanée des
+anticorps IgM ou IgG dirigés contre plus de 35 antigènes du MPXV et des
+protéines apparentées des orthopoxvirus (Vaccinia, Camelpox, Mousepox /
+virus de l’Ectromélie). La détection des anticorps dirigés contre
+d’autres orthopoxvirus permet de contrôler la spécificité des anticorps
+détectés pour les antigènes du MPXV. Ce test sérologique s’est avéré
+efficace pour détecter des anticorps spécifiques du MPXV dans des sérums
+prélevés chez des patients hospitalisés en France lors de l’épidémie de
+MPXV clade II en 2022, ainsi que chez des cas confirmés de mpox lors des
+épidémies de MPXV clade Ia en RCA entre 2021 et 2023 (Area Under the
+Curve (AUC) de 97 % et 96 %, respectivement, données non publiées).
+Cette analyse permettra : (1) d’établir une estimation de la
+séroprévalence des anticorps anti-MPXV par âge et sexe dans les
+différentes populations ciblées dans cette recherche ; (2) d’éclairer la
+modélisation de paramètres épidémiologiques clés pour le WP4, tels que
+le taux de transmission du MPXV au sein des ménages.
+
+Au-delà d’antigènes du MPXV, le test comprendra des antigènes permettant
+de mesurer des anticorps dirigés contre des agents pathogènes
+responsables de maladies infectieuses d’intérêt pour la santé publique,
+notamment des maladies évitables par la vaccination (diphtérie, tétanos,
+Haemophilus influenza type b, coqueluche, rotavirus, méningite A,
+rougeole, rubéole, fièvre jaune), des maladies respiratoires (grippe,
+adénovirus, coronavirus), des arboviroses (dengue, Zika, chikungunya),
+des parasites du paludisme, les herpesvirus, le typhus des broussailles,
+le choléra, Borrelia crocidurae, la leptospirose, et des pathogènes
+responsables de maladies tropicales négligées (Schistosoma mansoni,
+Chlamydia trachomatis, Wucheria bancrofti, Onchocerca volvulus,
+Cryptospiridium parvum, Giardia intestinalis, Strongyloides stercoralis,
+Entamoeba histolytica). Cette analyse permettra d’établir une
+cartographie de la séroprévalence des anticorps pour un panel de
+pathogènes d’intérêt dans les populations ciblées dans cette recherche.
+Aussi, cela permettra de détecter et corriger les interférences
+potentielles entre les anticorps dirigés contre différents pathogènes
+présents localement, et les antigènes MPXV utilisés dans le test. Enfin,
+ces analyses sérologiques témoigneront de l’exposition passée à
+différents pathogènes, elles ne constitueront pas un diagnostic
+d’infection en cours. Aucun résultat incident n’est donc à attendre de
+ces analyses.
+
+Les données sérologiques obtenues et les données épidémiologiques
+associées seront partagées dans une base de données commune avec les
+autres instituts du PN déclinant le projet VAXPOX, permettant d’élargir
+la surveillance collaborative entre les instituts du réseau à un volet
+sérologique. 
+
+WP3 : Virologie moléculaire
+
+Depuis 2018, le CPC a confirmé 70 cas de mpox dans le cadre de son
+mandat de LNR pour le diagnostic du mpox. Les souches virales isolées
+des prélèvements de ces cas positifs disponibles en biobanque au CPC,
+ainsi que toute souche virale qui serait isolée de nouveaux cas
+confirmés par le CPC pendant la durée de la recherche, seront incluses
+dans les analyses génomiques à réaliser. Ces analyses génomiques seront
+menées à partir d’échantillons (pus/croûtes de lésions cutanées et/ou
+sang) et des données associées, issus de la surveillance nationale à
+laquelle le CPC prend part en tant que LNR pour le diagnostic mpox. Les
+analyses conduites dans le cadre de la recherche incluront le séquençage
+complet des souches de MPXV de cas confirmés de mpox et des analyses
+phylogénétiques.
+
+Les échantillons provenant de cas confirmés détectés par le système de
+surveillance pendant la durée de la recherche et présentant un seuil de
+cycle PCR (CT) MPXV inférieur à 30 seront séquencés en utilisant la
+technologie Illumina sur l'appareil NextSEQ 550 disponible au CPC au CPC
+afin d’obtenir des génomes complets. Les échantillons issus de cas
+confirmés passés pour lesquels les génomes complets ne sont pas
+disponibles et également de CT<30 feront l’objet d’un séquençage
+complet. Les échantillons seront soumis à la fois à un séquençage basé
+sur des amplicons et à des approches métagénomiques d'enrichissement
+ciblé. Les données de séquençage générées feront l’objet d’analyses en
+aval spécifiques à l'aide de pipelines bio-informatiques personnalisés.
+La présence ou l’absence de signatures moléculaires de transmission
+interhumaine (ex : celles laissées par l’enzyme humaine APOBEC3) sera
+recherchée dans les séquences obtenues, afin de déterminer la part des
+infections d’origine zoonotique et celle des infections interhumaines
+parmi les infections au Cameroun. Enfin, les séquences virales obtenues
+et les données épidémiologiques associées seront partagées dans une base
+de données commune avec les autres instituts du PN déclinant le projet
+VAXPOX, permettant de renforcer la surveillance génomique collaborative
+entre les instituts du réseau. Un modèle phylodynamique sera développé
+en utilisant l’ensemble des séquences disponibles dans les banques de
+données publiques, afin de décrire la dynamique de transmission
+zoonotique et interhumaine.
+
+WP4 : Modélisation mathématique
+
+Pour modéliser la circulation du mpox au Cameroun sur la base des
+données collectées et identifier les stratégies vaccinales les plus
+efficientes dans le contexte du Cameroun, les données collectées dans
+les autres WP seront utilisées et complétées avec les données issues de
+la surveillance nationale du mpox au Cameroun. Des modèles mathématiques
+décrivant la circulation du mpox au Cameroun seront développés et
+serviront à évaluer différentes stratégies de vaccination pour
+identifier les stratégies les plus efficientes.
+
+Les étapes qui seront entreprises dans ce WP sont les suivantes :
+
+1.  Un modèle mathématique décrivant la propagation du mpox sera généré
+      en prenant en compte les différentes voies de transmission du
+      MPXV, y compris la transmission interhumaine sexuelle ou non
+      sexuelle, ainsi que la transmission zoonotique. Le déclin attendu
+      des titres d’anticorps à distance de l’infection sera pris en
+      compte dans l’analyse des résultats des enquêtes sérologiques. La
+      population modélisée sera structurée par âge et par groupe à
+      risque.
+
+2.  Un échantillonnage par chaîne de Markov Monte Carlo sera utilisé
+      pour calibrer le modèle aux données concernant les cas confirmés
+      de mpox au Cameroun collectées par le système national de
+      surveillance. Cette calibration permettra de quantifier la
+      contribution des différentes voies de transmission à la
+      propagation globale.
+
+3.  Le modèle obtenu servira à simuler des épidémies selon différentes
+      stratégies de vaccination. La charge infectieuse évitée par chaque
+      stratégie sera estimée, et celle ayant l’impact maximal sera
+      identifiée. Le modèle sera calibré aux données du Cameroun
+      provenant de contextes variés (urbain vs. rural, Nord vs. Sud)
+      afin de déterminer les spécificités propres à chaque contexte, et
+      d’évaluer si ces différences justifient l’application de
+      stratégies vaccinales différenciées.
+
+Des analyses coût-efficacité des stratégies de vaccination envisageables
+au Cameroun seront réalisées, en prenant en compte les différences de
+gravité de la maladie selon certaines caractéristiques individuelles,
+telles que l’âge ou le clade viral. Le fardeau de la maladie évité
+estimé par le modèle de transmission sera converti en mesures
+économiques ou sanitaires. Cette harmonisation des résultats du modèle
+permettra de calculer les ratios coût-efficacité incrémentaux et
+d’offrir aux décideurs des informations sur la valeur des différentes
+stratégies vaccinales. Des analyses de sensibilité seront menées pour
+évaluer la transférabilité des résultats à d'autres contextes
+épidémiologiques.
+
+Analyse et gestion des données
+
+1.  
+
+Recueil et gestion des données
+
+-   Provenance et recueil des données
+
+Les données seront collectées, traitées et stockés dans le respect des
+principes d’éthique, de confidentialité et de protection des
+participants. Le stockage des fichiers numériques sera protégé par un
+mot de passe sur les serveurs du CPC. Le stockage des documents papiers
+de l’étude se fera dans des armoires sécurisées, sous enveloppe scellée
+si nécessaire.
+
++----------------------+----------------------+----------------------+
+| JEUX DE DONNEES      | SOURCE DES DONNEES   | STOCKAGE DES DONNEES |
++======================+======================+======================+
+| Données              | Registre papier des  | Armoires sécurisées  |
+| individuelles        | participants         | sur sites pendant    |
+| nominatives          | renseigné lors de    | les investigations,  |
+| (enquêtes de         | l’inclusion des      | puis sous enveloppe  |
+| séroprévalence)      | participants         | scellée au CPC       |
+|                      |                      |                      |
+|                      | Formulaires de       |                      |
+|                      | consentement         |                      |
++----------------------+----------------------+----------------------+
+| Données              | Questionnaires de    | Serveurs CPC (base   |
+| individuelles non    | recherche remplis    | de données           |
+| nominatives          | lors des entretiens  | électronique         |
+| (enquêtes de         | avec les             | PLACARD)             |
+| séroprévalence)      | participants         |                      |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | Analyse des          | Serveurs CPC         |
+| de sérologie         | échantillons de      |                      |
+| (Luminex)            | sérum par            |                      |
+|                      | technologie Luminex  |                      |
++----------------------+----------------------+----------------------+
+| Données              | Questionnaires de    | Serveurs CPC         |
+| individuelles non    | recherche remplis    |                      |
+| nominatives          | lors des études      |                      |
+| (associées aux       | antérieures          |                      |
+| échantillons de      | conduites par le CPC |                      |
+| sérums déjà en       | auprès des donneurs  |                      |
+| biobanque)           | de sang et           |                      |
+|                      | professionnels de    |                      |
+|                      | santé des hôpitaux   |                      |
+|                      | de Yaoundé et Douala |                      |
++----------------------+----------------------+----------------------+
+| Données              | Base de données de   | Serveurs CPC         |
+| individuelles non    | surveillance         |                      |
+| nominatives          | nationale du mpox,   |                      |
+| (associées aux       | constituée à partir  |                      |
+| échantillons         | des questionnaires   |                      |
+| collectés dans le    | administrés aux cas  |                      |
+| cadre de la          | suspects par CPC et  |                      |
+| surveillance         | le ministère de la   |                      |
+| nationale du mpox)   | Santé                |                      |
++----------------------+----------------------+----------------------+
+| Résultats de         | Analyse des          | Serveurs CPC         |
+| séquençage des       | échantillons de cas  |                      |
+| souches de MPXV      | confirmés de MPXV    |                      |
++----------------------+----------------------+----------------------+
+
+-   Précisions sur les données nominatives collectées sur les sites
+      investigateurs
+
+Pendant les enquêtes de séroprévalence, des informations permettant
+d’identifier les participants seront collectées afin de constituer le
+registre des participants. Ces informations ne seront pas saisies dans
+la base de données électronique du projet. Une table de correspondance
+permettant de faire le lien entre l’identifiant unique attribué aux
+échantillons prélevés et l’identité du participant sera établie,
+conservée par les équipes terrain pendant la durée des investigations,
+puis archivée sous enveloppe scellée au CPC après les investigations.
+
+-   Précisions sur les données non-nominatives collectées par
+      questionnaires de recherche
+
+La base de données du projet sera créée par le gestionnaire de données
+de l’Unité d’Epidémiologie du CPC via l’outil PLACARD, logiciel de
+recueil de données en ligne hébergé sur les serveurs du CPC. PLACARD est
+accessible à distance sans connexion internet de façon sécurisée par les
+utilisateurs référencés et authentifiés à l’aide d’un identifiant et
+d’un mot de passe personnels, et permet de différencier les droits
+d’accès (modification, lecture, extraction...) aux formulaires et aux
+données qu’ils contiennent selon le profil des utilisateurs
+(investigateurs, équipes d’investigations, gestionnaires de données,
+attachés de recherche clinique). Un questionnaire électronique sera
+administré aux participants par les équipes d’investigation.
+
+Description des données et justification
+
++----------------------+----------------------+----------------------+
+| JEUX DE DONNEES      | DONNEES              |                      |
++======================+======================+======================+
+|                      | DESCRIPTION          | JUSTIFICATION        |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles        | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (enquêtes de         |                      |                      |
+| séroprévalence)      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Coordonnées      | - Etablir la liste   |
+|                      |       (données       | de correspondance    |
+|                      |                      | entre le nom et le   |
+|                      |      administratives | code identifiant     |
+|                      |                      |                      |
+|                      |    d’identification) |                      |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (enquêtes de         |                      |                      |
+| séroprévalence)      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Année de         | Stratification des   |
+|                      |       naissance      | résultats sur l’âge, |
+|                      |                      | le sexe, ou la       |
+|                      | -   Sexe             | localisation         |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence (le  |                      |
+|                      |       niveau de      |                      |
+|                      |       granularité    |                      |
+|                      |       sera           |                      |
+|                      |       proportionnel  |                      |
+|                      |       à la densité   |                      |
+|                      |       démographique  |                      |
+|                      |       de la zone     |                      |
+|                      |       enquêtée afin  |                      |
+|                      |       de minimiser   |                      |
+|                      |       le risque      |                      |
+|                      |                      |                      |
+|                      |     d’identification |                      |
+|                      |       de             |                      |
+|                      |       participants   |                      |
+|                      |       par            |                      |
+|                      |       recoupement de |                      |
+|                      |       données)       |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Historique connu | Interprétation des   |
+|                      |       d’infection    | résultats de         |
+|                      |       mpox (dates,   | sérologie détectant  |
+|                      |       symptômes,     | les anticorps        |
+|                      |       traitement,    | spécifiques          |
+|                      |       résultat PCR)  | anti-MPXV            |
+|                      |                      |                      |
+|                      | -   Vaccination      |                      |
+|                      |       smallpox/mpox  |                      |
+|                      |       (dates)        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Historique       | Identification       |
+|                      |       d’éruption     | d’hypothétiques      |
+|                      |       cutanée        | infections mpox non  |
+|                      |       fébrile        | diagnostiquées       |
+|                      |       (dates,        |                      |
+|                      |       diagnostic,    |                      |
+|                      |       symptômes)     |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Conditions       | Stratification des   |
+|                      |       sous-jacentes  | résultats en         |
+|                      |                      | fonction de          |
+|                      | -   Traitements      | conditions           |
+|                      |       médicamenteux  | sous-jacentes,       |
+|                      |                      | exclusion de sujets  |
+|                      |                      | de certaines         |
+|                      |                      | analyses             |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Intention        | Estimation de la     |
+|                      |       vaccinale mpox | prévalence de        |
+|                      |                      | l’intention          |
+|                      | -   Eventuels freins | vaccinale et         |
+|                      |       à la           | identification des   |
+|                      |       vaccination    | freins               |
+|                      |       mpox           |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Niveau           | Identification de    |
+|                      |       d’instruction  | facteurs             |
+|                      |                      | d’augmentation (ou   |
+|                      | -   Facteurs de      | de diminution) du    |
+|                      |       risque         | risque d’infection   |
+|                      |       (contacts avec | par le MPXV          |
+|                      |       patient        |                      |
+|                      |       atteint de     |                      |
+|                      |       mpox, contacts |                      |
+|                      |       sexuels,       |                      |
+|                      |       contacts avec  |                      |
+|                      |       faune sauvage) |                      |
+|                      |       (les questions |                      |
+|                      |       sur les        |                      |
+|                      |       contacts       |                      |
+|                      |       sexuels ne     |                      |
+|                      |       seront posées  |                      |
+|                      |       qu’aux         |                      |
+|                      |       adultes)       |                      |
++----------------------+----------------------+----------------------+
+| Résultats d’analyses | Données              |                      |
+| de sérologie         | biologiques :        |                      |
+| (Luminex)            |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Taux d’anticorps | Estimation de la     |
+|                      |       IgM et IgG     | prévalence des       |
+|                      |       dirigés contre | anticorps            |
+|                      |       des protéines  | spécifiques          |
+|                      |       du MPXV        | anti-MPXV            |
+|                      |                      |                      |
+|                      | -   Taux d’anticorps |                      |
+|                      |       IgM et IgG     |                      |
+|                      |       dirigés contre |                      |
+|                      |       des protéines  |                      |
+|                      |       d’autres       |                      |
+|                      |       orthopoxvirus  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Taux d’anticorps | Estimation de la     |
+|                      |       IgM et IgG     | prévalence des       |
+|                      |       dirigés contre | anticorps            |
+|                      |       des protéines  | spécifiques de       |
+|                      |       de pathogènes  | plusieurs pathogènes |
+|                      |       d’intérêt en   | d’intérêt en santé   |
+|                      |       santé publique | publique             |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (associées aux       |                      |                      |
+| échantillons de      |                      |                      |
+| sérums déjà en       |                      |                      |
+| biobanque)           |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Année de         | Stratification des   |
+|                      |       naissance      | résultats sur l’âge, |
+|                      |                      | le sexe, ou la       |
+|                      | -   Sexe             | localisation         |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence      |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Historique connu | Interprétation des   |
+|                      |       d’éruption     | résultats de         |
+|                      |       cutanée        | sérologie            |
+|                      |       fébrile        |                      |
+|                      |                      |                      |
+|                      | -   Vaccination      |                      |
+|                      |       smallpox/mpox  |                      |
+|                      |       (dates)        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Conditions       | Stratification des   |
+|                      |       sous-jacentes  | résultats en         |
+|                      |                      | fonction de          |
+|                      | -   Traitements      | conditions           |
+|                      |       médicamenteux  | sous-jacentes,       |
+|                      |                      | exclusion de sujets  |
+|                      |                      | de certaines         |
+|                      |                      | analyses             |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Niveau           | Identification de    |
+|                      |       d’instruction  | facteurs             |
+|                      |                      | d’augmentation (ou   |
+|                      | -   Facteurs de      | de diminution) du    |
+|                      |       risque         | risque d’infection   |
+|                      |       (contacts avec | par le MPXV          |
+|                      |       patient        |                      |
+|                      |       atteint de     |                      |
+|                      |       mpox, contacts |                      |
+|                      |       sexuels,       |                      |
+|                      |       contacts avec  |                      |
+|                      |       faune sauvage) |                      |
++----------------------+----------------------+----------------------+
+| Données              | Données              |                      |
+| individuelles non    | identifiantes :      |                      |
+| nominatives          |                      |                      |
+| (surveillance        |                      |                      |
+| nationale du mpox)   |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Année de         | Caractérisation des  |
+|                      |       naissance      | cas confirmés de     |
+|                      |                      | mpox, analyses       |
+|                      | -   Sexe             | phylogénétiques      |
+|                      |                      |                      |
+|                      | -   Lieu de          |                      |
+|                      |       résidence      |                      |
++----------------------+----------------------+----------------------+
+|                      | Données médicales :  |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Date de début    | Caractérisation des  |
+|                      |       des symptômes  | cas confirmés de     |
+|                      |                      | mpox, analyses       |
+|                      | -   Eruption cutanée | phylogénétiques      |
+|                      |       (nombre de     |                      |
+|                      |       lésions)       |                      |
+|                      |                      |                      |
+|                      | -   Vaccination      |                      |
+|                      |       smallpox/mpox  |                      |
+|                      |       (dates)        |                      |
+|                      |                      |                      |
+|                      | -   Historique connu |                      |
+|                      |       d’infection    |                      |
+|                      |       mpox           |                      |
+|                      |                      |                      |
+|                      | -   Historique       |                      |
+|                      |       d’éruption     |                      |
+|                      |       cutanée        |                      |
+|                      |       fébrile        |                      |
+|                      |                      |                      |
+|                      | -   Conditions       |                      |
+|                      |       sous-jacentes  |                      |
+|                      |                      |                      |
+|                      |  (immunosuppression) |                      |
++----------------------+----------------------+----------------------+
+|                      | Données vie          |                      |
+|                      | personnelle :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Profession       | Caractérisation des  |
+|                      |                      | cas confirmés de     |
+|                      | -   Contact avec     | mpox, analyses       |
+|                      |     patient atteint  | phylogénétiques      |
+|                      |     de mpox dans les |                      |
+|                      |     jours précédant  |                      |
+|                      |     le prélèvement   |                      |
+|                      |                      |                      |
+|                      | -   Contact avec     |                      |
+|                      |     animal           |                      |
+|                      |     domestique ou    |                      |
+|                      |     sauvage dans les |                      |
+|                      |     jours précédant  |                      |
+|                      |     le prélèvement   |                      |
++----------------------+----------------------+----------------------+
+|                      | Données              |                      |
+|                      | biologiques :        |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Date de          | Caractérisation des  |
+|                      |     prélèvement      | cas confirmés de     |
+|                      |                      | mpox, analyses       |
+|                      | -   Type de          | phylogénétiques      |
+|                      |     prélèvement      |                      |
+|                      |                      |                      |
+|                      | -   Résultat PCR,    |                      |
+|                      |     valeur du Ct     |                      |
++----------------------+----------------------+----------------------+
+| Résultats de         | Données              |                      |
+| séquençage des       | biologiques :        |                      |
+| souches de MPXV      |                      |                      |
++----------------------+----------------------+----------------------+
+|                      | -   Génomes complets | Estimation de la     |
+|                      |       des souches de | part relative des    |
+|                      |       MPXV           | introductions        |
+|                      |                      | zoonotiques versus   |
+|                      |                      | cas de transmission  |
+|                      |                      | interhumaine au      |
+|                      |                      | Cameroun, analyses   |
+|                      |                      | phylogénétiques      |
++----------------------+----------------------+----------------------+
+
+Circuit des données et droits d’accès
+
++-------------+-------------+-------------+-------------+-------------+
+| JEUX DE     | ACCES       | ACCES       | PARTAGE DES | PRINCIPALES |
+| DONNEES     |             |             | DONNEES     | FINALITES   |
+|             | CPC         | AUTRES      |             |             |
+|             |             | ENTITES     |             |             |
++=============+=============+=============+=============+=============+
+| Données     | Equipe      | Aucun       | Aucun       | -           |
+| in          | terrain     |             |             | C           |
+| dividuelles |             |             |             | onstitution |
+| nominatives |             |             |             | du registre |
+| (enquêtes   |             |             |             | des         |
+| de          |             |             |             | p           |
+| séro        |             |             |             | articipants |
+| prévalence) |             |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - Equipe    | IPP :       | Partage des | -           |
+| in          | terrain     |             | données     | Estimation  |
+| dividuelles |             | - unité EME | collectées  | de la       |
+| non         | - Unité     |             | via PLACARD | prévalence  |
+| nominatives | épidémio    | - unité ERI | (serveurs   | des         |
+| (enquêtes   |             |             | CPC)        | anticorps   |
+| de          | - Unité     | - unité     |             | spécifiques |
+| séro        | Viro        | IDEA        | via OWEY    | contre      |
+| prévalence) |             |             | (serveurs   | différents  |
+|             |             | - unité     | IPP), accès | pathogènes, |
+|             |             | MMID        | i           | dont le     |
+|             |             |             | ndividuels. | MPXV        |
+|             |             |             |             |             |
+|             |             |             |             | -           |
+|             |             |             |             | Ide         |
+|             |             |             |             | ntification |
+|             |             |             |             | des         |
+|             |             |             |             | facteurs    |
+|             |             |             |             | associés au |
+|             |             |             |             | risque      |
+|             |             |             |             | d’infection |
+|             |             |             |             | passée par  |
+|             |             |             |             | différents  |
+|             |             |             |             | pathogènes, |
+|             |             |             |             | dont le     |
+|             |             |             |             | MPXV        |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - Unité     | IPP :       | Partage des |             |
+| in          | épidémio    |             | données     |             |
+| dividuelles |             | - unité EME | stockées    |             |
+| non         | - Unité     |             | sur les     |             |
+| nominatives | Viro        | - unité ERI | serveurs du |             |
+| (associées  |             |             | CPC via     |             |
+| aux         |             | - unité     | OWEY        |             |
+| é           |             | IDEA        | (serveurs   |             |
+| chantillons |             |             | IPP), accès |             |
+| de sérums   |             | - unité     | i           |             |
+| déjà en     |             | MMID        | ndividuels. |             |
+| biobanque)  |             |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Résultats   | - Unité     | IPP :       | Partage des |             |
+| d’analyses  | épidémio    |             | résultats   |             |
+| de          |             | - unité EME | d’analyses  |             |
+| sérologie   | - Unité     |             | d’é         |             |
+| (Luminex)   | Viro        | - unité ERI | chantillons |             |
+|             |             |             | via OWEY    |             |
+|             |             | - unité     | (serveurs   |             |
+|             |             | IDEA        | IPP), accès |             |
+|             |             |             | individuels |             |
+|             |             | - unité     |             |             |
+|             |             | MMID        |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| Données     | - Unité     | IPP :       | Partage des | -           |
+| in          | Viro        |             | données     | Estimation  |
+| dividuelles |             | - unité EME | stockées    | de la part  |
+| non         |             |             | sur les     | relative    |
+| nominatives |             | - unité     | serveurs du | des         |
+| (s          |             | EPVO        | CPC via     | in          |
+| urveillance |             |             | OWEY        | troductions |
+| nationale   |             | - unité     | (serveurs   | zoonotiques |
+| du mpox)    |             | EDID        | IPP), accès | versus cas  |
+|             |             |             | i           | de          |
+|             |             | - unité     | ndividuels. | t           |
+|             |             | MMID        |             | ransmission |
+|             |             |             |             | i           |
+|             |             | - hub de    |             | nterhumaine |
+|             |             | bioi        |             | au Cameroun |
+|             |             | nformatique |             |             |
+|             |             | et          |             | - Analyses  |
+|             |             | bio         |             | phyl        |
+|             |             | statistique |             | ogénétiques |
++-------------+-------------+-------------+-------------+-------------+
+| Résultats   | - Unité     |             | Partage des |             |
+| de          | Viro        |             | résultats   |             |
+| séquençage  |             |             | d’analyses  |             |
+| des souches |             |             | d’é         |             |
+| de MPXV     |             |             | chantillons |             |
+|             |             |             | via OWEY    |             |
+|             |             |             | (serveurs   |             |
+|             |             |             | IPP), accès |             |
+|             |             |             | individuels |             |
++-------------+-------------+-------------+-------------+-------------+
+
+Conservation, confidentialité et archivage des données
+
+Le CPC, promoteur de cette recherche, conservera le registre des
+participants et les consentements, ainsi que la base de données
+électronique du projet en base active pendant 5 ans à l’issue de la
+recherche. Passé ce délai, les documents seront archivés pour une durée
+de 15 ans. L’IPP, co-responsable de traitement, conservera les données
+numériques reçues pendant 5 ans à l’issue de la recherche, avant
+archivage pendant une durée de 15 ans. Le rapport final de la recherche
+sera archivé par les deux instituts pour une durée de 15 ans.
+
+-   Enquêtes de séroprévalence
+
+Chaque participant se verra assigner un code d’identification unique,
+associé à ses données personnelles et à ses échantillons, qui sera
+conservé pendant toute la durée de la recherche.
+
+Ce code sera composé de la façon suivante :
+
+Code projet + Code du lieu de recrutement + N° de sujet
+
+Le code projet sera : VPCAM
+
+Le code attribué à chaque lieu de recrutement est défini dans le tableau
+ci-dessous :
+
++--------------------------------------------------------------+------+
+| LIEU DE RECRUTEMENT                                          | CODE |
++==============================================================+======+
+| Ménages en zone rurale (district d’Ayos)                     | 01   |
++--------------------------------------------------------------+------+
+| Ménages en zone rurale (district de Garoua)                  | 02   |
++--------------------------------------------------------------+------+
+| Laboratoire d’analyses médicales du CPC, Yaoundé             | 03   |
+| (recrutement patients IST)                                   |      |
++--------------------------------------------------------------+------+
+| Hôpital régional annexe d’Ayos (recrutement chauffeurs       | 04   |
+| routiers)                                                    |      |
++--------------------------------------------------------------+------+
+| Locaux de l’association CAMNAFAW à Yaoundé (recrutement      | 05   |
+| travailleurs du sexe)                                        |      |
++--------------------------------------------------------------+------+
+| Locaux de l’association Horizons Femmes à Yaoundé            | 06   |
+|                                                              |      |
+| (recrutement travailleurs du sexe)                           |      |
++--------------------------------------------------------------+------+
+
+Le numéro de chaque sujet (nombre à trois chiffres) sera défini par
+incrémentation.
+
+Exemple pour le sujet N°99 recruté au laboratoire d’analyses médicales
+du CPC participant à la recherche VAXPOX-CAM : VPCAM-03-099
+
+-   Etude sur échantillons de sérum en biobanque
+
+Pour les analyses effectuées sur les échantillons déjà en biobanque au
+CPC, collectés dans le cadre de recherches antérieures auprès de
+professionnels de santé et donneurs de sang des hôpitaux de Douala et de
+Yaoundé, les échantillons et données associées utilisées dans le cadre
+de cette étude seront recodées comme indiqué ci-dessus, avec le code
+« 88 » pour le lieu de recrutement.
+
+Exemple pour le 12^(ème) échantillon de sérum en biobanque inclus dans
+la recherche VAXPOX-CAM : VPCAM-88-012.
+
+-   Etude sur échantillons de sérums issus de la surveillance
+
+Pour les analyses de séroprévalence effectuées sur les échantillons de
+sérum collectés par le CPC dans le cadre de la surveillance auprès des
+ménage de cas confirmés, les échantillons et données associées utilisées
+dans le cadre de cette étude seront recodées comme indiqué ci-dessus,
+avec le code « 77 » pour le lieu de recrutement.
+
+Exemple pour le 17^(ème) échantillon de sérum issu d’un ménage avec cas
+confirmé de mpox, inclus dans la recherche VAXPOX-CAM : VPCAM-77-017.
+
+-   Etude génomique sur échantillons issus de la surveillance
+
+Pour les analyses génomiques effectuées sur les échantillons collectés
+par le CPC dans le cadre de la surveillance, les échantillons et données
+associées utilisées dans le cadre de cette étude seront recodées comme
+indiqué ci-dessus, avec le code « 99 » pour le lieu de recrutement.
+
+Exemple pour le 43^(ème) échantillon MPXV positif inclus dans la
+recherche VAXPOX-CAM : VPCAM-99-043.
+
+ Lieux et analyses des données
+
+-   Epidémiologie et sérologie (WP1-2)
+
+L’analyse et l’interprétation des résultats de sérologie Luminex et des
+données épidémiologiques associées seront effectuées conjointement par
+les équipes des départements de Virologie et d’Epidémiologie du CPC,
+avec l’appui des unités Epidémiologie des maladies émergentes (UEME),
+Environnement et risques infectieux (ERI), et Epidémiologie et analyse
+des maladies infectieuses (IDEA) de l’IPP.
+
+Au sein de chaque groupe de sujets ayant pris part aux enquêtes de
+séroprévalence, les caractéristiques des sujets séropositifs et
+séronégatifs pour les anticorps spécifiques d’un pathogène donné, dont
+le MPXV, seront décrites par les moyennes et déviations standards, ou
+les médianes et écarts interquartiles pour les variables continues, et
+par les proportions avec intervalles de confiance à 95% pour les
+variables discrètes. Le test du Chi-2 (ou test exact de Fisher selon les
+effectifs observés) sera utilisé pour comparer les variables discrètes.
+Le test de Student (ou test de Mann-Whitney selon les effectifs
+observés) sera utilisé pour comparer les variables continues. Toutes les
+variables associées en analyse univariée à un seuil ≤ 0,25 seront
+intégrées dans une régression logistique pas à pas descendant afin de
+déterminer les facteurs de risque de séroconversion. Ces facteurs de
+risque seront mesurés par l’intermédiaire des Odds ratio (OR) et leur
+intervalle de confiance à 95%. Le degré de signification statistique
+retenu sera fixé à p<0,05.
+
+-   Virologie moléculaire (WP3)
+
+L’assemblage des séquences virales brutes afin de générer les génomes
+entiers des souches MPXV issues des prélèvements positifs, ainsi que les
+analyses phylodynamiques intégrant les métadonnées associées seront
+réalisées par les équipes du département de Virologie du CPC, avec
+l’appui des unités Epidémiologie et Physiopathologie des virus oncogènes
+(EPVO) et Dynamiques évolutives des maladies infectieuses (EDID) de
+l’IPP.
+
+Les séquences et métadonnées associées seront déposées sur la plateforme
+Owey (serveurs IPP) en suivant le format de pathoplexus
+(https://pathoplexus.org/) dans lequel les séquences et les métadonnées
+sont liées, et ainsi facilement déployées pour des analyses ou le
+partage. Les données génomiques qui seront obtenues seront comparées
+avec les autres génomes disponibles dans GenBank sur la plateforme Owey
+(https://dataset.owey.io). Les analyses combinées des données de
+phylogénie et des données épidémiologiques seront réalisées grâce à une
+pipeline Nextstrain⁴³. Un modèle phylodynamique sera développé via la
+plateforme BEAST2⁴⁴, utilisant toutes les séquences disponibles pour
+décrire les dynamiques de transmissions zoonotique et interhumaine.
+
+-   Modélisation mathématique (WP4)
+
+Les données collectées et générées dans les autres WP seront utilisées
+pour estimer des paramètres clés nécessaires au développement de modèles
+mathématiques décrivant la circulation du mpox au Cameroun.
+
+La population modélisée sera structurée par âge et par groupe à risque
+d’infection. Le modèle prendra en compte les différentes voies de
+transmission, y compris la transmission interhumaine sexuelle ou non
+sexuelle, ainsi que la transmission zoonotique. Un échantillonnage par
+chaîne de Markov Monte Carlo sera utilisé pour calibrer le modèle aux
+données disponibles. Grâce à cette calibration, la contribution des
+différentes voies de transmission à la propagation globale sera
+quantifiée. Le modèle obtenu sera utilisé pour simuler des épidémies
+selon différentes stratégies de vaccination. Le fardeau d’infection
+évité par chaque stratégie sera estimé, et celle qui maximise l’impact
+de la vaccination sera identifiée. Le modèle sera calibré aux données
+recueillies dans différents contextes (urbain vs rural) afin de
+déterminer les caractéristiques spécifiques à chaque contexte, et
+d’évaluer si les différences entre contextes justifient l’application de
+stratégies de vaccination distinctes.
+
+Des analyses coût-efficacité des stratégies de vaccination seront
+réalisées, en tenant compte des différences de gravité de la maladie
+selon les caractéristiques individuelles telles que l’âge ou le clade
+viral. La charge d’infection évitée estimée par le modèle de
+transmission sera convertie en mesures économiques ou sanitaires telles
+que les ressources de santé utilisées ou les années de vie ajustées sur
+la qualité. Cette harmonisation des résultats du modèle permettra de
+calculer les ratios coût-efficacité incrémentaux et de fournir des
+informations sur la valeur des stratégies de vaccination.
+
+Ces travaux de modélisation seront effectués par les équipes du
+département d’Epidémiologie du CPC, avec l’appui des unités Modélisation
+mathématique des maladies infectieuses (MMID) et Epidémiologie des
+maladies émergentes (UEME).
+
+DIFFUSION DES RESULTATS
+
+Diffusion des résultats auprès des participants et des populations
+
+Les équipes de recherche du CPC interviennent régulièrement auprès des
+populations dans le cadre de leurs activités de recherche et de
+surveillance. La recherche VAXPOX-CAM sera l’occasion de renforcer les
+activités de sensibilisation sur le mpox, ses facteurs de risque et
+modes de prévention. Les résultats du projet VAXPOX-CAM feront l’objet
+de communications avec la collaboration du Ministère de la Santé
+Publique du Cameroun auprès des participants et de la communauté à
+travers les sessions de restitution organisées dans chaque site de
+recrutement (Ayos, Garoua, et Yaoundé). La diffusion des résultats de ce
+projet s’attachera à ce que l’information délivrée évite toute forme de
+stigmatisation des populations ou individus atteints.
+
+Diffusion des résultats auprès des autorités locales
+
+Les résultats du projet VAXPOX-CAM feront l’objet d’une communication au
+ministère de la Santé du Cameroun ainsi qu’aux directions régionales et
+districts sanitaires des zones concernées par l’étude. Les supports
+utilisés pourront être des cartographies des épidémies, des rapports
+faisant ressortir les groupes particulièrement à risque mis en évidence,
+et des rapports détaillant les stratégies vaccinales identifiées comme
+étant les plus efficientes par les analyses coût-efficacité. La
+diffusion des résultats de ce projet s’attachera à ce que l’information
+délivrée évite toute forme de stigmatisation des populations ou
+individus atteints.
+
+Diffusion des résultats auprès de la communauté scientifique
+
+Les résultats du projet VAXPOX-CAM pourront faire l'objet de
+présentations lors de réunions, ou congrès scientifiques ou médicaux,
+par les membres des équipes du CPC et de l’IPP impliqués dans ce projet,
+après validation par les co-responsables scientifiques du projet. Les
+résultats feront l'objet de soumissions d’articles scientifiques dans
+des revues à comité de lecture. La liste des signataires et des
+personnes remerciées dans les articles scientifiques soumis sera établie
+après discussion collégiale entre les responsables scientifiques de ce
+projet, ainsi que les parties prenantes des WP concernés. L’ordre des
+co-auteurs sera discuté en fonction de la participation de chacun à
+cette recherche, participation comprenant de façon chronologique mais de
+façon non exhaustive : la rédaction du protocole, la mise en place et le
+suivi réglementaire et logistique de la recherche, la collecte des
+données et échantillons biologiques dans le cadre des activités de
+recherche, les analyses de ces échantillons et données, leur
+interprétation, et la rédaction des articles scientifiques.
+
+CONSIDERATIONS ETHIQUES ET REGLEMENTAIRES
+
+Il s’agit d’une recherche sur la personne humaine à risques et
+contraintes minimes menée au Cameroun, impliquant un prélèvement de sang
+et des données personnelles associées, spécifiquement collectés pour
+l’étude. L’étude implique aussi la réutilisation d’échantillons
+biologiques humains et données associées collectées dans le cadre de
+précédentes recherches, ainsi que la réutilisation à des fins de
+recherche de données et d’échantillons biologiques d’origine humaine
+issus de la surveillance nationale du mpox à laquelle le CPC prend part
+en tant que LNR.
+
+Afin de répondre aux recommandations de l’OMS, le protocole sera soumis
+à l’examen de l’IRB (Institutional Review Board) de l’IPP avant
+soumission au Comité National d'Ethique de la Recherche pour la Santé
+Humaine (CNERSH) du Cameroun. La recherche débutera après l’obtention
+d’un avis favorable par ces deux instances. Les demandes de
+modifications substantielles pour autorisation, avis ou information
+seront adressées par le CPC aux instances concernées.
+
+Le CPC étant promoteur de la recherche, et l’IPP co-responsable de
+traitement, la recherche sera menée dans le respect des réglementations
+relatives à la protection des données camerounaise et française en
+vigueur, notamment des dispositions relatives à la loi Informatique et
+Libertés, du Règlement Européen sur la protection des données, de la
+déclaration d’Helsinki, ainsi que des Bonnes Pratiques Cliniques et du
+présent protocole. L’IPP étant co-responsable de traitement, la
+protection des données relatives au projet sera également évaluée dans
+le cadre du Règlement Général sur la Protection des Données (RGPD).
+
+Vigilance
+
+Définitions
+
+Événements indésirables
+
+Un événement indésirable est défini comme toute manifestation nocive
+chez un participant à une étude clinique, et qui n'est pas
+nécessairement liée à la participation dans l’étude.
+
+Événements / effets indésirables graves (EIG)
+
+Un événement indésirable doit être considéré comme grave dès lors
+qu’il : entraîne le décès, met en jeu le pronostic vital, entraîne une
+incapacité ou une invalidité temporaire ou définitive, nécessite ou
+prolonge une hospitalisation du patient, entraîne une anomalie
+congénitale ou néonatale, est médicalement important (ce qui signifie :
+nécessite une prise en charge pour éviter l’aggravation vers un des
+stades ci-dessus).
+
+Les événements suivants ne seront pas considérés comme EIG :
+
+-   décès du fait de la progression d’une pathologie concomitante du
+    participant (le cas échéant),
+
+-   hospitalisations d’une durée inférieure à 24 heures (i.e. ne
+    nécessitant pas une nuitée à l’hôpital),
+
+-   hospitalisations qui auraient été planifiées avant la participation
+    du sujet au protocole,
+
+-   hospitalisations pour la prise en charge d’une pathologie
+    concomitante diagnostiquée avant la participation du sujet au
+    protocole, excepté si l’intensité ou la fréquence de celle-ci est
+    augmentée depuis la participation du sujet au protocole,
+
+-   hospitalisations pour des procédures cliniques de routine ou pour
+    des raisons sociales.
+
+Effets Indésirables attendus
+
+Un effet indésirable attendu est un effet prévisible, lié aux actes
+d’examens et de prélèvements requis par le protocole (pour les
+prélèvements sanguins : douleur, hématome, malaise vagal).
+
+Risques encourus par la recherche
+
+La nature des actes médicaux réalisés est très peu à risque de
+complication. Les seuls événements indésirables attendus sont liés à la
+prise de sang : légère douleur au point de ponction au moment de
+l’insertion de l’aiguille, petit hématome au point de prélèvement ou
+malaise vagal bénin. Ces éventuels risques physiques seront minimisés
+car les gestes seront pratiqués par du personnel formé à cet effet et
+réalisés avec du matériel stérile à usage unique.
+
+Recueil et notification et suivi des évènements indésirables 
+
+Cette étude ne comportant que des risques et des contraintes minimes,
+les éventuels évènements indésirables ne feront pas l’objet de
+notification au promoteur mais seulement auprès du service concerné dans
+le cadre du soin et dans lequel le participant pourra être adressé pour
+une prise en charge adéquate.
+
+Compensation pour le participant
+
+Une compensation sera proposée aux participants sous la forme d’un test
+de diagnostic rapide (TDR) paludisme et traitement si nécessaire,
+réalisés en parallèle des procédures de l’étude.
+
+Assurance
+
+Conformément à la règlementation camerounaise en matière de recherche
+clinique sur la personne humaine, la recherche VAXPOX-CAM ne nécessite
+pas la souscription à une assurance spécifique. Le promoteur prendra en
+charge toute réclamation formulée par un participant pour un dommage
+résultant directement de l’étude et indemnisera également
+l’investigateur de toute responsabilité en découlant. Toute demande
+d’indemnisation émise par un sujet participant à la recherche décrite
+dans ce protocole doit être adressée sans délai au représentant du
+promoteur par l’investigateur dès qu’il en a connaissance.
+
+ Contrôle et assurance de la qualité
+
+Monitoring
+
+S’agissant d’une recherche impliquant la personne humaine à risques et
+contraintes minimes prévoyant une collecte d’échantillons selon des
+actes peu ou pas invasifs, aucun suivi étroit n’est jugé nécessaire.
+Néanmoins pour satisfaire aux exigences des Bonnes Pratiques Cliniques,
+les visites de monitoring suivantes seront réalisées sur site par un
+attaché de recherche clinique en collaboration étroite avec le
+promoteur.
+
+Une réunion de pré-ouverture afin de :
+
+- Vérifier les moyens techniques et les compétences des sites
+investigateurs,
+
+- Valider les modalités pratiques et logistiques.
+
+- Définir, le cas échéant et en accord avec les centres, un plan
+d’action en vue de la mise en place officielle de l’étude,
+
+Une réunion d’ouverture afin de :
+
+- Vérifier les moyens techniques et les compétences des sites
+investigateurs,
+
+- Rappeler les aspects scientifiques du protocole, la réglementation,
+
+- Valider les modalités pratiques et logistiques.
+
+Une visite de suivi par an, plus si nécessaire, afin de :
+
+- Vérifier la validité des consentements,
+
+- Vérifier ou collecter les données sur les fiches prévues à cet effet
+
+- Vérifier la documentation des échantillons transférés.
+
+Une visite de clôture administrative afin de :
+
+- Vérifier la validité des consentements,
+
+- Vérifier les fiches de recueil de données et la documentation des
+échantillons transférés,
+
+- S’assurer du contenu et de l’archivage du dossier investigateur.
+
+- Pour réaliser ces visites, l’investigateur permettra un accès direct à
+tout représentant du promoteur désigné à cet effet.
+
+Correction du CRF
+
+Les CRF ne peuvent être corrigés que par l’investigateur lui-même ou par
+toute personne expressément désignée comme étant son délégataire. Chaque
+correction doit être documentée par une date et les initiales de la
+personne autorisée.
+
+Audit
+
+Dans le cadre des dispositions prises pour le contrôle et l’assurance de
+la qualité de la recherche, le promoteur et les autorités de tutelle
+pourront demander un accès direct aux données et aux documents sources,
+et notamment au dossier médical des patients, pour vérification des
+procédures et/ou des données des bases de données de surveillance de la
+variole du singe réalisées par le CPC, sans violer la confidentialité et
+dans les limites autorisées par les lois et réglementations.
+
+L’investigateur ou un représentant dûment désigné doit être disponible
+durant les visites de suivi, de monitoring ou d’audit organisé par le
+promoteur.
+
+ROLE ET IMPLICATION DES ENTITES A L’INSTITUT PASTEUR PARIS (IPP)
+
+WP1 Epidémiologie
+
+Unité d’Epidémiologie des Maladies Emergentes (UEME)
+
+L’Unité d’Epidémiologie des Maladies Emergentes dirigée par le Pr Arnaud
+FONTANET possède une grande expérience dans la mise en place d’études de
+terrain sur les zoonoses émergentes en Afrique. Le Pr Arnaud FONTANET, à
+l’initiative du projet VAXPOX, sera responsable de sa coordination
+globale avec le support de Dr Laurie PINAUD, chargée de projet au sein
+de l’unité. Le Pr Arnaud FONTANET sera également responsable à l’IPP du
+WP1 épidémiologie, avec l’appui de M. Michael CASERA, épidémiologiste.
+La base de données sera développée et supervisée par Laura TONDEUR,
+biostatisticienne de l’unité UEME, et Quentin LECLERC sera responsable
+des analyses coût-efficacité conduites dans le WP4.
+
+WP2 Sérologie
+
+Unité Environnement et Risques Infectieux (ERI)
+
+L’Unité de recherche et d'expertise Environnement et risques infectieux
+dirigée par le Dr Jean-Claude MANUGUERRA possède une grande expérience
+dans la mise en place des outils de diagnostic adaptés au terrain dans
+les pays à ressources limitées. Le Dr Jessica VANHOMWEGEN supervisera la
+mise en place au CPC du test sérologique basé sur la technologie Luminex
+pour la détection d’anticorps anti-MPXV. Elle sera assistée par Damien
+HOINARD pour fournir un appui au CPC pour l’analyse des données brutes
+obtenues.
+
+Unité Epidémiologie et analyse des maladies infectieuses (IDEA)
+
+L’Unité d’Epidémiologie et analyse des maladies infectieuses dirigée par
+le Dr Michael WHITE a développé une expérience dans le développement de
+tests sérologiques basés sur la technologie Luminex, ainsi que dans les
+analyses des données obtenues. Son équipe, notamment le Dr Marie-Fabrice
+GASASIRA, fournira un appui au CPC conjointement avec l’unité ERI de
+l’IPP pour la mise en place du test, la formation des personnels, et
+l’analyse des données brutes obtenues.
+
+WP3 Virologie moléculaire
+
+Unité Epidémiologie et physiopathologie des virus oncogènes (EPVO)
+
+Le Dr Nicolas BERTHET, chercheur au sein de l’unité d’Epidémiologie et
+physiopathologie des virus oncogènes, a une grande expertise du mpox en
+Afrique Centrale, notamment au travers de projets de recherche conduits
+en collaboration avec l’unité UEME en République Centrafricaine. Avec la
+contribution de son doctorant Alexander TENDU, Dr Nicolas BERTHET
+apportera son expertise aux équipes du CPC pour les activités de
+virologie moléculaire.
+
+Unité Dynamiques évolutives des maladies infectieuses (EDID)
+
+Le Dr Sebastian DUCHENE GARZON dirige l’unité Dynamiques évolutives des
+maladies infectieuses qui est spécialisée dans les méthodes
+phylodynamiques appliquées aux données génomiques, utilisées pour
+comprendre les zoonoses et mettre en place la surveillance génomique
+d’épidémies. Avec l’appui de Jordi SEVILLA, le Dr Sebastian DUCHENE
+GARZON apportera son expertise aux équipes du CPC pour mener à bien les
+analyses phylogénétiques prévues dans le projet.
+
+Hub de Bioinformatique et Biostatistique
+
+Le Dr Laurent ESSIOUX dirige le Hub de Bioinformatique et Biostatistique
+et appuiera les équipes EPVO et EDID dans la mise en place du recueil
+des données génomiques virales et métadonnées associées sur la
+plateforme OWEY hébergée sur les serveurs de l’IPP.
+
+WP4 Modélisation mathématique
+
+Unité Modélisation mathématique des maladies infectieuses (MMID)
+
+L’unité de Modélisation mathématique des maladies infectieuses dirigée
+par le Dr Simon CAUCHEMEZ développe des méthodes statistiques et
+mathématiques pour mieux comprendre la manière dont les agents
+pathogènes se propagent au sein des populations humaines, ainsi que
+l'impact des interventions afin de soutenir la prise de décision
+politique et d'optimiser les stratégies de contrôle. L’équipe du Dr
+Simon CAUCHEMEZ sera responsable des activités du WP5, en particulier la
+modélisation de la circulation du mpox au Cameroun, intégrant l’ensemble
+des données recueillies et générées par les autres WP. Les méthodes et
+résultats obtenus par l’équipe du Dr Simon CAUCHEMEZ seront partagés et
+discutés en collaboration avec les modélisateurs du CPC.
+
+Appui à la coordination globale
+
+Pôle de Coordination de la Recherche Clinique (PC-RC)
+
+Mme Cassandre VON PLATEN coordonnera les aspects opérationnels et
+réglementaires du projet, en lien avec les Directions de l’IPP
+impliquées.
+
+Pôle des Opérations de la Direction des Affaires Internationales
+(PO-DAI)
+
+Dr Magali HERRANT coordonnera les aspects financiers, juridiques et
+administratifs du projet, en lien avec les Directions de l’IPP
+impliquées.
+
+COMITES SCIENTIFIQUE ET DE PILOTAGE DU PROJET
+
+La gouvernance du projet sera organisée autour de deux comités : un
+Comité de Pilotage et un Comité Scientifique. Ces deux comités
+rassembleront tous les instituts déclinant le projet VAXPOX, afin de
+permettre une vision d’ensemble des activités. Pour chaque réunion d’un
+Comité, un compte rendu sera validé par l’ensemble des participants et
+partagé entre les membres du Comité concerné.
+
+Comité de pilotage
+
+Le Comité de Pilotage (COPIL) supervisera les opérations quotidiennes et
+comprendra pour l’IPP les chargés de projet (coordination globale au
+sein de l’unité UEME, coordination clinique au PC-RC, et coordination
+administrative, juridique et financière au PO-DAI), et pour chaque
+institut qui décline le projet VAXPOX : le responsable de la
+coordination clinique (ou le chargé de projet), et le responsable
+scientifique (ou son représentant). Selon l’ordre du jour de la réunion,
+d’autres personnes impliquées dans le projet dans l’un des instituts
+pourront être invités à participer.
+
+Le COPIL se réunira une fois par mois pendant les six premiers mois à
+compter de l’obtention de la clairance éthique dans l’un des pays
+déclinant le projet VAXPOX, puis tous les trois mois ou selon les
+besoins. Lors de ces réunions, la mise en œuvre du projet sera examinée
+et les difficultés identifiées seront discutées. Si nécessaire, des
+plans de contingence seront proposés aux co-responsables scientifiques
+du projet pour approbation. Les chargés de projet et les responsables de
+la coordination clinique seront chargés de communiquer les ajustements
+validés aux équipes de leur institut et de veiller à leur bonne mise en
+œuvre.
+
+Comité scientifique 
+
+Le Comité Scientifique (CS) supervisera les avancées scientifiques du
+projet et comprendra les co-responsables scientifiques au sein de chacun
+des instituts déclinant le projet VAXPOX. En fonction des résultats à
+discuter, les coordinateurs des WP concernés au sein de chaque institut
+seront invités à participer aux réunions du CS. Les responsables de la
+coordination clinique ou chargés de projet au sein de chaque institut
+pourront participer aux réunions du CS en tant qu’observateurs.
+
+Le CS se réunira une fois tous les trois mois à compter du démarrage des
+activités d’investigation dans l’un des pays déclinant le projet VAXPOX,
+et ce jusqu’à publication des résultats obtenus. Au milieu et à la fin
+du projet, des experts extérieurs pourront être invités à participer à
+la réunion du CS. Ces experts fourniront un avis externe et non
+contraignant sur la pertinence scientifique, la solidité méthodologique
+et la cohérence des résultats obtenus.
+
+Rapports d’activité
+
+Les rapports scientifiques et financiers seront préparés par les chargés
+de projet et responsables de la coordination clinique des instituts,
+puis soumis aux co-responsables scientifiques pour validation. Les
+rapports validés seront transmis aux financeurs conformément aux
+modalités contractuelles définies.
+
+ANNEXES
+
+Annexe 1 : Calendrier général des activités du projet
+
+[]
+
+REFERENCES BIBLIOGRAPHIQUES
+
+1. Gessain A, Nakoune E, Yazdanpanah Y. Monkeypox. N Engl J Med
+2022;387(19):1783–93. 2. Moss B. Understanding the biology of monkeypox
+virus to prevent future outbreaks. Nat Microbiol 2024;9(6):1408–16. 3.
+Bunge E, B H, L C, et al. The changing epidemiology of human monkeypox-A
+potential threat? A systematic review. PLoS neglected tropical diseases
+2022;16(2). 4. Whittles LK, Mbala-Kingebeni P, Ferguson NM. Age-patterns
+of severity of clade I mpox in historically endemic countries. medRxiv
+[Internet] 2024;Available from:
+https://www.medrxiv.org/content/10.1101/2024.04.23.24306209v15.
+Yinka-Ogunleye A, O A, M D, et al. Outbreak of human monkeypox in
+Nigeria in 2017-18: a clinical and epidemiological report. The Lancet
+Infectious diseases 2019;19(8). 6. Patel A, Bilinska J, Tam JCH, et al.
+Clinical features and novel presentations of human monkeypox in a
+central London centre during the 2022 outbreak: descriptive case series.
+BMJ 2022;378:e072410. 7. Mitjà O, Ogoina D, Titanji BK, et al.
+Monkeypox. Lancet 2023;401(10370):60–74. 8. Van Dijck C, Hoff NA,
+Mbala-Kingebeni P, et al. Emergence of mpox in the post-smallpox era-a
+narrative review on mpox epidemiology. Clin Microbiol Infect
+2023;29(12):1487–92. 9. Brand SPC, Cavallaro M, Cumming F, et al. The
+role of vaccination and public awareness in forecasts of Mpox incidence
+in the United Kingdom. Nat Commun 2023;14(1):4100. 10. Paredes MI, Ahmed
+N, Figgins M, et al. Underdetected dispersal and extensive local
+transmission drove the 2022 mpox epidemic. Cell
+2024;187(6):1374-1386.e13. 11. Brosius I, Vakaniaki EH, Mukari G, et al.
+Epidemiological and clinical features of mpox during the clade Ib
+outbreak in South Kivu, Democratic Republic of the Congo: a prospective
+cohort study. The Lancet 2025;S0140673625000479. 12. Ndembi N, Folayan
+MO, Komakech A, et al. Evolving Epidemiology of Mpox in Africa in 2024.
+New England Journal of Medicine 2025;392(7):666–76. 13. World Health
+Organization (WHO). WHO Director-General declares mpox outbreak a public
+health emergency of international concern [Internet]. 2024;Available
+from:
+https://www.who.int/europe/news/item/16-08-2024-who-director-general-declares-mpox-outbreak-a-public-health-emergency-of-international-concern14.
+Masirika LM, Zaeck LM, Ndishimye P, et al. Serological evidence of clade
+Ib Mpox transmission by sex workers and within household in South Kivu,
+DRC. Nat Commun 2025;16(1):7056. 15. Vakaniaki EH, Kacita C,
+Kinganda-Lusamaki E, et al. Sustained human outbreak of a new MPXV clade
+I lineage in eastern Democratic Republic of the Congo. Nat Med
+2024;30:2791–5. 16. Treutiger C-J, Filén F, Rehn M, et al. First case of
+mpox with monkeypox virus clade Ib outside Africa in a returning
+traveller, Sweden, August 2024: public health measures. Eurosurveillance
+2024;29(48). 17. World Health Organization (WHO). Mpox Multi-country
+external situation report no. 47, published 13 February 2025 [Internet].
+2025. Available from:
+https://cdn.who.int/media/docs/default-source/documents/emergencies/mpox-multi-country-external-situation-report-no.-47.pdf?sfvrsn=896a25b3_2&download=true18.
+Boum Y, Ndembi N. Mpox needs a locally tailored global response. BMJ
+2024;386:q2094. 19. Kuppalli K, Dunning J, Damon I, Mukadi-Bamuleka D,
+Mbala P, Ogoina D. The worsening mpox outbreak in Africa: a call to
+action. The Lancet Infectious Diseases 2024;24(11):1190–2. 20. NIH
+(National Institutes of Health). The antiviral tecovirimat is safe but
+did not improve clade I mpox resolution in Democratic Republic of the
+Congo [Internet]. 2024;Available from:
+https://www.nih.gov/news-events/news-releases/antiviral-tecovirimat-safe-did-not-improve-clade-i-mpox-resolution-democratic-republic-congo21.
+Pischel L, Martini BA, Yu N, et al. Vaccine effectiveness of 3rd
+generation mpox vaccines against mpox and disease severity: A systematic
+review and meta-analysis. Vaccine 2024;42(25):126053. 22. Fine PEM,
+JEZEK Z, GRAB B, DIXON H. The Transmission Potential of Monkeypox Virus
+in Human Populations. International Journal of Epidemiology
+1988;17(3):643–50. 23. World Health Organization (WHO). WHO adds LC16m8
+mpox vaccine to Emergency Use Listing [Internet]. 2024;Available from:
+https://www.who.int/news/item/19-11-2024-who-adds-lc16m8-mpox-vaccine-to-emergency-use-listing24.
+World Health Organization (WHO). RECOMMENDATION FOR AN EMERGENCY USE
+LISTING OF “Freeze-dried Smallpox Vaccine Prepared in Cell Culture LC16
+“KMB” (LC16m8 vaccine) Submitted by KM Biologics, Japan [Internet].
+2024;Available from:
+https://extranet.who.int/prequal/sites/default/files/document_files/mpox-lc16m8_tag-report-19-11-2024-final.pdf25.
+Africa CDC, World Health Organization (WHO), Coalition for Epidemic
+Preparedness Innovations (CEPI), The Vaccine Alliance (GAVI), UNICEF.
+Joint Press Release: Vaccine doses allocated to 9 African countries
+hardest hit by mpox surge (November 6th, 2024) [Internet]. 2024.
+Available from:
+https://africacdc.org/news-item/joint-press-release-vaccine-doses-allocated-to-9-african-countries-hardest-hit-by-mpox-surge/?utm_source=chatgpt.com26.
+Savinkina A, Kindrachuk J, Bogoch II, et al. Modelling vaccination
+approaches for mpox containment and mitigation in the Democratic
+Republic of the Congo. The Lancet Global Health 2024;0(0). 27. Kibungu
+EM, Vakaniaki EH, Kinganda-Lusamaki E, et al. Clade I-Associated Mpox
+Cases Associated with Sexual Contact, the Democratic Republic of the
+Congo. Emerg Infect Dis 2024;30(1):172–6. 28. Gopal RK, Ganesh PS,
+Pathoor NN. Mpox vaccination strategies in DR Congo. Lancet Glob Health
+2025;13(3):e415. 29. Adegboye OA, Adamu AM, Adekunle AI, Emeto TI, Onoja
+AB, Horwood PF. Mpox vaccination strategies in DR Congo. Lancet Glob
+Health 2025;13(3):e416. 30. Paul E, Brown GW, Makali SL, Ridde V, Bell
+D. Mpox vaccination strategies in DR Congo. Lancet Glob Health
+2025;13(3):e417. 31. Gonsalves GS. Mpox vaccination strategies in DR
+Congo - Author’s reply. Lancet Glob Health 2025;13(3):e418. 32. Du M,
+Deng J, Yan W, et al. Mpox vaccination hesitancy, previous immunisation
+coverage, and vaccination readiness in the African region: a
+multinational survey. eClinicalMedicine [Internet] 2025 [cited 2025 Mar
+4];80. Available from:
+https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00626-6/fulltext33.
+Sulaiman SK, Isma’il Tsiga-Ahmed F, Musa MS, Makama BT, Sulaiman AK,
+Abdulaziz TB. Global prevalence and correlates of mpox vaccine
+acceptance and uptake: a systematic review and meta-analysis. Commun Med
+2024;4(1):1–14. 34. Djuicy DD, Bilounga CN, Esso L, et al. Evaluation of
+the mpox surveillance system in Cameroon from 2018 to 2022: a laboratory
+cross-sectional study. BMC Infect Dis 2024;24(1):949. 35. Djuicy DD,
+Sadeuh-Mba SA, Bilounga CN, et al. Concurrent Clade I and Clade II
+Monkeypox Virus Circulation, Cameroon, 1979-2022. Emerg Infect Dis
+2024;30(3):432–43. 36. Parker E, Omah IF, Djuicy DD, et al. Genomics
+reveals zoonotic and sustained human Mpox spread in West Africa. Nature
+2025;1–3. 37. Sadeuh-Mba SA, Yonga MG, Els M, et al. Monkeypox virus
+phylogenetic similarities between a human case detected in Cameroon in
+2018 and the 2017-2018 outbreak in Nigeria. Infect Genet Evol
+2019;69:8–11. 38. Tchokoteu PF, Kago I, Tetanye E, Ndoumbe P, Pignon D,
+Mbede J. [Variola or a severe case of varicella? A case of human variola
+due to monkeypox virus in a child from the Cameroon]. Ann Soc Belg Med
+Trop 1991;71(2):123–8. 39. Heymann D. Rapport initial d’une enquête
+Ebola-monkeypox à Moloundou (Cameroun, février 1980). 1980. 40. Eozenou
+P. Enquête rétrospective sur un cas de monkeypox en République Unie du
+Cameroun. 1980. 41. Brien SC, LeBreton M, Doty JB, et al. Clinical
+Manifestations of an Outbreak of Monkeypox Virus in Captive Chimpanzees
+in Cameroon, 2016. J Infect Dis 2024;229(Supplement_2):S275–84. 42.
+World Health Organization (WHO). 2022-24 Mpox (Monkeypox) Outbreak:
+Global Trends [Internet]. 2025. Available from:
+https://worldhealthorg.shinyapps.io/mpx_global/43. Hadfield J, Megill C,
+Bell SM, et al. Nextstrain: real-time tracking of pathogen evolution.
+Bioinformatics 2018;34(23):4121–3. 44. Bouckaert R, Vaughan TG,
+Barido-Sottani J, et al. BEAST 2.5: An advanced software platform for
+Bayesian evolutionary analysis. PLOS Computational Biology
+2019;15(4):e1006650.
