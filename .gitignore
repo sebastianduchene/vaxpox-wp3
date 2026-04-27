@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+*.swp
+*.swo
+.~lock.*
+
+# Office files (keep presentations)
+*.docx
+# *.pptx - presentations are included
+
+# Sensitive data
+.env
+*.key
+*.pem
+
+# Temporary files
+*.tmp
+*~
+
+# Project-specific (large/generated files)
+toy_metadata.csv
+*.treefile
+*.aligned
+*.bionj
+*.iqtree
+*.ckp.gz
+*.log
+*.mldist
+mpox_africa_genomes.fasta
+mpox_africa_genomes_aligned.fasta
+mpox_africa_genomes_aligned.fasta.treefile

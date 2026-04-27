@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAXPOX WP3 - Phase 1 Architecture (Interactive)</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1F4E79;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        #diagram {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        svg {
+            width: 100%;
+            height: 600px;
+        }
+
+        .node {
+            stroke: #1F4E79;
+            stroke-width: 2px;
+            cursor: grab;
+        }
+
+        .node:active {
+            cursor: grabbing;
+        }
+
+        .node-label {
+            font-size: 14px;
+            font-weight: bold;
+            pointer-events: none;
+            text-anchor: middle;
+            fill: white;
+        }
+
+        .node-sublabel {
+            font-size: 11px;
+            pointer-events: none;
+            text-anchor: middle;
+            fill: white;
+        }
+
+        .link {
+            stroke: #666;
+            stroke-opacity: 0.8;
+            stroke-width: 2px;
+        }
+
+        .link-label {
+            font-size: 11px;
+            fill: #666;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+
+        .legend {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1F4E79;
+        }
+
+        .legend h3 {
+            margin: 0 0 15px 0;
+            color: #1F4E79;
+            font-size: 16px;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin-right: 25px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .legend-box {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+            border-radius: 50%;
+            border: 2px solid #1F4E79;
+        }
+
+        .center-node {
+            background: #1F4E79;
+        }
+
+        .country-node {
+            background: #4a90e2;
+        }
+
+        .info-panel {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .info-panel h3 {
+            margin: 0 0 10px 0;
+            color: #1F4E79;
+        }
+
+        .info-panel ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info-panel li {
+            margin: 5px 0;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .instruction {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .phase2-node {
+            background: #f5a623;
+        }
+
+        .phase3-node {
+            background: #7ed321;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VAXPOX WP3 - Phase 1 Architecture</h1>
+        <p class="subtitle">Interactive diagram showing data flow between country sites and central Paris repository</p>
+
+        <div class="legend">
+            <h3>System Components</h3>
+            <div class="legend-item">
+                <span class="legend-box center-node"></span>
+                Central Database (Paris)
+            </div>
+            <div class="legend-item">
+                <span class="legend-box country-node"></span>
+                Country Sites
+            </div>
+            <div class="legend-item">
+                <span class="legend-box phase2-node"></span>
+                Phase 2: Enhanced Features
+            </div>
+            <div class="legend-item">
+                <span class="legend-box phase3-node"></span>
+                Phase 3: Advanced Analytics
+            </div>
+        </div>
+
+        <div id="diagram"></div>
+        <p class="instruction">💡 Tips: Drag nodes to reorganize • Click on Phase 2 or Phase 3 nodes to view the dashboards</p>
+
+        <div class="info-panel">
+            <h3>Implementation Phases</h3>
+            <ul>
+                <li><strong>Phase 1 (Foundation):</strong> PostgreSQL in Paris, Python API, Shiny apps with login, role-based access control, manual data sharing approval</li>
+                <li><strong>Phase 2 (Enhanced):</strong> Web dashboard for all data visualization, automated data sharing request workflow, comprehensive audit log viewer, advanced filtering by country</li>
+                <li><strong>Phase 3 (Advanced):</strong> Real-time analytics dashboard, automated quality control reports, GISAID integration for sequence publication, phylogenetic analysis tools</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Data structure
+        const nodes = [
+            { id: "paris", label: "Phase 1", sublabel: "Database\n(PostgreSQL)", type: "center", x: 600, y: 300 },
+            { id: "cameroon", label: "CAM", sublabel: "Cameroon", type: "country", x: 200, y: 150 },
+            { id: "cotedivoire", label: "CI", sublabel: "Côte d'Ivoire", type: "country", x: 200, y: 450 },
+            { id: "madagascar", label: "MADA", sublabel: "Madagascar", type: "country", x: 1000, y: 150 },
+            { id: "rca", label: "RCA", sublabel: "Central Africa", type: "country", x: 1000, y: 450 },
+            { id: "phase2", label: "Phase 2", sublabel: "Dashboard &\nSharing", type: "phase2", x: 600, y: 100 },
+            { id: "phase3", label: "Phase 3", sublabel: "Analytics &\nGISAID", type: "phase3", x: 600, y: 500 }
+        ];
+
+        const links = [
+            { source: "cameroon", target: "paris", label: "Submit Data" },
+            { source: "cotedivoire", target: "paris", label: "Submit Data" },
+            { source: "madagascar", target: "paris", label: "Submit Data" },
+            { source: "rca", target: "paris", label: "Submit Data" },
+            { source: "cameroon", target: "phase2", label: "Dashboard" },
+            { source: "cotedivoire", target: "phase2", label: "Dashboard" },
+            { source: "madagascar", target: "phase2", label: "Dashboard" },
+            { source: "rca", target: "phase2", label: "Dashboard" },
+            { source: "cameroon", target: "phase3", label: "Analytics" },
+            { source: "cotedivoire", target: "phase3", label: "Analytics" },
+            { source: "madagascar", target: "phase3", label: "Analytics" },
+            { source: "rca", target: "phase3", label: "Analytics" },
+            { source: "phase2", target: "paris", label: "Powered by" },
+            { source: "phase3", target: "paris", label: "Powered by" }
+        ];
+
+        // Create SVG
+        const svg = d3.select("#diagram").append("svg");
+
+        // Add arrow marker definitions
+        svg.append("defs").append("marker")
+            .attr("id", "arrow-end")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 8)
+            .attr("markerHeight", 8)
+            .attr("orient", "auto-start-reverse")
+            .append("path")
+            .attr("d", "M0,-4L6,0L0,4Z")
+            .attr("fill", "#333")
+            .attr("stroke", "none");
+
+        // Create force simulation
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links)
+                .id(d => d.id)
+                .distance(300)
+                .strength(0.5))
+            .force("charge", d3.forceManyBody().strength(-500))
+            .force("center", d3.forceCenter(600, 300))
+            .force("collide", d3.forceCollide(80));
+
+        // Draw links
+        const link = svg.selectAll(".link")
+            .data(links)
+            .join("line")
+            .attr("class", "link")
+            .attr("marker-end", "url(#arrow-end)");
+
+        // Draw link labels
+        const linkLabel = svg.selectAll(".link-label")
+            .data(links)
+            .join("text")
+            .attr("class", "link-label");
+
+        // Draw nodes
+        const node = svg.selectAll(".node")
+            .data(nodes)
+            .join("circle")
+            .attr("class", d => `node ${d.type}-node`)
+            .attr("r", d => d.type === "center" ? 50 : 40)
+            .attr("fill", d => {
+                if (d.type === "center") return "#1F4E79";
+                if (d.type === "country") return "#4a90e2";
+                if (d.type === "phase2") return "#f5a623";
+                if (d.type === "phase3") return "#7ed321";
+            })
+            .style("cursor", d => {
+                if (d.type === "phase2" || d.type === "phase3") return "pointer";
+                return "grab";
+            })
+            .on("click", (event, d) => {
+                if (d.id === "phase2") {
+                    window.open("phase2_dashboard.html", "_blank");
+                } else if (d.id === "phase3") {
+                    window.open("phase3_dashboard.html", "_blank");
+                }
+            })
+            .call(drag(simulation));
+
+        // Draw node labels
+        const nodeLabel = svg.selectAll(".node-label")
+            .data(nodes)
+            .join("text")
+            .attr("class", "node-label")
+            .attr("dy", "-5px")
+            .text(d => d.label);
+
+        // Draw node sublabels
+        const nodeSubLabel = svg.selectAll(".node-sublabel")
+            .data(nodes)
+            .join("text")
+            .attr("class", "node-sublabel")
+            .attr("dy", "12px")
+            .text(d => d.sublabel);
+
+        // Update positions on simulation tick
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            linkLabel
+                .attr("x", d => (d.source.x + d.target.x) / 2)
+                .attr("y", d => (d.source.y + d.target.y) / 2 - 5)
+                .text(d => d.label);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            nodeLabel
+                .attr("x", d => d.x)
+                .attr("y", d => d.y);
+
+            nodeSubLabel
+                .attr("x", d => d.x)
+                .attr("y", d => d.y);
+        });
+
+        // Drag function
+        function drag(simulation) {
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+
+        // Responsive resize
+        window.addEventListener('resize', () => {
+            const width = document.getElementById('diagram').offsetWidth;
+            svg.attr("width", width);
+        });
+    </script>
+</body>
+</html>

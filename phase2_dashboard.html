@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAXPOX WP3 - Phase 2 Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #1F4E79 0%, #2d5f9e 100%);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .nav-section {
+            margin-bottom: 25px;
+        }
+
+        .nav-section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            padding: 12px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-item.active {
+            background: rgba(255,255,255,0.25);
+            border-left: 4px solid #4a90e2;
+            padding-left: 11px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 30px;
+            width: calc(100% - 280px);
+        }
+
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #1F4E79;
+            font-size: 28px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4a90e2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #1F4E79;
+        }
+
+        .stat-card.orange {
+            border-left-color: #f5a623;
+        }
+
+        .stat-card.green {
+            border-left-color: #7ed321;
+        }
+
+        .stat-card.red {
+            border-left-color: #e74c3c;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1F4E79;
+        }
+
+        .stat-icon {
+            float: right;
+            font-size: 28px;
+            opacity: 0.2;
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #1F4E79;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .filter-group label {
+            color: #555;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            background: white;
+            cursor: pointer;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1F4E79;
+            box-shadow: 0 0 0 2px rgba(31, 78, 121, 0.1);
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f7fa;
+            padding: 12px;
+            text-align: left;
+            color: #1F4E79;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-approved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #1F4E79;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #163a54;
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal-header {
+            color: #1F4E79;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-virus"></i><br>
+                VAXPOX WP3<br>
+                <span style="font-size: 12px; opacity: 0.9;">Phase 2 Dashboard</span>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Main</div>
+                <div class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-database"></i>
+                    Samples
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Data Management</div>
+                <div class="nav-item">
+                    <i class="fas fa-share-alt"></i>
+                    Sharing Requests
+                    <span style="margin-left: auto; background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 12px; font-size: 11px;">3</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-list"></i>
+                    Audit Logs
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Analysis</div>
+                <div class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    Reports
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-tree"></i>
+                    Phylogeny
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Settings</div>
+                <div class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Users
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Configuration
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p style="color: #999; margin-top: 5px;">Welcome back, Researcher A</p>
+                </div>
+                <div class="user-info">
+                    <div style="text-align: right;">
+                        <div style="font-weight: 600; color: #333;">Researcher A</div>
+                        <div style="font-size: 12px; color: #999;">Site Administrator</div>
+                    </div>
+                    <div class="user-avatar">RA</div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Samples</div>
+                    <div class="stat-value">247</div>
+                    <div class="stat-icon"><i class="fas fa-flask"></i></div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-label">Your Country Samples</div>
+                    <div class="stat-value">82</div>
+                    <div class="stat-icon"><i class="fas fa-flag"></i></div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-label">Shared with You</div>
+                    <div class="stat-value">165</div>
+                    <div class="stat-icon"><i class="fas fa-share"></i></div>
+                </div>
+                <div class="stat-card red">
+                    <div class="stat-label">Pending Approvals</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                </div>
+            </div>
+
+            <!-- Samples Overview -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-database"></i>
+                    Sample Data Overview
+                </div>
+
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label>Country:</label>
+                        <select>
+                            <option>All Countries</option>
+                            <option selected>Cameroon (CAM)</option>
+                            <option>Côte d'Ivoire (CI)</option>
+                            <option>Madagascar (MADA)</option>
+                            <option>Central African Republic (RCA)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>PCR Status:</label>
+                        <select>
+                            <option>All</option>
+                            <option>Positive</option>
+                            <option>Negative</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Date Range:</label>
+                        <input type="date" value="2024-05-01">
+                        to
+                        <input type="date" value="2024-06-30">
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sample ID</th>
+                            <th>Country</th>
+                            <th>Sampling Date</th>
+                            <th>Ct Value</th>
+                            <th>Shared</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>VPCAM-99-001</strong></td>
+                            <td>Cameroon</td>
+                            <td>2024-05-17</td>
+                            <td>18.5</td>
+                            <td><i class="fas fa-check" style="color: green;"></i></td>
+                            <td><span class="status-badge status-approved">Sequenced</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>VPCAM-99-002</strong></td>
+                            <td>Cameroon</td>
+                            <td>2024-05-22</td>
+                            <td>21.3</td>
+                            <td><i class="fas fa-times" style="color: #999;"></i></td>
+                            <td><span class="status-badge status-approved">Sequenced</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>VPCI-99-001</strong></td>
+                            <td>Côte d'Ivoire</td>
+                            <td>2024-06-03</td>
+                            <td>17.8</td>
+                            <td><i class="fas fa-check" style="color: green;"></i></td>
+                            <td><span class="status-badge status-approved">Sequenced</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>VPMADA-99-001</strong></td>
+                            <td>Madagascar</td>
+                            <td>2024-05-27</td>
+                            <td>22.4</td>
+                            <td><i class="fas fa-times" style="color: #999;"></i></td>
+                            <td><span class="status-badge status-approved">Sequenced</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Sharing Requests -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    Pending Data Sharing Requests
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From Country</th>
+                            <th>Requested Samples</th>
+                            <th>Purpose</th>
+                            <th>Date Requested</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Côte d'Ivoire (CI)</strong></td>
+                            <td>2 samples</td>
+                            <td>Phylogenetic analysis</td>
+                            <td>2024-06-15</td>
+                            <td>
+                                <button class="btn btn-primary btn-small" onclick="approveRequest()">Approve</button>
+                                <button class="btn btn-secondary btn-small" onclick="rejectRequest()">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Madagascar (MADA)</strong></td>
+                            <td>5 samples</td>
+                            <td>Comparative genomics</td>
+                            <td>2024-06-14</td>
+                            <td>
+                                <button class="btn btn-primary btn-small" onclick="approveRequest()">Approve</button>
+                                <button class="btn btn-secondary btn-small" onclick="rejectRequest()">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Central African Republic (RCA)</strong></td>
+                            <td>3 samples</td>
+                            <td>Epidemiological tracking</td>
+                            <td>2024-06-13</td>
+                            <td>
+                                <button class="btn btn-primary btn-small" onclick="approveRequest()">Approve</button>
+                                <button class="btn btn-secondary btn-small" onclick="rejectRequest()">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Recent Audit Log -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-list"></i>
+                    Recent Audit Log
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-06-15 14:23</td>
+                            <td>Emmanuel M. (CI)</td>
+                            <td><span style="color: #4a90e2;">Requested Access</span></td>
+                            <td>Requested 2 Cameroon samples for phylogenetic analysis</td>
+                        </tr>
+                        <tr>
+                            <td>2024-06-15 10:45</td>
+                            <td>Researcher A (CAM)</td>
+                            <td><span style="color: #7ed321;">Uploaded</span></td>
+                            <td>Submitted 3 new samples: VPCAM-99-001, VPCAM-99-002, VPCAM-99-003</td>
+                        </tr>
+                        <tr>
+                            <td>2024-06-14 16:32</td>
+                            <td>Rakoto J. (MADA)</td>
+                            <td><span style="color: #4a90e2;">Requested Access</span></td>
+                            <td>Requested 5 Cameroon samples for comparative genomics</td>
+                        </tr>
+                        <tr>
+                            <td>2024-06-14 12:10</td>
+                            <td>Researcher A (CAM)</td>
+                            <td><span style="color: #f5a623;">Approved Sharing</span></td>
+                            <td>Approved access to 1 Cameroon sample for Côte d'Ivoire</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="responseModal">
+        <div class="modal-content">
+            <div class="modal-header">Request Decision</div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function approveRequest() {
+            showModal("✓ Request approved successfully! The requesting country now has access to the selected samples. An audit log entry has been created.");
+        }
+
+        function rejectRequest() {
+            showModal("✗ Request rejected. The requesting country has been notified. You can provide additional details if needed.");
+        }
+
+        function showModal(message) {
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('responseModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('responseModal').classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('responseModal');
+            if (event.target === modal) {
+                modal.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

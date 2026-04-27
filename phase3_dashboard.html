@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAXPOX WP3 - Phase 3 Analytics Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #1F4E79 0%, #2d5f9e 100%);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .nav-section {
+            margin-bottom: 25px;
+        }
+
+        .nav-section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .nav-item {
+            padding: 12px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-item.active {
+            background: rgba(255,255,255,0.25);
+            border-left: 4px solid #7ed321;
+            padding-left: 11px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 30px;
+            width: calc(100% - 280px);
+        }
+
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #1F4E79;
+            font-size: 28px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #7ed321;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Grid Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #1F4E79;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Stat Cards */
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #7ed321;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1F4E79;
+        }
+
+        /* Phylogenetic Tree */
+        #phylo-tree {
+            width: 100%;
+            height: 600px;
+            background: #fafbfc;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .tree-node {
+            cursor: pointer;
+        }
+
+        .tree-node circle {
+            fill: #4a90e2;
+            stroke: #1F4E79;
+            stroke-width: 2px;
+        }
+
+        .tree-node text {
+            font-size: 12px;
+            pointer-events: none;
+        }
+
+        .tree-link {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+
+        /* Quality Control */
+        .qc-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+        }
+
+        .qc-item:last-child {
+            border-bottom: none;
+        }
+
+        .qc-status {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .qc-status.pass {
+            background: #7ed321;
+        }
+
+        .qc-status.warn {
+            background: #f5a623;
+        }
+
+        .qc-status.fail {
+            background: #e74c3c;
+        }
+
+        .qc-info {
+            flex: 1;
+        }
+
+        .qc-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .qc-detail {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f5f7fa;
+            padding: 12px;
+            text-align: left;
+            color: #1F4E79;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #1F4E79;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #163a54;
+        }
+
+        .btn-success {
+            background: #7ed321;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #6bc520;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-virus"></i><br>
+                VAXPOX WP3<br>
+                <span style="font-size: 12px; opacity: 0.9;">Phase 3 Analytics</span>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Analysis</div>
+                <div class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics Dashboard
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-tree"></i>
+                    Phylogenetic Analysis
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Quality Control</div>
+                <div class="nav-item">
+                    <i class="fas fa-check-circle"></i>
+                    QC Reports
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    Sequence Metrics
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Publication</div>
+                <div class="nav-item">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    GISAID Submission
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-download"></i>
+                    Publication Export
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Tools</div>
+                <div class="nav-item">
+                    <i class="fas fa-flask"></i>
+                    Comparative Genomics
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-microscope"></i>
+                    SNP Analysis
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div>
+                    <h1>Analytics Dashboard</h1>
+                    <p style="color: #999; margin-top: 5px;">Comprehensive genomic analysis and quality metrics</p>
+                </div>
+                <div class="user-info">
+                    <div style="text-align: right;">
+                        <div style="font-weight: 600; color: #333;">Researcher A</div>
+                        <div style="font-size: 12px; color: #999;">Phase 3 User</div>
+                    </div>
+                    <div class="user-avatar">RA</div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid-3">
+                <div class="stat-card">
+                    <div class="stat-label">Total Sequences</div>
+                    <div class="stat-value">247</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Phylogenetic Clades</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">GISAID Submitted</div>
+                    <div class="stat-value">189</div>
+                </div>
+            </div>
+
+            <!-- Phylogenetic Tree -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-tree"></i>
+                    Phylogenetic Tree - All Sequences
+                </div>
+                <p style="color: #999; font-size: 13px; margin-bottom: 15px;">Interactive maximum likelihood tree showing evolutionary relationships across all participating sites</p>
+                <div id="phylo-tree"></div>
+            </div>
+
+            <!-- Quality Control -->
+            <div class="grid-2">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-check-circle"></i>
+                        Quality Control Summary
+                    </div>
+                    <div class="qc-item">
+                        <div class="qc-status pass"><i class="fas fa-check"></i></div>
+                        <div class="qc-info">
+                            <div class="qc-name">Genome Completeness</div>
+                            <div class="qc-detail">243/247 sequences (98.4%) meet coverage threshold</div>
+                        </div>
+                    </div>
+                    <div class="qc-item">
+                        <div class="qc-status pass"><i class="fas fa-check"></i></div>
+                        <div class="qc-info">
+                            <div class="qc-name">Sequence Quality</div>
+                            <div class="qc-detail">Mean Q-score: 35.2 (excellent)</div>
+                        </div>
+                    </div>
+                    <div class="qc-item">
+                        <div class="qc-status warn"><i class="fas fa-exclamation"></i></div>
+                        <div class="qc-info">
+                            <div class="qc-name">Contamination Check</div>
+                            <div class="qc-detail">4 sequences show potential contamination</div>
+                        </div>
+                    </div>
+                    <div class="qc-item">
+                        <div class="qc-status pass"><i class="fas fa-check"></i></div>
+                        <div class="qc-info">
+                            <div class="qc-name">Taxonomic Verification</div>
+                            <div class="qc-detail">All sequences confirmed as Monkeypox virus</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        GISAID Publication Status
+                    </div>
+                    <table style="margin-bottom: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Submitted</th>
+                                <th>Accession IDs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cameroon</strong></td>
+                                <td><span class="badge badge-success">82/82</span></td>
+                                <td style="font-size: 11px;">EPI_ISL_23xxxx...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Côte d'Ivoire</strong></td>
+                                <td><span class="badge badge-success">61/61</span></td>
+                                <td style="font-size: 11px;">EPI_ISL_24xxxx...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Madagascar</strong></td>
+                                <td><span class="badge badge-warning">28/45</span></td>
+                                <td style="font-size: 11px;">EPI_ISL_25xxxx...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RCA</strong></td>
+                                <td><span class="badge badge-warning">18/59</span></td>
+                                <td style="font-size: 11px;">EPI_ISL_26xxxx...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-cloud-upload-alt"></i> Submit to GISAID
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sequence Metrics -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-chart-bar"></i>
+                    Sequence Statistics by Site
+                </div>
+                <div class="chart-container">
+                    <canvas id="metricsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- SNP Analysis -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-microscope"></i>
+                    SNP Hotspots - Top 10 Variant Positions
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Reference</th>
+                            <th>Variant</th>
+                            <th>Frequency</th>
+                            <th>Clade Distribution</th>
+                            <th>Functional Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2,847</strong></td>
+                            <td>A</td>
+                            <td>G</td>
+                            <td>84/247 (34%)</td>
+                            <td>Clade I, Clade III</td>
+                            <td><span class="badge badge-info">Synonymous</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5,234</strong></td>
+                            <td>T</td>
+                            <td>C</td>
+                            <td>76/247 (31%)</td>
+                            <td>Clade II, Clade IV</td>
+                            <td><span class="badge badge-info">Synonymous</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>8,923</strong></td>
+                            <td>G</td>
+                            <td>A</td>
+                            <td>45/247 (18%)</td>
+                            <td>Clade V</td>
+                            <td><span class="badge badge-warning">Non-synonymous</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>11,456</strong></td>
+                            <td>C</td>
+                            <td>T</td>
+                            <td>32/247 (13%)</td>
+                            <td>Clade III</td>
+                            <td><span class="badge badge-info">Synonymous</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>15,678</strong></td>
+                            <td>A</td>
+                            <td>T</td>
+                            <td>28/247 (11%)</td>
+                            <td>Clade I</td>
+                            <td><span class="badge badge-info">Synonymous</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create phylogenetic tree
+        const treeData = {
+            name: "MPOX",
+            children: [
+                {
+                    name: "Clade I",
+                    children: [
+                        { name: "VPCAM-99-001" },
+                        { name: "VPCAM-99-003" },
+                        { name: "VPCI-99-003" }
+                    ]
+                },
+                {
+                    name: "Clade II",
+                    children: [
+                        { name: "VPCI-99-001" },
+                        { name: "VPMADA-99-001" }
+                    ]
+                },
+                {
+                    name: "Clade III",
+                    children: [
+                        { name: "VPCAM-99-002" },
+                        { name: "VPCI-99-002" },
+                        { name: "VPMADA-99-002" }
+                    ]
+                },
+                {
+                    name: "Clade IV",
+                    children: [
+                        { name: "VPRCA-99-001" },
+                        { name: "VPRCA-99-002" }
+                    ]
+                },
+                {
+                    name: "Clade V",
+                    children: [
+                        { name: "VPMADA-99-001" }
+                    ]
+                }
+            ]
+        };
+
+        const width = document.getElementById('phylo-tree').offsetWidth;
+        const height = 600;
+
+        const svg = d3.select("#phylo-tree").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create group for pan/zoom
+        const g = svg.append("g")
+            .attr("transform", "translate(50, 50)");
+
+        const tree = d3.tree().size([height - 100, width - 150]);
+        const root = d3.hierarchy(treeData);
+        tree(root);
+
+        // Swap x and y for 90-degree rotation (left-to-right layout)
+        root.each(d => {
+            [d.x, d.y] = [d.y, d.x];
+        });
+
+        // Store original positions for dragging
+        let draggedNode = null;
+        const nodePositions = new Map();
+        root.descendants().forEach(d => {
+            nodePositions.set(d.data.name, {x: d.x, y: d.y});
+        });
+
+        // Draw links (as paths for better appearance)
+        const links = g.selectAll(".tree-link")
+            .data(root.links())
+            .join("path")
+            .attr("class", "tree-link")
+            .attr("d", d3.linkHorizontal()
+                .x(d => d.x)
+                .y(d => d.y)
+            );
+
+        // Draw nodes
+        const nodes = g.selectAll(".tree-node")
+            .data(root.descendants())
+            .join("g")
+            .attr("class", "tree-node")
+            .attr("transform", d => `translate(${d.x},${d.y})`)
+            .call(drag());
+
+        nodes.append("circle")
+            .attr("r", d => d.children ? 6 : 4);
+
+        nodes.append("text")
+            .attr("dy", "0.31em")
+            .attr("x", d => d.children ? -8 : 8)
+            .attr("text-anchor", d => d.children ? "end" : "start")
+            .text(d => d.data.name)
+            .style("font-size", "11px");
+
+        // Drag functionality
+        function drag() {
+            function dragstarted(event, d) {
+                draggedNode = d;
+                d3.select(this).raise();
+            }
+
+            function dragged(event, d) {
+                d.x = event.x;
+                d.y = event.y;
+
+                // Update node position
+                d3.select(this)
+                    .attr("transform", `translate(${d.x},${d.y})`);
+
+                // Update all links
+                g.selectAll(".tree-link")
+                    .attr("d", d3.linkHorizontal()
+                        .x(d => d.x)
+                        .y(d => d.y)
+                    );
+            }
+
+            function dragended(event, d) {
+                draggedNode = null;
+            }
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+
+        // Create metrics chart
+        const ctx = document.getElementById('metricsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Cameroon', 'Côte d\'Ivoire', 'Madagascar', 'RCA'],
+                datasets: [
+                    {
+                        label: 'Sequences Submitted',
+                        data: [82, 61, 45, 59],
+                        backgroundColor: '#4a90e2',
+                        borderColor: '#1F4E79',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Mean Genome Completeness (%)',
+                        data: [99.2, 98.8, 97.5, 96.3],
+                        backgroundColor: '#7ed321',
+                        borderColor: '#6bc520',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
