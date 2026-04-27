@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAXPOX WP3 - Metadata & Sequence Submission Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .card-phase1 .card-header {
+            background: linear-gradient(135deg, #1F4E79 0%, #2d5f9e 100%);
+        }
+
+        .card-phase2 .card-header {
+            background: linear-gradient(135deg, #f5a623 0%, #f7a83e 100%);
+        }
+
+        .card-phase3 .card-header {
+            background: linear-gradient(135deg, #7ed321 0%, #8fe03d 100%);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card h2 {
+            color: #1F4E79;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .features {
+            list-style: none;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .features li {
+            color: #555;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7ed321;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #1F4E79;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #163a54;
+            box-shadow: 0 4px 12px rgba(31, 78, 121, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* Country selector */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .country-btn {
+            padding: 10px 15px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .country-btn:hover {
+            border-color: #1F4E79;
+            background: #f0f0f0;
+            color: #1F4E79;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        /* Documentation section */
+        .docs-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .docs-section h2 {
+            color: #1F4E79;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-link {
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #1F4E79;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .doc-link:hover {
+            background: #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .doc-link h3 {
+            color: #1F4E79;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .doc-link p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🦠 VAXPOX WP3</h1>
+            <p>Metadata & Sequence Submission Platform</p>
+            <div class="subtitle">
+                Standardized MPOX molecular virology across four African research sites
+            </div>
+        </div>
+
+        <!-- Main Tools Grid -->
+        <div class="grid">
+            <!-- Phase 1: Architecture & Submission -->
+            <div class="card card-phase1">
+                <div class="card-header">📊 Phase 1</div>
+                <div class="card-content">
+                    <h2>System Architecture & Data Submission</h2>
+                    <p>Interactive platform for metadata collection and sequence submission across all participating sites.</p>
+                    <ul class="features">
+                        <li>Multi-country data submission</li>
+                        <li>Sample metadata forms</li>
+                        <li>Genome sequence input</li>
+                        <li>Data export (CSV/FASTA/JSON)</li>
+                    </ul>
+                    <div class="buttons">
+                        <a href="phase1_architecture_diagram.html" class="btn btn-primary">View Architecture</a>
+                        <p style="text-align: center; color: #999; font-size: 12px; margin: 10px 0;">Click country nodes to submit metadata</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Dashboard -->
+            <div class="card card-phase2">
+                <div class="card-header">📈 Phase 2</div>
+                <div class="card-content">
+                    <h2>Data Sharing & Dashboard</h2>
+                    <p>Web dashboard for managing data sharing requests and viewing audit logs across the consortium.</p>
+                    <ul class="features">
+                        <li>Data sharing requests</li>
+                        <li>Approval workflow</li>
+                        <li>Audit log tracking</li>
+                        <li>Sample filtering & overview</li>
+                    </ul>
+                    <div class="buttons">
+                        <a href="phase2_dashboard.html" class="btn btn-primary">Open Dashboard</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Analytics -->
+            <div class="card card-phase3">
+                <div class="card-header">🔬 Phase 3</div>
+                <div class="card-content">
+                    <h2>Advanced Analytics & Genomics</h2>
+                    <p>Comprehensive genomic analysis platform with phylogenetic trees, QC metrics, and GISAID integration.</p>
+                    <ul class="features">
+                        <li>Interactive phylogenetic tree</li>
+                        <li>Quality control reports</li>
+                        <li>SNP analysis</li>
+                        <li>GISAID submission tracking</li>
+                    </ul>
+                    <div class="buttons">
+                        <a href="phase3_dashboard.html" class="btn btn-primary">Open Analytics</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="docs-section">
+            <h2>📋 Country Metadata Submission</h2>
+            <p style="color: #666; margin-bottom: 20px;">Quick access to metadata submission forms for each participating site:</p>
+            <div class="docs-grid">
+                <a href="metadata_submission.html?country=CAM" class="doc-link">
+                    <h3>🇨🇲 Cameroon (CAM)</h3>
+                    <p>Centre Pasteur du Cameroun - Submit samples from Cameroon</p>
+                </a>
+                <a href="metadata_submission.html?country=CI" class="doc-link">
+                    <h3>🇨🇮 Côte d'Ivoire (CI)</h3>
+                    <p>Institut Pasteur de Côte d'Ivoire - Submit samples from Côte d'Ivoire</p>
+                </a>
+                <a href="metadata_submission.html?country=MADA" class="doc-link">
+                    <h3>🇲🇬 Madagascar (MADA)</h3>
+                    <p>Institut Pasteur de Madagascar - Submit samples from Madagascar</p>
+                </a>
+                <a href="metadata_submission.html?country=RCA" class="doc-link">
+                    <h3>🇨🇫 Central African Republic (RCA)</h3>
+                    <p>Institut Pasteur de Bangui - Submit samples from Central African Republic</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Documentation -->
+        <div class="docs-section">
+            <h2>📚 Documentation</h2>
+            <div class="docs-grid">
+                <a href="README.md" class="doc-link">
+                    <h3>Project Overview</h3>
+                    <p>Comprehensive guide to VAXPOX WP3 project, technologies, and implementation phases</p>
+                </a>
+                <a href="Data_Sharing_Architecture.md" class="doc-link">
+                    <h3>Data Governance</h3>
+                    <p>Multi-jurisdictional data sharing architecture with security and compliance framework</p>
+                </a>
+                <a href="Metadata_WP3_Summary.md" class="doc-link">
+                    <h3>Metadata Specification</h3>
+                    <p>Standardized metadata categories and collection guidelines across all sites</p>
+                </a>
+                <a href="https://github.com/sebastianduchene/vaxpox-wp3" class="doc-link">
+                    <h3>GitHub Repository</h3>
+                    <p>Source code, presentations, and all project files on GitHub</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>VAXPOX WP3 - Molecular Virology Component</strong></p>
+            <p>Project Lead: Sebastian Duchene-Garzon | sebastian.duchene6@gmail.com</p>
+            <p>Participating Sites: Cameroon (CAM), Côte d'Ivoire (CI), Madagascar (MADA), Central African Republic (RCA)</p>
+            <p style="margin-top: 15px; opacity: 0.7;">Last updated: April 2026 | All files open in new tabs for convenient navigation</p>
+        </div>
+    </div>
+</body>
+</html>
