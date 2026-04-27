@@ -288,6 +288,38 @@
                 if (d.type === "phase2" || d.type === "phase3" || d.type === "country") return "pointer";
                 return "grab";
             })
+            .each(function(d) {
+                // Add direct click listener for each node
+                d3.select(this).on("mousedown", function(event) {
+                    // Store initial click position
+                    d._clickX = event.x;
+                    d._clickY = event.y;
+                });
+            })
+            .on("click", function(event, d) {
+                // Check if this was actually a click (not a drag)
+                const moveX = Math.abs(event.x - (d._clickX || event.x));
+                const moveY = Math.abs(event.y - (d._clickY || event.y));
+                const distance = Math.sqrt(moveX * moveX + moveY * moveY);
+
+                if (distance < 10) {
+                    if (d.id === "phase2") {
+                        window.open("phase2_dashboard.html", "_blank");
+                    } else if (d.id === "phase3") {
+                        window.open("phase3_dashboard.html", "_blank");
+                    } else if (d.type === "country") {
+                        const countryMap = {
+                            "cameroon": "CAM",
+                            "cotedivoire": "CI",
+                            "madagascar": "MADA",
+                            "rca": "RCA"
+                        };
+                        const code = countryMap[d.id] || "CAM";
+                        console.log("Country node clicked:", d.id, "Opening:", code);
+                        window.open("metadata_submission.html?country=" + code, "_blank");
+                    }
+                }
+            })
             .call(drag(simulation));
 
         // Draw node labels
@@ -365,25 +397,6 @@
                 if (!event.active) simulation.alphaTarget(0);
                 d.fx = null;
                 d.fy = null;
-
-                // If it was just a click (not dragged), trigger click handlers
-                if (!isDragging && (d.type === "country" || d.type === "phase2" || d.type === "phase3")) {
-                    if (d.id === "phase2") {
-                        window.open("phase2_dashboard.html", "_blank");
-                    } else if (d.id === "phase3") {
-                        window.open("phase3_dashboard.html", "_blank");
-                    } else if (d.type === "country") {
-                        const countryMap = {
-                            "cameroon": "CAM",
-                            "cotedivoire": "CI",
-                            "madagascar": "MADA",
-                            "rca": "RCA"
-                        };
-                        const code = countryMap[d.id] || "CAM";
-                        console.log("Opening metadata form for:", code);
-                        window.open("metadata_submission.html?country=" + code, "_blank");
-                    }
-                }
             }
 
             return d3.drag()
