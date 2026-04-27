@@ -288,26 +288,7 @@
                 if (d.type === "phase2" || d.type === "phase3" || d.type === "country") return "pointer";
                 return "grab";
             })
-            .call(drag(simulation))
-            .on("click", function(event, d) {
-                event.stopPropagation();
-
-                if (d.id === "phase2") {
-                    window.open("phase2_dashboard.html", "_blank");
-                } else if (d.id === "phase3") {
-                    window.open("phase3_dashboard.html", "_blank");
-                } else if (d.type === "country") {
-                    const countryMap = {
-                        "cameroon": "CAM",
-                        "cotedivoire": "CI",
-                        "madagascar": "MADA",
-                        "rca": "RCA"
-                    };
-                    const code = countryMap[d.id] || "CAM";
-                    console.log("Opening metadata form for:", code);
-                    window.open("metadata_submission.html?country=" + code, "_blank");
-                }
-            });
+            .call(drag(simulation));
 
         // Draw node labels
         const nodeLabel = svg.selectAll(".node-label")
@@ -351,23 +332,58 @@
                 .attr("y", d => d.y);
         });
 
-        // Drag function
+        // Drag function with click detection
         function drag(simulation) {
+            let dragStartX, dragStartY, isDragging = false;
+
             function dragstarted(event, d) {
+                dragStartX = event.x;
+                dragStartY = event.y;
+                isDragging = false;
                 if (!event.active) simulation.alphaTarget(0.3).restart();
                 d.fx = d.x;
                 d.fy = d.y;
             }
 
             function dragged(event, d) {
-                d.fx = event.x;
-                d.fy = event.y;
+                // Check if mouse moved significantly (more than 5px)
+                const dx = event.x - dragStartX;
+                const dy = event.y - dragStartY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance > 5) {
+                    isDragging = true;
+                }
+
+                if (isDragging) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
             }
 
             function dragended(event, d) {
                 if (!event.active) simulation.alphaTarget(0);
                 d.fx = null;
                 d.fy = null;
+
+                // If it was just a click (not dragged), trigger click handlers
+                if (!isDragging && (d.type === "country" || d.type === "phase2" || d.type === "phase3")) {
+                    if (d.id === "phase2") {
+                        window.open("phase2_dashboard.html", "_blank");
+                    } else if (d.id === "phase3") {
+                        window.open("phase3_dashboard.html", "_blank");
+                    } else if (d.type === "country") {
+                        const countryMap = {
+                            "cameroon": "CAM",
+                            "cotedivoire": "CI",
+                            "madagascar": "MADA",
+                            "rca": "RCA"
+                        };
+                        const code = countryMap[d.id] || "CAM";
+                        console.log("Opening metadata form for:", code);
+                        window.open("metadata_submission.html?country=" + code, "_blank");
+                    }
+                }
             }
 
             return d3.drag()
