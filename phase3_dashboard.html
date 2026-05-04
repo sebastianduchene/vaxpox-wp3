@@ -451,7 +451,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Phylogenetic Clades</div>
-                    <div class="stat-value">5</div>
+                    <div class="stat-value">2</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">GISAID Submitted</div>
@@ -582,38 +582,38 @@
                             <td>A</td>
                             <td>G</td>
                             <td>84/247 (34%)</td>
-                            <td>Clade I, Clade III</td>
+                            <td>Clade I</td>
                             <td><span class="badge badge-info">Synonymous</span></td>
                         </tr>
                         <tr>
                             <td><strong>5,234</strong></td>
                             <td>T</td>
                             <td>C</td>
-                            <td>76/247 (31%)</td>
-                            <td>Clade II, Clade IV</td>
+                            <td>112/247 (45%)</td>
+                            <td>Clade IIb</td>
                             <td><span class="badge badge-info">Synonymous</span></td>
                         </tr>
                         <tr>
                             <td><strong>8,923</strong></td>
                             <td>G</td>
                             <td>A</td>
-                            <td>45/247 (18%)</td>
-                            <td>Clade V</td>
+                            <td>67/247 (27%)</td>
+                            <td>Clade IIb (Ba.2)</td>
                             <td><span class="badge badge-warning">Non-synonymous</span></td>
                         </tr>
                         <tr>
                             <td><strong>11,456</strong></td>
                             <td>C</td>
                             <td>T</td>
-                            <td>32/247 (13%)</td>
-                            <td>Clade III</td>
+                            <td>89/247 (36%)</td>
+                            <td>Clade IIa</td>
                             <td><span class="badge badge-info">Synonymous</span></td>
                         </tr>
                         <tr>
                             <td><strong>15,678</strong></td>
                             <td>A</td>
                             <td>T</td>
-                            <td>28/247 (11%)</td>
+                            <td>43/247 (17%)</td>
                             <td>Clade I</td>
                             <td><span class="badge badge-info">Synonymous</span></td>
                         </tr>
@@ -624,44 +624,58 @@
     </div>
 
     <script>
-        // Create phylogenetic tree
+        // Create phylogenetic tree with realistic MPOX clades
         const treeData = {
             name: "MPOX",
             children: [
                 {
                     name: "Clade I",
                     children: [
-                        { name: "VPCAM-99-001" },
-                        { name: "VPCAM-99-003" },
-                        { name: "VPCI-99-003" }
+                        {
+                            name: "Congo Basin",
+                            children: [
+                                { name: "VPCAM-99-001" },
+                                { name: "VPCAM-99-003" },
+                                { name: "VPRCA-99-001" },
+                                { name: "VPRCA-99-002" }
+                            ]
+                        },
+                        {
+                            name: "Recent African variants",
+                            children: [
+                                { name: "VPCAM-99-002" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Clade II",
                     children: [
-                        { name: "VPCI-99-001" },
-                        { name: "VPMADA-99-001" }
-                    ]
-                },
-                {
-                    name: "Clade III",
-                    children: [
-                        { name: "VPCAM-99-002" },
-                        { name: "VPCI-99-002" },
-                        { name: "VPMADA-99-002" }
-                    ]
-                },
-                {
-                    name: "Clade IV",
-                    children: [
-                        { name: "VPRCA-99-001" },
-                        { name: "VPRCA-99-002" }
-                    ]
-                },
-                {
-                    name: "Clade V",
-                    children: [
-                        { name: "VPMADA-99-001" }
+                        {
+                            name: "Clade IIa",
+                            children: [
+                                { name: "VPCI-99-001" },
+                                { name: "VPCI-99-002" }
+                            ]
+                        },
+                        {
+                            name: "Clade IIb",
+                            children: [
+                                {
+                                    name: "Ba.1",
+                                    children: [
+                                        { name: "VPMADA-99-001" }
+                                    ]
+                                },
+                                {
+                                    name: "Ba.2",
+                                    children: [
+                                        { name: "VPCI-99-003" },
+                                        { name: "VPMADA-99-002" }
+                                    ]
+                                }
+                            ]
+                        }
                     ]
                 }
             ]
